@@ -188,7 +188,7 @@ Acceptance: Long sessions retain required tool pairs and instructions; opaque co
 
 ### AI-05 · Track actual usage and model retirement
 
-**P1 · planned** · Depends on: AI-01
+**P1 · in progress** · Depends on: AI-01
 
 Acceptance: Unknown pricing displays unknown; cached/reasoning/audio/tool/container usage is separate; dated price sources and retirement notices drive admin alerts.
 
@@ -330,7 +330,7 @@ Acceptance: Templates declare version, permissions, credentials, resource needs 
 
 ### RUN-01 · Create durable runs and a separate worker
 
-**P1 · planned** · Depends on: REL-03, REL-06, AI-03
+**P1 · in progress** · Depends on: REL-03, REL-06, AI-03
 
 Acceptance: A run survives web/worker restart with persisted cursor, attempts, leases and checkpoints; duplicate delivery never duplicates external effects.
 
@@ -342,13 +342,13 @@ Acceptance: Timezone, DST, missed schedules, retries and overlapping runs have e
 
 ### RUN-03 · Build task progress, steering and approvals
 
-**P1 · planned** · Depends on: RUN-01, UX-02
+**P1 · in progress** · Depends on: RUN-01, UX-02
 
 Acceptance: Users can inspect evidence, pause/cancel, add context and approve a concrete external action; stale approvals cannot authorize changed payloads. Rule creation/edit/delete, precedence and distinct run/schedule/proactivity stop scopes are tested.
 
 ### RUN-04 · Enforce run budgets and concurrency
 
-**P1 · planned** · Depends on: RUN-01, AI-05
+**P1 · in progress** · Depends on: RUN-01, AI-05
 
 Acceptance: Step, duration, token, tool, container and daily spend ceilings stop work predictably; reservations reconcile on failure.
 

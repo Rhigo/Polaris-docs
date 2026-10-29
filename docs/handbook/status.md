@@ -6,7 +6,7 @@ Updated **29 October 2026**. The reviewed baseline is `f50ff4fba09999bb8799ca8c8
 
 | Area | Current implementation | Remaining work |
 | --- | --- | --- |
-| Multi-provider chat | OpenAI Responses, Anthropic and Ollama adapters; streaming and tool events | Reviewed OpenAI capability registry and pinned SDK added; full cancellation, provider breadth, pricing and account-specific native-tool tests remain |
+| Multi-provider chat | OpenAI Responses, Anthropic and Ollama adapters; streaming and tool events | Reviewed OpenAI capability registry and pinned SDK added; provider breadth, broader fee coverage and account-specific native-tool tests remain |
 | Projects and files | Projects, instructions, uploads, extraction and OpenAI vector-store integration | Ownership guards added in foundation; lifecycle cleanup and provider-neutral retrieval remain |
 | Artifacts | Generated files, HTML/code previews and downloads | Mobile workflow, isolation, versions and deterministic regression coverage |
 | Personalisation | User settings, memories, custom models, skills and functions | Memory controls, assistant packaging and traceability |
@@ -14,7 +14,7 @@ Updated **29 October 2026**. The reviewed baseline is `f50ff4fba09999bb8799ca8c8
 | Administration | Providers, models, users/groups, features, usage and Microsoft Entra configuration | Current-account authorization and serialized user mutations added; mobile usability and live SSO verification remain |
 | Mobile | Responsive chat shell, drawer and composer | Full mobile product testing, settings/admin redesign and installable PWA |
 | Extensibility | Webhook/OpenAI functions and basic MCP calls | Negotiated MCP discovery, credential vault, pipeline execution and editor |
-| Background assistants | Redis and queue dependencies are present | Durable jobs, workers, schedules, checkpoints, budgets and approvals |
+| Background assistants | Saved bounded text tasks, separate local worker, fenced claims, persisted activity/results and cancellation | Multi-step runs, schedules, action outcomes, approval flows, spend budgets and computer control |
 | Public API | Scoped expiring keys, rotation/revocation, rate limits, model/profile reads and OpenAPI contract | Streaming chat, per-user/spend budgets, usage dashboard and broader SDK coverage |
 | Connected accounts | Microsoft sign-in configuration | Mail/calendar/Teams, Telegram, Discord, WhatsApp, iCloud and Google connectors |
 | Cloud workspaces | Local sandbox service and provider-native tools | Per-run cloud compute, browser sessions, cleanup and billing controls |
@@ -33,7 +33,7 @@ The current foundation branch passes 42 unit tests, TypeScript checking, a produ
 
 The sandbox has 27 passing host-safe tests; 6 execution cases are reserved for restricted Linux containers. Its resource/artifact hardening is implemented, but shared process identity and filesystem access still prevent a claim of tenant isolation.
 
-The Pal/interface milestone has saved appearance controls, shared light/dark tokens, responsive navigation, mobile Settings and consistent chat/Projects/admin surfaces. Its application source matches the production QA build: 48 unit tests passed, with two live suites deliberately skipped; 390/768/1440 Chrome checks covered focus restoration, appearance reloads and composer limits. Its computer surfaces are disconnected; durable work, browser control, terminal and file execution are still planned. See [Pal](./pal) and [runtime decision](./pal-runtime).
+The Pal/interface milestone has saved appearance controls, shared light/dark tokens, responsive navigation, mobile Settings and consistent chat/Projects/admin surfaces. Its application source matches the production QA build: 48 unit tests passed, with two live suites deliberately skipped; 390/768/1440 Chrome checks covered focus restoration, appearance reloads and composer limits. Its computer surfaces remain disconnected. The later saved-text-task slice provides persisted work; browser control, terminal and file execution remain planned. See [Pal](./pal) and [runtime decision](./pal-runtime).
 
 Two minimal live OpenAI contract checks succeeded: a bounded GPT-6 Luna Responses request and a synthetic Decisions predicate. Model-list access also confirmed current voice/image identifiers. This does not validate full chat, voice, image or managed-agent integration.
 
@@ -56,3 +56,9 @@ The recovery milestone passed Node 22/24 with PostgreSQL 16, including restorati
 ## Audio integration
 
 Current OpenAI dictation, read-aloud and Realtime adapters now have bounded lifecycle handling and production standalone HTTP/WebSocket coverage. Tests use a trusted local TLS provider fixture and synthetic audio; they do not claim physical microphone or live-provider validation. See [Voice and audio](./voice) for limitations, including unfinished temporary voice, context parity and metering.
+
+## Saved text tasks and token estimates
+
+Pal now has a bounded saved-text workflow: one model request, current owner/account/model checks, a separate worker, fenced leases, ordered saved events, cancellation and partial/completed results after reload. Interrupted claims are reconciled without automatic replay. The CLI must run from the matching source release; the web-only image does not start or package it. Browser/terminal/files, actions, schedules and dollar budgets remain outside this workflow. See [saved text tasks](./pal-tasks).
+
+Usage accounting keeps missing usage and unverified prices null, stores a dated cost basis, and separates known subtotals from unpriced requests. Migration `0009` preserves historical amounts without inventing provenance. Reviewed token estimates exclude audio, images, tools and other charges; they are not a bill or spend cap. See [token usage estimates](./token-accounting). AI-05 and RUN-01/03/04 remain in progress because their broader acceptance criteria are not complete.

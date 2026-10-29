@@ -53,3 +53,11 @@ Actual production test build with synthetic metadata. The captured test keys wer
 ![Developer access on desktop](/screenshots/api-keys-desktop.jpg)
 
 ![Developer access at 390px](/screenshots/api-keys-mobile.jpg)
+
+## Temporary chat
+
+Captured from production source 536e282, whose runtime matches the merged privacy release 04bd033. These synthetic-provider journeys verify two-turn continuity, the retention notice, a 390px viewport, reset/reload forgetting and a normal saved-chat control. They do not establish a live provider call or physical-device compatibility.
+
+![Temporary chat retains context within its tab](/screenshots/temporary-two-turns-desktop.jpg)
+
+<img class="mobile-shot" src="/screenshots/temporary-two-turns-mobile.jpg" alt="Temporary chat and privacy notice at 390px">

@@ -308,7 +308,7 @@
       "milestone": "M3",
       "priority": "P1",
       "title": "Track actual usage and model retirement",
-      "status": "planned",
+      "status": "in_progress",
       "dependsOn": [
         "AI-01"
       ],
@@ -559,7 +559,7 @@
       "milestone": "M5",
       "priority": "P1",
       "title": "Create durable runs and a separate worker",
-      "status": "planned",
+      "status": "in_progress",
       "dependsOn": [
         "REL-03",
         "REL-06",
@@ -583,7 +583,7 @@
       "milestone": "M5",
       "priority": "P1",
       "title": "Build task progress, steering and approvals",
-      "status": "planned",
+      "status": "in_progress",
       "dependsOn": [
         "RUN-01",
         "UX-02"
@@ -595,7 +595,7 @@
       "milestone": "M5",
       "priority": "P1",
       "title": "Enforce run budgets and concurrency",
-      "status": "planned",
+      "status": "in_progress",
       "dependsOn": [
         "RUN-01",
         "AI-05"

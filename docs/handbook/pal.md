@@ -1,6 +1,6 @@
 # Polaris Pal
 
-**Product plan, not a shipped feature list.** Polaris Pal is the working name for a personal assistant that can talk, remember responsibilities and work in an inspectable computer. A first appearance and home-screen slice is in development. Durable runs, computer control and connected-account monitoring remain planned.
+**Product plan, not a shipped feature list.** Polaris Pal is the working name for a personal assistant that can talk, remember responsibilities and work in an inspectable computer. Saved appearance and a first [bounded text-task workflow](./pal-tasks) are implemented. That separate local worker saves task progress/results and supports cancellation; it makes one model request without tools. Multi-step responsibilities, computer control and connected-account monitoring remain planned.
 
 ## The experience
 
