@@ -2,7 +2,7 @@
 
 ## What runs today
 
-Polaris is a pnpm workspace. `apps/web` combines the Next.js 15 / React 19 interface, authenticated API routes, provider adapters and chat orchestration. PostgreSQL stores users, conversations, messages, projects, files, configuration, memory and usage through Drizzle. Nginx fronts the app. A Python/FastAPI service executes code; optional Compose services include Ollama and SearXNG. Redis is configured but durable job processing is not implemented.
+Polaris is a pnpm workspace. `apps/web` combines the Next.js 15 / React 19 interface, authenticated API routes, provider adapters and chat orchestration. PostgreSQL stores users, conversations, messages, projects, files, configuration, memory and usage through Drizzle. Nginx fronts the app. A separate Python/FastAPI broker creates one container per execution on a dedicated Linux VM; the application stack has no shared executor. Optional Compose services include Ollama and SearXNG. Redis is configured but durable job processing is not implemented.
 
 ```text
 Browser ── HTTPS / SSE ── Next.js UI + API
@@ -11,9 +11,9 @@ Browser ── HTTPS / SSE ── Next.js UI + API
                              │
                     Chat orchestration
                    /         │          \
-          PostgreSQL     AI providers   Local tools
+          PostgreSQL     AI providers   Tool clients
              │                 │             │
-       Messages/files    Native tools     Sandbox
+       Messages/files    Native tools   External broker
 ```
 
 Chat selects the effective base or virtual model, resolves allowed custom functions, builds history/project/file context, streams a provider response, invokes tools and persists messages and usage. Artifacts are materialised for preview/download. Realtime currently uses a separate WebRTC setup and tool bridge; unifying its context and permissions is part of M3.
@@ -31,7 +31,7 @@ Chat selects the effective base or virtual model, resolves allowed custom functi
 | `apps/web/lib/providers` | Provider adapters, capability heuristics and estimated costs |
 | `apps/web/lib/functions/runtime.ts` | OpenAI/webhook/MCP function execution |
 | `apps/web/components/chat` | Chat, composer, voice, artifacts and navigation |
-| `services/sandbox` | Python execution boundary |
+| `services/sandbox` | Dedicated broker, per-run workload and independent janitor |
 | `docker-compose.yml`, `nginx`, `scripts/install.sh` | Deployment services and bootstrap |
 
 ## Proposed evolution

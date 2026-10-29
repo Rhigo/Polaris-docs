@@ -9,6 +9,9 @@ The version-controlled handbook is the canonical documentation. This wiki is an 
 | Start here | Canonical page |
 | --- | --- |
 | What works and what is planned | [Current status](https://github.com/Rhigo/Polaris-docs/blob/main/docs/handbook/status.md) |
+| Voice, dictation and read-aloud | [Voice guide](https://rhigo.github.io/Polaris-docs/voice.html) |
+| Temporary chat and retention | [Privacy guide](https://rhigo.github.io/Polaris-docs/privacy.html) |
+| Personal API keys and automation | [API guide](https://rhigo.github.io/Polaris-docs/api.html) |
 | Using Polaris | [User guide](https://github.com/Rhigo/Polaris-docs/blob/main/docs/handbook/guide.md) |
 | Setting up development | [Development setup](https://github.com/Rhigo/Polaris-docs/blob/main/docs/handbook/development.md) |
 | How the application fits together | [Architecture](https://github.com/Rhigo/Polaris-docs/blob/main/docs/handbook/architecture.md) |

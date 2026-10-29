@@ -2,7 +2,7 @@
 
 ## Deployment status
 
-The Compose stack includes the application, PostgreSQL, Redis, sandbox and proxy, with optional local-model/search services. A dedicated `db-init` image applies the ordered Drizzle journal and seeds the initial administrator before the standalone application starts. `pnpm db:init` performs the same initialization for source-based development.
+Application Compose includes the web app, PostgreSQL, Redis and proxy, with optional local-model services. Execution is disabled until an external broker is configured; the application stack contains no sandbox service or Docker socket. A dedicated `db-init` image applies the ordered Drizzle journal and seeds the initial administrator before the standalone application starts. `pnpm db:init` performs the same initialization for source-based development.
 
 Initialization takes a transaction-level advisory lock and commits migrations plus seed atomically. Concurrent starts serialize; connection loss rolls back the transaction. Re-running initialization preserves existing accounts, password hashes and configured settings. The initial administrator is created only in an empty users table; deleting, demoting or disabling that account is not undone by the next deployment. If an existing installation has no active administrator, readiness stays unavailable until an authorized operator repairs access. Corrupt or unsupported migration history fails closed. Do not use `db:push` to bypass an upgrade failure.
 
@@ -10,7 +10,7 @@ Initialization takes a transaction-level advisory lock and commits migrations pl
 
 The CI deployment check exercises PostgreSQL 16, initialization reruns and HTTPS through Nginx. Record a successful run for the release's exact commit; local Mac verification alone does not prove the Docker image works. After deploying, verify login and an authenticated operation as well as readiness.
 
-The sandbox has bounded output, artifacts, time and process resources, but still shares an execution identity and filesystem. Keep untrusted multi-user execution behind `SEC-04` until each run has its own container or VM. The [Pal plan](./pal) describes the intended computer boundary.
+Python and shell execution use a separately deployed broker and one fresh container per run on a dedicated Linux execution VM/host. Configure both `SANDBOX_SERVICE_URL` and `SANDBOX_SECRET` only after that host passes its acceptance checks and `/ready` is reachable over a private encrypted route. Never copy application/provider/database credentials to the execution host. The [execution isolation guide](./execution-isolation) covers fixed budgets, cancellation, confirmed cleanup and janitor recovery. Ordinary containers share the execution VM's kernel; this does not certify unattended cloud tenancy or a different runtime.
 
 ## Release discipline
 
@@ -33,3 +33,9 @@ The separate GitHub wiki has collaborator-only editing. Publish the maintained `
 ## Restore rehearsal
 
 Use the [backup and recovery guide](./recovery) to capture a protected checkpoint and rehearse a restore into new targets. A schema match does not approve an application downgrade, and the tooling never switches traffic.
+
+## Saved-task worker upgrades
+
+The [saved-text worker](./pal-tasks) is a separate source-checkout process, not a service started by the web-only deployment. Back up the database and encryption key, stop workers, apply the approved `0008_pal_saved_text_runs` then `0009_usage_cost_basis` journal entries, deploy matching web/worker source, and start only the intended worker processes. Verify a synthetic queued task, persisted output and cancellation before accepting work. Two processes can use the global two-claim capacity; the database enforces one active claim per owner.
+
+Stop workers before rolling the application back. Keep run history and cost provenance; do not drop additive tables/columns or run an older initializer against a newer migration journal. A release without the worker cannot process its queue. On return to a compatible release, expired claims become interrupted without replay. Failure before a completion record can leave provider charges unaccounted for; reconcile billing separately from [token estimates](./token-accounting).
