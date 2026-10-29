@@ -1,0 +1,17 @@
+{
+  "name": "polaris-documentation",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "packageManager": "pnpm@10.33.0",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "docs:check": "node scripts/docs-check.mjs",
+    "docs:build": "vitepress build docs/handbook",
+    "docs:dev": "vitepress dev docs/handbook",
+    "docs:preview": "vitepress preview docs/handbook",
+    "docs:sync": "node scripts/sync-handbook.mjs"
+  },
+  "devDependencies": { "vitepress": "1.6.4" },
+  "pnpm": { "onlyBuiltDependencies": ["esbuild"] }
+}

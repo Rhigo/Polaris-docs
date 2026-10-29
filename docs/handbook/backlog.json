@@ -1,0 +1,1203 @@
+{
+  "updated": "2026-10-29",
+  "baseline": "f50ff4fba09999bb8799ca8c8887e688c7f9d561",
+  "items": [
+    {
+      "id": "DOC-01",
+      "milestone": "M0",
+      "priority": "P1",
+      "title": "Publish the canonical status, audit and execution plan",
+      "status": "done",
+      "dependsOn": [],
+      "acceptance": "Current source, historic notes and observed tests are distinguished; findings have evidence and linked work items."
+    },
+    {
+      "id": "DOC-02",
+      "milestone": "M0",
+      "priority": "P1",
+      "title": "Build the documentation hub and refresh README",
+      "status": "done",
+      "dependsOn": [
+        "DOC-01"
+      ],
+      "acceptance": "Pages build passes, local search works, desktop/mobile layouts are checked and private notes stay outside the published tree."
+    },
+    {
+      "id": "DOC-03",
+      "milestone": "M0",
+      "priority": "P2",
+      "title": "Capture the existing product",
+      "status": "done",
+      "dependsOn": [
+        "DOC-01"
+      ],
+      "acceptance": "Real desktop/mobile screenshots use synthetic content and record viewport, source revision and limitations."
+    },
+    {
+      "id": "REL-01",
+      "milestone": "M1",
+      "priority": "P1",
+      "title": "Repair fresh installation and readiness",
+      "status": "done",
+      "dependsOn": [
+        "DOC-01"
+      ],
+      "acceptance": "On PostgreSQL 16, a clean Compose install applies journal migrations, seeds one admin idempotently and reports unavailable until schema is ready."
+    },
+    {
+      "id": "SEC-01",
+      "milestone": "M1",
+      "priority": "P1",
+      "title": "Revoke stale user and admin sessions",
+      "status": "done",
+      "dependsOn": [
+        "DOC-01"
+      ],
+      "acceptance": "Existing sessions lose privileges after demotion, disablement or deletion; auth integration tests prove both credentials and SSO behaviour."
+    },
+    {
+      "id": "SEC-02",
+      "milestone": "M1",
+      "priority": "P1",
+      "title": "Enforce ownership consistently",
+      "status": "done",
+      "dependsOn": [
+        "SEC-01"
+      ],
+      "acceptance": "Two-user tests reject foreign projects, conversations, files and tool contexts on create, move, chat and realtime routes."
+    },
+    {
+      "id": "SEC-03",
+      "milestone": "M1",
+      "priority": "P1",
+      "title": "Validate realtime messages and event identity",
+      "status": "done",
+      "dependsOn": [
+        "DOC-01"
+      ],
+      "acceptance": "Invalid JSON, roles, IDs and oversized text return 4xx; retries of one provider event produce one persisted message."
+    },
+    {
+      "id": "SEC-04",
+      "milestone": "M1",
+      "priority": "P1",
+      "title": "Bound and isolate code execution",
+      "status": "in_progress",
+      "dependsOn": [
+        "DOC-01"
+      ],
+      "acceptance": "Per-run isolation rejects cross-user files, symlinks, unbounded output and orphan subprocesses in Linux integration tests; no host execution fallback."
+    },
+    {
+      "id": "REL-02",
+      "milestone": "M1",
+      "priority": "P1",
+      "title": "Add database and browser regression CI",
+      "status": "in_progress",
+      "dependsOn": [
+        "REL-01"
+      ],
+      "acceptance": "Clean migration, upgrade fixture, seed rerun, two-user auth and chat smoke tests run against real PostgreSQL 16 in CI."
+    },
+    {
+      "id": "REL-03",
+      "milestone": "M1",
+      "priority": "P1",
+      "title": "Propagate cancellation and handle interrupted streams",
+      "status": "planned",
+      "dependsOn": [
+        "REL-02"
+      ],
+      "acceptance": "Stop or disconnect releases upstream work and tool processes; reconnect cannot duplicate committed messages or charges."
+    },
+    {
+      "id": "REL-04",
+      "milestone": "M1",
+      "priority": "P1",
+      "title": "Add backup, restore and migration release gates",
+      "status": "in_progress",
+      "dependsOn": [
+        "REL-01"
+      ],
+      "acceptance": "A disposable restore recovers users, encrypted settings and artifacts; release notes identify backward compatibility and rollback steps."
+    },
+    {
+      "id": "REL-05",
+      "milestone": "M1",
+      "priority": "P2",
+      "title": "Repair seed runtime and developer commands",
+      "status": "in_progress",
+      "dependsOn": [
+        "DOC-01"
+      ],
+      "acceptance": "Seed runs with supported Node versions and reruns without resetting accounts; lint, typecheck and documented commands have real CI coverage."
+    },
+    {
+      "id": "REL-06",
+      "milestone": "M1",
+      "priority": "P2",
+      "title": "Make logs, errors and health operationally useful",
+      "status": "in_progress",
+      "dependsOn": [
+        "REL-02"
+      ],
+      "acceptance": "Request IDs connect API, provider and worker events; secrets are redacted; health separates liveness from DB/worker readiness."
+    },
+    {
+      "id": "UX-01",
+      "milestone": "M2",
+      "priority": "P1",
+      "title": "Create the Polaris design system",
+      "status": "done",
+      "dependsOn": [
+        "REL-02"
+      ],
+      "acceptance": "Typography, spacing, colour, focus, surfaces and icon labels work in both themes; screenshot review covers 390, 768 and 1440px."
+    },
+    {
+      "id": "UX-02",
+      "milestone": "M2",
+      "priority": "P1",
+      "title": "Redesign navigation and the home screen",
+      "status": "in_progress",
+      "dependsOn": [
+        "UX-01"
+      ],
+      "acceptance": "Projects, chats, tasks and connections have clear destinations; keyboard navigation and empty/loading/error states are tested."
+    },
+    {
+      "id": "UX-03",
+      "milestone": "M2",
+      "priority": "P1",
+      "title": "Refine composer and conversation reading",
+      "status": "in_progress",
+      "dependsOn": [
+        "UX-01"
+      ],
+      "acceptance": "Attachments, tool choices, model details, stop/retry, citations and copy controls remain usable at 200% zoom and narrow widths."
+    },
+    {
+      "id": "UX-04",
+      "milestone": "M2",
+      "priority": "P1",
+      "title": "Complete the mobile web interface",
+      "status": "in_progress",
+      "dependsOn": [
+        "UX-02",
+        "UX-03"
+      ],
+      "acceptance": "iOS Safari and Android Chrome tests cover virtual keyboard, safe areas, drawers, uploads, long tables, landscape and voice transitions."
+    },
+    {
+      "id": "UX-05",
+      "milestone": "M2",
+      "priority": "P2",
+      "title": "Add an installable PWA",
+      "status": "planned",
+      "dependsOn": [
+        "UX-04"
+      ],
+      "acceptance": "Manifest, icons and update UX pass install checks; offline screen is honest and authenticated messages are not cached by a generic service worker."
+    },
+    {
+      "id": "UX-06",
+      "milestone": "M2",
+      "priority": "P2",
+      "title": "Add full conversation search and pagination",
+      "status": "planned",
+      "dependsOn": [
+        "REL-02",
+        "UX-02"
+      ],
+      "acceptance": "Search matches message content with owner filtering; large histories load incrementally and maintain scroll position."
+    },
+    {
+      "id": "UX-07",
+      "milestone": "M2",
+      "priority": "P2",
+      "title": "Add edit, branch, regenerate and compare",
+      "status": "planned",
+      "dependsOn": [
+        "REL-03",
+        "UX-03"
+      ],
+      "acceptance": "Branch ancestry preserves original messages and usage; failed or retried generations cannot overwrite siblings."
+    },
+    {
+      "id": "UX-08",
+      "milestone": "M2",
+      "priority": "P2",
+      "title": "Improve settings and administration on mobile",
+      "status": "in_progress",
+      "dependsOn": [
+        "UX-01",
+        "UX-04"
+      ],
+      "acceptance": "Provider, model, user/group and usage screens work at 390px with labelled inputs and no page-wide horizontal overflow."
+    },
+    {
+      "id": "UX-09",
+      "milestone": "M2",
+      "priority": "P2",
+      "title": "Improve artifacts and accessible previews",
+      "status": "planned",
+      "dependsOn": [
+        "UX-03",
+        "SEC-04"
+      ],
+      "acceptance": "Preview, source, version history and download work for code, HTML and files; executable previews are isolated and usable on small screens."
+    },
+    {
+      "id": "UX-10",
+      "milestone": "M2",
+      "priority": "P2",
+      "title": "Refresh screenshots and user guides",
+      "status": "in_progress",
+      "dependsOn": [
+        "UX-04",
+        "UX-08"
+      ],
+      "acceptance": "Versioned screenshots come from deterministic demo fixtures and show new behaviour without credentials or real conversations."
+    },
+    {
+      "id": "AI-01",
+      "milestone": "M3",
+      "priority": "P1",
+      "title": "Create a versioned provider capability registry",
+      "status": "in_progress",
+      "dependsOn": [
+        "REL-02"
+      ],
+      "acceptance": "Model snapshots define modalities, tools, reasoning, limits and parameter support; unknown IDs require explicit configuration instead of guessed support."
+    },
+    {
+      "id": "AI-02",
+      "milestone": "M3",
+      "priority": "P1",
+      "title": "Update SDKs and Responses contracts",
+      "status": "in_progress",
+      "dependsOn": [
+        "AI-01"
+      ],
+      "acceptance": "Recorded streaming fixtures cover text, reasoning summaries, refusal, tool calls, citations, artifacts, cancellation and schema evolution."
+    },
+    {
+      "id": "AI-03",
+      "milestone": "M3",
+      "priority": "P1",
+      "title": "Unify context and retention policy",
+      "status": "planned",
+      "dependsOn": [
+        "AI-02"
+      ],
+      "acceptance": "Projects, memory, attachments and tool results use one context builder across chat/voice/jobs; retention and remote deletion are explicitly tested."
+    },
+    {
+      "id": "AI-04",
+      "milestone": "M3",
+      "priority": "P1",
+      "title": "Integrate provider compaction and token budgets",
+      "status": "planned",
+      "dependsOn": [
+        "AI-03"
+      ],
+      "acceptance": "Long sessions retain required tool pairs and instructions; opaque compaction state is preserved and token estimates do not silently truncate user instructions."
+    },
+    {
+      "id": "AI-05",
+      "milestone": "M3",
+      "priority": "P1",
+      "title": "Track actual usage and model retirement",
+      "status": "planned",
+      "dependsOn": [
+        "AI-01"
+      ],
+      "acceptance": "Unknown pricing displays unknown; cached/reasoning/audio/tool/container usage is separate; dated price sources and retirement notices drive admin alerts."
+    },
+    {
+      "id": "AI-06",
+      "milestone": "M3",
+      "priority": "P2",
+      "title": "Finish native search, retrieval and structured outputs",
+      "status": "planned",
+      "dependsOn": [
+        "AI-02",
+        "AI-03"
+      ],
+      "acceptance": "Citations open the correct source, retrieval respects owner boundaries and structured results validate against declared schemas."
+    },
+    {
+      "id": "AI-07",
+      "milestone": "M3",
+      "priority": "P2",
+      "title": "Modernise image generation and editing",
+      "status": "planned",
+      "dependsOn": [
+        "AI-02"
+      ],
+      "acceptance": "Image inputs, masks where supported, variations, partial/final events and artifact download use supported model contracts and explicit usage limits."
+    },
+    {
+      "id": "AI-08",
+      "milestone": "M3",
+      "priority": "P2",
+      "title": "Add long research and document analysis",
+      "status": "planned",
+      "dependsOn": [
+        "RUN-01",
+        "AI-06"
+      ],
+      "acceptance": "Multi-step research resumes after restart, preserves source citations and produces downloadable reports with evidence of tool failures."
+    },
+    {
+      "id": "VOICE-01",
+      "milestone": "M3",
+      "priority": "P1",
+      "title": "Refactor voice into testable session states",
+      "status": "planned",
+      "dependsOn": [
+        "REL-02"
+      ],
+      "acceptance": "Connecting, listening, speaking, interrupted, reconnecting and ended states have deterministic event tests and accessible controls."
+    },
+    {
+      "id": "VOICE-02",
+      "milestone": "M3",
+      "priority": "P1",
+      "title": "Share context and tool permissions with voice",
+      "status": "planned",
+      "dependsOn": [
+        "VOICE-01",
+        "AI-03",
+        "SEC-02",
+        "SEC-03"
+      ],
+      "acceptance": "Voice receives the selected project/model context and cannot invoke tools outside the same effective policy as text chat."
+    },
+    {
+      "id": "VOICE-03",
+      "milestone": "M3",
+      "priority": "P1",
+      "title": "Handle duplex speech, interruptions and reconnects",
+      "status": "planned",
+      "dependsOn": [
+        "VOICE-02"
+      ],
+      "acceptance": "Mock event replay and an opt-in real WebRTC test cover barge-in, echo, mute, route changes, reconnect and transcript ordering."
+    },
+    {
+      "id": "VOICE-04",
+      "milestone": "M3",
+      "priority": "P2",
+      "title": "Evaluate GPT-Live alongside Realtime",
+      "status": "planned",
+      "dependsOn": [
+        "VOICE-03",
+        "AI-02"
+      ],
+      "acceptance": "An ADR compares latency, delegation, tool controls, model support, retention and duration costs; adapters expose one UI contract."
+    },
+    {
+      "id": "VOICE-05",
+      "milestone": "M3",
+      "priority": "P1",
+      "title": "Add voice metering and audio model migrations",
+      "status": "planned",
+      "dependsOn": [
+        "VOICE-03",
+        "AI-05"
+      ],
+      "acceptance": "Session duration caps, usage reconciliation and idle shutdown work; deprecated transcription/TTS paths have tested replacements."
+    },
+    {
+      "id": "VOICE-06",
+      "milestone": "M3",
+      "priority": "P2",
+      "title": "Enable optional screen, camera and file context",
+      "status": "planned",
+      "dependsOn": [
+        "VOICE-02",
+        "UX-04"
+      ],
+      "acceptance": "Users explicitly share and stop each source; permissions denied and revoked states work without retaining unintended media."
+    },
+    {
+      "id": "API-01",
+      "milestone": "M4",
+      "priority": "P1",
+      "title": "Create scoped user API keys",
+      "status": "done",
+      "dependsOn": [
+        "SEC-01",
+        "SEC-02"
+      ],
+      "acceptance": "Keys are random, hashed at rest, revealed once, scoped and expiring; rotate/revoke and owner restrictions pass negative tests."
+    },
+    {
+      "id": "API-02",
+      "milestone": "M4",
+      "priority": "P1",
+      "title": "Ship a versioned API and OpenAPI specification",
+      "status": "in_progress",
+      "dependsOn": [
+        "API-01",
+        "AI-02"
+      ],
+      "acceptance": "Models and streaming chat endpoints have schema validation, request IDs and documented error/cancellation semantics; compatibility scope is explicit."
+    },
+    {
+      "id": "API-03",
+      "milestone": "M4",
+      "priority": "P1",
+      "title": "Apply API quotas and audit trails",
+      "status": "in_progress",
+      "dependsOn": [
+        "API-02",
+        "AI-05"
+      ],
+      "acceptance": "Per-key/user rate and spend limits are enforced under concurrent requests; logs exclude bearer secrets and sensitive message bodies by default."
+    },
+    {
+      "id": "API-04",
+      "milestone": "M4",
+      "priority": "P2",
+      "title": "Add SDK examples and a key management UI",
+      "status": "in_progress",
+      "dependsOn": [
+        "API-03",
+        "UX-08"
+      ],
+      "acceptance": "Copyable curl, Python and TypeScript examples pass against a disposable server; users can see usage and revoke a key."
+    },
+    {
+      "id": "EXT-01",
+      "milestone": "M4",
+      "priority": "P1",
+      "title": "Build a credential vault and connector registry",
+      "status": "planned",
+      "dependsOn": [
+        "SEC-01",
+        "SEC-02"
+      ],
+      "acceptance": "Encrypted credentials are referenced by ID with owner, scope and expiry; rotation and disconnect revoke access without exposing secrets in exports."
+    },
+    {
+      "id": "EXT-02",
+      "milestone": "M4",
+      "priority": "P1",
+      "title": "Implement a versioned pipeline runtime",
+      "status": "planned",
+      "dependsOn": [
+        "REL-03",
+        "EXT-01"
+      ],
+      "acceptance": "Model, tool, transform, branch, bounded parallel, approval and output nodes validate a versioned DAG and emit trace events; cycles and resource overruns fail clearly."
+    },
+    {
+      "id": "EXT-03",
+      "milestone": "M4",
+      "priority": "P1",
+      "title": "Build a visual pipeline editor",
+      "status": "planned",
+      "dependsOn": [
+        "EXT-02",
+        "UX-01"
+      ],
+      "acceptance": "Users can create, validate, dry-run, inspect, version and roll back a workflow; JSON import/export round-trips without credentials."
+    },
+    {
+      "id": "EXT-04",
+      "milestone": "M4",
+      "priority": "P2",
+      "title": "Support OpenWebUI-style extension contracts",
+      "status": "planned",
+      "dependsOn": [
+        "EXT-02",
+        "SEC-04"
+      ],
+      "acceptance": "Documented Pipe/Filter/Action/Event semantics and Valves/UserValves examples pass conformance fixtures; unsupported Python plugins are rejected honestly."
+    },
+    {
+      "id": "EXT-05",
+      "milestone": "M4",
+      "priority": "P1",
+      "title": "Complete MCP protocol support",
+      "status": "planned",
+      "dependsOn": [
+        "EXT-01",
+        "AI-02"
+      ],
+      "acceptance": "Pinned stable protocol, initialize, discovery, schemas, transport/session handling, cancellation and reconnect interoperate with two real test servers."
+    },
+    {
+      "id": "EXT-06",
+      "milestone": "M4",
+      "priority": "P1",
+      "title": "Repair custom functions and add OpenAPI tools",
+      "status": "planned",
+      "dependsOn": [
+        "EXT-01",
+        "AI-02"
+      ],
+      "acceptance": "Model IDs are distinct from response IDs; webhook and OpenAPI inputs/outputs validate, secrets remain server-side and endpoint policy survives DNS redirects."
+    },
+    {
+      "id": "EXT-07",
+      "milestone": "M4",
+      "priority": "P2",
+      "title": "Add a reviewed template and extension library",
+      "status": "planned",
+      "dependsOn": [
+        "EXT-03",
+        "EXT-04",
+        "EXT-05"
+      ],
+      "acceptance": "Templates declare version, permissions, credentials, resource needs and tests; install/update/disable has an audit trail."
+    },
+    {
+      "id": "RUN-01",
+      "milestone": "M5",
+      "priority": "P1",
+      "title": "Create durable runs and a separate worker",
+      "status": "planned",
+      "dependsOn": [
+        "REL-03",
+        "REL-06",
+        "AI-03"
+      ],
+      "acceptance": "A run survives web/worker restart with persisted cursor, attempts, leases and checkpoints; duplicate delivery never duplicates external effects."
+    },
+    {
+      "id": "RUN-02",
+      "milestone": "M5",
+      "priority": "P1",
+      "title": "Add schedules and event triggers",
+      "status": "planned",
+      "dependsOn": [
+        "RUN-01"
+      ],
+      "acceptance": "Timezone, DST, missed schedules, retries and overlapping runs have explicit policy and integration tests; inactive users cannot start work."
+    },
+    {
+      "id": "RUN-03",
+      "milestone": "M5",
+      "priority": "P1",
+      "title": "Build task progress, steering and approvals",
+      "status": "planned",
+      "dependsOn": [
+        "RUN-01",
+        "UX-02"
+      ],
+      "acceptance": "Users can inspect evidence, pause/cancel, add context and approve a concrete external action; stale approvals cannot authorize changed payloads. Rule creation/edit/delete, precedence and distinct run/schedule/proactivity stop scopes are tested."
+    },
+    {
+      "id": "RUN-04",
+      "milestone": "M5",
+      "priority": "P1",
+      "title": "Enforce run budgets and concurrency",
+      "status": "planned",
+      "dependsOn": [
+        "RUN-01",
+        "AI-05"
+      ],
+      "acceptance": "Step, duration, token, tool, container and daily spend ceilings stop work predictably; reservations reconcile on failure."
+    },
+    {
+      "id": "RUN-05",
+      "milestone": "M5",
+      "priority": "P2",
+      "title": "Add persistent assistant identity and memory",
+      "status": "planned",
+      "dependsOn": [
+        "RUN-03",
+        "AI-03"
+      ],
+      "acceptance": "User-controlled memory provenance, project boundaries, inspect/edit/forget and temporary mode persist consistently across supported channels."
+    },
+    {
+      "id": "RUN-06",
+      "milestone": "M5",
+      "priority": "P2",
+      "title": "Add proactive updates and notifications",
+      "status": "planned",
+      "dependsOn": [
+        "RUN-02",
+        "RUN-03"
+      ],
+      "acceptance": "Quiet hours, opt-in channels, meaningful-change suppression and delivery retries avoid duplicate or noisy updates."
+    },
+    {
+      "id": "RUN-07",
+      "milestone": "M5",
+      "priority": "P1",
+      "title": "Evaluate the managed Agents API",
+      "status": "planned",
+      "dependsOn": [
+        "RUN-01",
+        "EXT-01"
+      ],
+      "acceptance": "A time/cost-bounded spike compares managed and self-hosted execution, data location, retention, artifacts and recovery; documented eligibility gates choose the adapter."
+    },
+    {
+      "id": "CLOUD-01",
+      "milestone": "M6",
+      "priority": "P1",
+      "title": "Define interchangeable execution providers",
+      "status": "planned",
+      "dependsOn": [
+        "SEC-04",
+        "RUN-04",
+        "RUN-07"
+      ],
+      "acceptance": "Local isolated worker and one cloud provider implement the same job/artifact contract with owner isolation and explicit resource ceilings."
+    },
+    {
+      "id": "CLOUD-02",
+      "milestone": "M6",
+      "priority": "P1",
+      "title": "Add cloud compute workspaces",
+      "status": "planned",
+      "dependsOn": [
+        "CLOUD-01"
+      ],
+      "acceptance": "Run-scoped files, package installation, expiry, snapshots and artifact export survive reconnect and are deleted on expiry; quota tests include failure paths."
+    },
+    {
+      "id": "CLOUD-03",
+      "milestone": "M6",
+      "priority": "P1",
+      "title": "Add isolated browser sessions",
+      "status": "planned",
+      "dependsOn": [
+        "CLOUD-01",
+        "EXT-01"
+      ],
+      "acceptance": "Per-user browser state, live preview, sign-in handoff, domain policy, idle shutdown and cleanup work without sharing cookies between users."
+    },
+    {
+      "id": "CLOUD-04",
+      "milestone": "M6",
+      "priority": "P1",
+      "title": "Add computer-use action controls",
+      "status": "planned",
+      "dependsOn": [
+        "CLOUD-03",
+        "RUN-03"
+      ],
+      "acceptance": "External page instructions cannot widen permissions; submissions/purchases require the user's applicable action policy and concrete review when needed. Watching, human takeover, agent return-control and access revocation have distinct verified effects."
+    },
+    {
+      "id": "CLOUD-05",
+      "milestone": "M6",
+      "priority": "P2",
+      "title": "Add deployable artifact previews",
+      "status": "planned",
+      "dependsOn": [
+        "CLOUD-02",
+        "UX-09"
+      ],
+      "acceptance": "Preview URLs expire, artifacts carry provenance, credentials never enter public bundles and users can export reproducible source."
+    },
+    {
+      "id": "CLOUD-06",
+      "milestone": "M6",
+      "priority": "P2",
+      "title": "Add cloud operations and cost visibility",
+      "status": "planned",
+      "dependsOn": [
+        "CLOUD-02",
+        "CLOUD-03"
+      ],
+      "acceptance": "Orphan resources are reconciled, expiry is enforced after worker crashes and actual compute/browser usage appears per user/run."
+    },
+    {
+      "id": "CON-01",
+      "milestone": "M7",
+      "priority": "P1",
+      "title": "Build OAuth, webhooks and sync infrastructure",
+      "status": "planned",
+      "dependsOn": [
+        "EXT-01",
+        "RUN-01"
+      ],
+      "acceptance": "OAuth state/PKCE, refresh races, webhook signature/replay checks, subscription renewal and idempotent delta cursors pass provider fixtures."
+    },
+    {
+      "id": "CON-02",
+      "milestone": "M7",
+      "priority": "P1",
+      "title": "Add Microsoft 365 mail and calendar",
+      "status": "planned",
+      "dependsOn": [
+        "CON-01"
+      ],
+      "acceptance": "Graph delegated read/search, drafts and calendar operations pass against a test tenant; send/write scopes are separate and admin consent is documented."
+    },
+    {
+      "id": "CON-03",
+      "milestone": "M7",
+      "priority": "P2",
+      "title": "Add Teams conversations and notifications",
+      "status": "planned",
+      "dependsOn": [
+        "CON-02",
+        "RUN-06"
+      ],
+      "acceptance": "Bot installation and supported Graph permissions are tested in a tenant; no migration-only permission is used as a general send-as-user mechanism."
+    },
+    {
+      "id": "CON-04",
+      "milestone": "M7",
+      "priority": "P1",
+      "title": "Add Gmail and Google Calendar",
+      "status": "planned",
+      "dependsOn": [
+        "CON-01"
+      ],
+      "acceptance": "Read/search, drafts, opted-in sends and calendar sync handle token revocation and quota errors; required verification is complete before general release."
+    },
+    {
+      "id": "CON-05",
+      "milestone": "M7",
+      "priority": "P2",
+      "title": "Add Telegram as an assistant channel",
+      "status": "planned",
+      "dependsOn": [
+        "CON-01",
+        "RUN-05"
+      ],
+      "acceptance": "A one-time account linking flow binds bot chat to the correct user; webhook secrets, duplicate updates and unlink are tested."
+    },
+    {
+      "id": "CON-06",
+      "milestone": "M7",
+      "priority": "P2",
+      "title": "Add Discord commands and conversations",
+      "status": "planned",
+      "dependsOn": [
+        "CON-01",
+        "RUN-05"
+      ],
+      "acceptance": "OAuth bot install, guild/channel allowlists, interaction verification and per-user linking work; required intents are documented."
+    },
+    {
+      "id": "CON-07",
+      "milestone": "M7",
+      "priority": "P2",
+      "title": "Validate and add WhatsApp business messaging",
+      "status": "planned",
+      "dependsOn": [
+        "CON-01",
+        "RUN-05"
+      ],
+      "acceptance": "Confirm current Meta eligibility and messaging rules first; official test-number webhooks, templates and opt-outs pass before enabling real delivery."
+    },
+    {
+      "id": "CON-08",
+      "milestone": "M7",
+      "priority": "P2",
+      "title": "Add iCloud Mail",
+      "status": "planned",
+      "dependsOn": [
+        "CON-01"
+      ],
+      "acceptance": "IMAP/SMTP credential handling, folder sync, reconnect and revocation pass with a dedicated test mailbox; primary Apple passwords are never stored."
+    },
+    {
+      "id": "CON-09",
+      "milestone": "M7",
+      "priority": "P2",
+      "title": "Validate and add iCloud Calendar",
+      "status": "planned",
+      "dependsOn": [
+        "CON-01"
+      ],
+      "acceptance": "Prove supported authorization and CalDAV discovery/ETag sync with a test account; recurrence, timezone and conflicting writes have fixtures."
+    },
+    {
+      "id": "CON-10",
+      "milestone": "M7",
+      "priority": "P2",
+      "title": "Add OneDrive, SharePoint and Google Drive retrieval",
+      "status": "planned",
+      "dependsOn": [
+        "CON-02",
+        "CON-04",
+        "AI-06"
+      ],
+      "acceptance": "Indexing preserves source ACLs, deletions and citations; revoked permissions promptly remove accessible content."
+    },
+    {
+      "id": "CON-11",
+      "milestone": "M7",
+      "priority": "P1",
+      "title": "Add a connections centre and action ledger",
+      "status": "planned",
+      "dependsOn": [
+        "CON-02",
+        "CON-04",
+        "UX-08"
+      ],
+      "acceptance": "Users inspect permissions, last sync, actions and errors, disconnect accounts and separately enable reads, drafts and sends."
+    },
+    {
+      "id": "PAR-01",
+      "milestone": "M8",
+      "priority": "P2",
+      "title": "Add share links and workspace collaboration",
+      "status": "planned",
+      "dependsOn": [
+        "SEC-02",
+        "UX-07"
+      ],
+      "acceptance": "Explicit access modes, expiry, revoke and redaction work; shared links never leak private files, system instructions or other users' memory."
+    },
+    {
+      "id": "PAR-02",
+      "milestone": "M8",
+      "priority": "P2",
+      "title": "Add custom assistants and reusable skills",
+      "status": "planned",
+      "dependsOn": [
+        "EXT-03",
+        "RUN-05"
+      ],
+      "acceptance": "Assistants package instructions, models, skills, knowledge and allowed tools; versioning and publish/install permissions are enforced."
+    },
+    {
+      "id": "PAR-03",
+      "milestone": "M8",
+      "priority": "P2",
+      "title": "Add portable import, export and deletion",
+      "status": "planned",
+      "dependsOn": [
+        "AI-03",
+        "CON-11"
+      ],
+      "acceptance": "Account export contains portable chats/files/configuration without credentials; deletion reconciles local and provider-side resources and reports failures."
+    },
+    {
+      "id": "PAR-04",
+      "milestone": "M8",
+      "priority": "P2",
+      "title": "Add feedback and evaluation suites",
+      "status": "planned",
+      "dependsOn": [
+        "AI-02",
+        "VOICE-03"
+      ],
+      "acceptance": "Versioned golden tasks measure grounded answers, tool choice, refusal, latency and cost; releases compare against a recorded baseline."
+    },
+    {
+      "id": "PAR-05",
+      "milestone": "M8",
+      "priority": "P2",
+      "title": "Add multimodal feature parity spikes",
+      "status": "planned",
+      "dependsOn": [
+        "AI-07",
+        "VOICE-06"
+      ],
+      "acceptance": "Screen/video, richer canvas editing and document authoring each have an API feasibility and cost experiment before becoming release commitments."
+    },
+    {
+      "id": "PAR-06",
+      "milestone": "M8",
+      "priority": "P2",
+      "title": "Add localisation and accessibility release gates",
+      "status": "planned",
+      "dependsOn": [
+        "UX-04"
+      ],
+      "acceptance": "Key journeys pass keyboard/screen-reader review, WCAG-oriented automated checks, RTL layout and translated string coverage."
+    },
+    {
+      "id": "OPS-01",
+      "milestone": "M8",
+      "priority": "P1",
+      "title": "Prepare the first supported platform release",
+      "status": "planned",
+      "dependsOn": [
+        "REL-04",
+        "CLOUD-06",
+        "PAR-04"
+      ],
+      "acceptance": "Version tag, changelog, migration/restore rehearsal, dependency review, load tests and support matrix identify every supported and experimental capability."
+    },
+    {
+      "id": "PAL-01",
+      "milestone": "M2",
+      "priority": "P1",
+      "title": "Customise the Polaris Pal companion",
+      "status": "done",
+      "dependsOn": [
+        "UX-01"
+      ],
+      "acceptance": "Appearance persists per user; shape, colour, eyes and accessories render on mobile and desktop, with keyboard labels and reduced-motion support."
+    },
+    {
+      "id": "PAL-02",
+      "milestone": "M2",
+      "priority": "P1",
+      "title": "Build the Pal home and workspace shell",
+      "status": "in_progress",
+      "dependsOn": [
+        "PAL-01",
+        "UX-02"
+      ],
+      "acceptance": "Owned activity, attention and computer surfaces have useful empty states; disconnected tools never pretend to execute tasks; mobile navigation is verified."
+    },
+    {
+      "id": "PAL-03",
+      "milestone": "M5",
+      "priority": "P1",
+      "title": "Talk to Pal while delegated work continues",
+      "status": "planned",
+      "dependsOn": [
+        "RUN-01",
+        "RUN-03",
+        "VOICE-04"
+      ],
+      "acceptance": "A synthetic voice call can inspect, steer and stop a separate durable run without blocking speech or losing task context after a tab reconnect."
+    },
+    {
+      "id": "PAL-04",
+      "milestone": "M5",
+      "priority": "P1",
+      "title": "Build an attention inbox and notification controls",
+      "status": "planned",
+      "dependsOn": [
+        "RUN-06"
+      ],
+      "acceptance": "Important findings have evidence and deduplicated delivery; urgency, quiet hours, snooze and per-responsibility unsubscribe are tested with synthetic events."
+    },
+    {
+      "id": "PAL-05",
+      "milestone": "M5",
+      "priority": "P1",
+      "title": "Add natural wake, sleep and responsibility controls",
+      "status": "planned",
+      "dependsOn": [
+        "RUN-02",
+        "RUN-04"
+      ],
+      "acceptance": "Saved responsibilities record timezone, sources, permissions, budget and notification rule; stopping a current run and cancelling future occurrences have distinct tested effects."
+    },
+    {
+      "id": "PAL-06",
+      "milestone": "M6",
+      "priority": "P1",
+      "title": "Add private sign-in and explicit control handoff",
+      "status": "planned",
+      "dependsOn": [
+        "CLOUD-04",
+        "EXT-01"
+      ],
+      "acceptance": "Credentials remain outside model-visible events; private browser sign-in, session expiry, sign-out and return-control are tested without recording secrets. Optional saved logins require explicit confirmation before reuse."
+    },
+    {
+      "id": "PAL-07",
+      "milestone": "M7",
+      "priority": "P1",
+      "title": "Preserve Pal identity across audience-bound channels",
+      "status": "planned",
+      "dependsOn": [
+        "RUN-05",
+        "CON-01"
+      ],
+      "acceptance": "One assistant retains relevant private notes across connected channels while authorization tests prevent disclosure into a different user or group audience."
+    },
+    {
+      "id": "PAL-08",
+      "milestone": "M5",
+      "priority": "P1",
+      "title": "Expose saved notes and memory provenance",
+      "status": "planned",
+      "dependsOn": [
+        "RUN-05",
+        "AI-03"
+      ],
+      "acceptance": "Users can inspect, edit, delete and export saved assistant notes; source and audience are visible and deleted notes stop entering subsequent context."
+    },
+    {
+      "id": "LOC-01",
+      "milestone": "M6",
+      "priority": "P1",
+      "title": "Run an isolated local computer provider",
+      "status": "planned",
+      "dependsOn": [
+        "SEC-04",
+        "CLOUD-01"
+      ],
+      "acceptance": "A per-workspace Linux container or VM runs on the local host with no host-shell fallback, scoped mounts, credential separation, resource caps and verified teardown."
+    },
+    {
+      "id": "LOC-02",
+      "milestone": "M6",
+      "priority": "P1",
+      "title": "Watch and take over the local browser",
+      "status": "planned",
+      "dependsOn": [
+        "LOC-01",
+        "CLOUD-03"
+      ],
+      "acceptance": "Chrome/Chromium tabs and a live view are owner-authenticated; two-client tests prove exclusive input lease, agent pause on takeover and fresh observation after return-control."
+    },
+    {
+      "id": "LOC-03",
+      "milestone": "M6",
+      "priority": "P1",
+      "title": "Add a visible interactive terminal",
+      "status": "planned",
+      "dependsOn": [
+        "LOC-01",
+        "RUN-03"
+      ],
+      "acceptance": "PTY output, input, resize, interrupt and reconnect work only in the owned isolated workspace; output backpressure and process-tree cleanup are verified."
+    },
+    {
+      "id": "LOC-04",
+      "milestone": "M6",
+      "priority": "P1",
+      "title": "Add a workspace file explorer and editor",
+      "status": "planned",
+      "dependsOn": [
+        "LOC-01",
+        "UX-09"
+      ],
+      "acceptance": "Owned directory listing, preview, edit, upload and download reject symlink traversal, cross-user references, oversized files and stale overwrite versions."
+    },
+    {
+      "id": "RUN-08",
+      "milestone": "M5",
+      "priority": "P2",
+      "title": "Pilot a pinned local Codex runtime adapter",
+      "status": "planned",
+      "dependsOn": [
+        "RUN-01",
+        "SEC-04"
+      ],
+      "acceptance": "A disabled-by-default adapter pins App Server protocol/schema and tests handshake, resume, steer, cancel and approvals; experimental support and production release decision are explicit."
+    },
+    {
+      "id": "AI-09",
+      "milestone": "M3",
+      "priority": "P2",
+      "title": "Stream accessible charts and tables into chat",
+      "status": "planned",
+      "dependsOn": [
+        "AI-02",
+        "UX-09"
+      ],
+      "acceptance": "Validated chart/table specs update incrementally with source links and export; malicious specs never execute application-origin script and mobile/keyboard fallbacks are tested."
+    },
+    {
+      "id": "AI-10",
+      "milestone": "M5",
+      "priority": "P2",
+      "title": "Evaluate Decisions for bounded routing and urgency",
+      "status": "planned",
+      "dependsOn": [
+        "AI-01",
+        "RUN-04"
+      ],
+      "acceptance": "Predicate/choice/score contracts are tested on synthetic cases, cost and uncertainty are recorded, and model outputs cannot override deterministic permissions or spending limits."
+    },
+    {
+      "id": "CON-12",
+      "milestone": "M7",
+      "priority": "P2",
+      "title": "Add Slack as a Pal messaging channel",
+      "status": "planned",
+      "dependsOn": [
+        "CON-01",
+        "PAL-07"
+      ],
+      "acceptance": "OAuth scopes, direct messages, audience separation, webhook replay and revoke tests pass with a dedicated Slack test workspace."
+    },
+    {
+      "id": "CON-13",
+      "milestone": "M7",
+      "priority": "P2",
+      "title": "Evaluate supported phone channels and iMessage feasibility",
+      "status": "planned",
+      "dependsOn": [
+        "CON-01",
+        "PAL-07"
+      ],
+      "acceptance": "Document supported RCS/SMS provider contracts, identity verification and geography; identify any missing public iMessage API explicitly and never advertise unsupported parity."
+    },
+    {
+      "id": "UX-11",
+      "milestone": "M8",
+      "priority": "P2",
+      "title": "Add native iOS widget and shortcut entrypoints",
+      "status": "planned",
+      "dependsOn": [
+        "UX-05",
+        "API-02"
+      ],
+      "acceptance": "A supported native integration can open or start an authorized Pal interaction from widget, Shortcuts and Action button; account consent, deep links and device tests are recorded."
+    },
+    {
+      "id": "PAL-09",
+      "milestone": "M5",
+      "priority": "P2",
+      "title": "Add opt-in read-only proactive research",
+      "status": "planned",
+      "dependsOn": [
+        "RUN-06",
+        "EXT-01"
+      ],
+      "acceptance": "User-selected read scopes produce attributed private findings; tests prove research cannot write connected services, control computers or create monitoring subscriptions by itself."
+    },
+    {
+      "id": "LOC-05",
+      "milestone": "M6",
+      "priority": "P2",
+      "title": "Pair a personal-computer bridge with explicit access grants",
+      "status": "planned",
+      "dependsOn": [
+        "LOC-01",
+        "API-01"
+      ],
+      "acceptance": "Pairing binds one user and device, narrowly scoped folders/apps, authenticated heartbeat and immediate revocation; it grants no implicit access to personal browser sessions or unrelated chats. Browser-history access requires its own visible opt-in grant and revocation path."
+    },
+    {
+      "id": "PAL-10",
+      "milestone": "M3",
+      "priority": "P2",
+      "title": "Import and generate animated companion assets",
+      "status": "planned",
+      "dependsOn": [
+        "PAL-01",
+        "AI-07"
+      ],
+      "acceptance": "Custom companions have a validated versioned sprite/asset format, bounded uploads, accessible state labels, reduced-motion fallback and ownership; generation/editing is tested with current image APIs."
+    },
+    {
+      "id": "ART-01",
+      "milestone": "M8",
+      "priority": "P2",
+      "title": "Add native document, sheet, slide and LaTeX artifact editing",
+      "status": "planned",
+      "dependsOn": [
+        "UX-09",
+        "API-02"
+      ],
+      "acceptance": "Supported document/spreadsheet/presentation/LaTeX formats have editable state, previews, version history and export; formulas, malformed files, cross-user access and delivery are tested separately."
+    },
+    {
+      "id": "CON-14",
+      "milestone": "M7",
+      "priority": "P2",
+      "title": "Integrate GitHub work and review evidence",
+      "status": "planned",
+      "dependsOn": [
+        "CON-01",
+        "RUN-08"
+      ],
+      "acceptance": "Repository-scoped access supports issues, branches, PRs and check results with explicit write authority, idempotent submission and reviewable test/video artifacts; credentials never enter task logs."
+    }
+  ]
+}

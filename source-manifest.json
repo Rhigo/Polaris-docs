@@ -1,0 +1,233 @@
+{
+  "sourceRepository": "Rhigo/Polaris",
+  "sourceRevision": "f46f7c77a3ea555609e70cdfe8c536266cd8dfd8",
+  "sourceCommitDate": "2026-10-29T18:07:09Z",
+  "exportVersion": 1,
+  "files": [
+    {
+      "path": "LICENSE",
+      "sourceSha256": "73c2fea5059fabad62ca76abd0471ce8aa527c0132010978ff1c68144dbe3998",
+      "exportedSha256": "73c2fea5059fabad62ca76abd0471ce8aa527c0132010978ff1c68144dbe3998"
+    },
+    {
+      "path": "docs/handbook/.vitepress/config.mts",
+      "sourceSha256": "7939a399cd55f4c0a9cfb7072d20cd43aafacfd91164455cd81b6610d26591f2",
+      "exportedSha256": "b7943e3259758dce9ae922cfd5024eb954765b8bf0e88f674bd82959a053f34e"
+    },
+    {
+      "path": "docs/handbook/.vitepress/theme/index.ts",
+      "sourceSha256": "4ebf071fcb057fe209c375d312c17e14a12e5fb2b0da85c7eeb45236e97eaec5",
+      "exportedSha256": "4ebf071fcb057fe209c375d312c17e14a12e5fb2b0da85c7eeb45236e97eaec5"
+    },
+    {
+      "path": "docs/handbook/.vitepress/theme/style.css",
+      "sourceSha256": "3d46efa487e0d3038b5db9996131d66ba1d5d3a629b5f8334305f7b7c4dc9f96",
+      "exportedSha256": "3d46efa487e0d3038b5db9996131d66ba1d5d3a629b5f8334305f7b7c4dc9f96"
+    },
+    {
+      "path": "docs/handbook/api.md",
+      "sourceSha256": "fd77473b21a7cb46e9a50e5bf50286e3aff828d85f51b7fa88b5808e0c59a8ce",
+      "exportedSha256": "fd77473b21a7cb46e9a50e5bf50286e3aff828d85f51b7fa88b5808e0c59a8ce"
+    },
+    {
+      "path": "docs/handbook/architecture.md",
+      "sourceSha256": "a8719dab176c11eae87a508afa60d2a84f0a5fada03901e312118c78c310e0ed",
+      "exportedSha256": "a8719dab176c11eae87a508afa60d2a84f0a5fada03901e312118c78c310e0ed"
+    },
+    {
+      "path": "docs/handbook/artifacts-security.md",
+      "sourceSha256": "4e91a20de03be70f261d72d46dd4590e4a1fcef8f0faf54e3d394e1d7a758203",
+      "exportedSha256": "4e91a20de03be70f261d72d46dd4590e4a1fcef8f0faf54e3d394e1d7a758203"
+    },
+    {
+      "path": "docs/handbook/backlog.json",
+      "sourceSha256": "f10f0aec554cc18f58f8a348d7cf10679aa36fc6ddc286e1b59411aa61e81d81",
+      "exportedSha256": "f10f0aec554cc18f58f8a348d7cf10679aa36fc6ddc286e1b59411aa61e81d81"
+    },
+    {
+      "path": "docs/handbook/backlog.md",
+      "sourceSha256": "a3e910576e489ecef20e63f49afbb834ba1c327fbd31dd5633050c293522466a",
+      "exportedSha256": "a3e910576e489ecef20e63f49afbb834ba1c327fbd31dd5633050c293522466a"
+    },
+    {
+      "path": "docs/handbook/connections.md",
+      "sourceSha256": "ce70c25b47fea276847b1f5a4f9b9b2604cc0d114f049247274a3a74e738a907",
+      "exportedSha256": "ce70c25b47fea276847b1f5a4f9b9b2604cc0d114f049247274a3a74e738a907"
+    },
+    {
+      "path": "docs/handbook/development.md",
+      "sourceSha256": "672d5c4aae6166f9edd59a808d445252735c35834baf21e7bce35bb19283323d",
+      "exportedSha256": "672d5c4aae6166f9edd59a808d445252735c35834baf21e7bce35bb19283323d"
+    },
+    {
+      "path": "docs/handbook/dots-parity.md",
+      "sourceSha256": "ea0d7932e76bfccc739d8808c6e441cd5f172d204a23629e6393cd6e2c4c404a",
+      "exportedSha256": "ea0d7932e76bfccc739d8808c6e441cd5f172d204a23629e6393cd6e2c4c404a"
+    },
+    {
+      "path": "docs/handbook/execution.md",
+      "sourceSha256": "f2e32489b82b5e4acff7f63c41a40dd2362fad1360d5babe5c9ae3403f49120d",
+      "exportedSha256": "f2e32489b82b5e4acff7f63c41a40dd2362fad1360d5babe5c9ae3403f49120d"
+    },
+    {
+      "path": "docs/handbook/extensions.md",
+      "sourceSha256": "c88f7467a90b6f2b46b55ad7f79e5c5431e93c89c3cafa103a49cf5782f8e362",
+      "exportedSha256": "c88f7467a90b6f2b46b55ad7f79e5c5431e93c89c3cafa103a49cf5782f8e362"
+    },
+    {
+      "path": "docs/handbook/guide.md",
+      "sourceSha256": "1469dd59e114a179060055eb7e17825a430f962fa0da22ad4db1ba206cde6de4",
+      "exportedSha256": "1469dd59e114a179060055eb7e17825a430f962fa0da22ad4db1ba206cde6de4"
+    },
+    {
+      "path": "docs/handbook/index.md",
+      "sourceSha256": "0a2308ca6f0a389cfd2eebefe505d41cd969c0e2d163b4e9399030bac68a3aed",
+      "exportedSha256": "0a2308ca6f0a389cfd2eebefe505d41cd969c0e2d163b4e9399030bac68a3aed"
+    },
+    {
+      "path": "docs/handbook/models.md",
+      "sourceSha256": "07dbbe36a1fc79846a5c6c572d8d3f1ff2acb70cdc1e82ddc188e990beaf8cfb",
+      "exportedSha256": "07dbbe36a1fc79846a5c6c572d8d3f1ff2acb70cdc1e82ddc188e990beaf8cfb"
+    },
+    {
+      "path": "docs/handbook/operations.md",
+      "sourceSha256": "529d15eda0f572be3da3d47be4f1618e3a96c91645b8bf66ed349a852a6d73e4",
+      "exportedSha256": "3c3e8ba4088b34c30c95b672a0d029911f6d9f452f2f8b447cb57ca4df897caa"
+    },
+    {
+      "path": "docs/handbook/pal-runtime.md",
+      "sourceSha256": "12c7005fa2c22b9dc13a4bc37841ffd18913fb8203c5cb6fd296e5e609754064",
+      "exportedSha256": "12c7005fa2c22b9dc13a4bc37841ffd18913fb8203c5cb6fd296e5e609754064"
+    },
+    {
+      "path": "docs/handbook/pal.md",
+      "sourceSha256": "b6fd084579a242034f674f2141b4742a5ac4084ebf85bef919d2857f6e788417",
+      "exportedSha256": "b6fd084579a242034f674f2141b4742a5ac4084ebf85bef919d2857f6e788417"
+    },
+    {
+      "path": "docs/handbook/public/mark.svg",
+      "sourceSha256": "f5537616910aeb57f0b3e24cd4fe81c25d7fbfd6430462b74d16bdbf932e4358",
+      "exportedSha256": "f5537616910aeb57f0b3e24cd4fe81c25d7fbfd6430462b74d16bdbf932e4358"
+    },
+    {
+      "path": "docs/handbook/public/screenshots/admin-desktop.png",
+      "sourceSha256": "2f3d02b2171de39107d8a9b1dbb30722bd1a34155025ebd20e85a4e1c60e7796",
+      "exportedSha256": "2f3d02b2171de39107d8a9b1dbb30722bd1a34155025ebd20e85a4e1c60e7796"
+    },
+    {
+      "path": "docs/handbook/public/screenshots/admin-mobile.jpg",
+      "sourceSha256": "8ac747f7a183449da32330d8fec6da7003e3c07baff085e0437dd797152808f9",
+      "exportedSha256": "8ac747f7a183449da32330d8fec6da7003e3c07baff085e0437dd797152808f9"
+    },
+    {
+      "path": "docs/handbook/public/screenshots/api-keys-desktop.jpg",
+      "sourceSha256": "7323810bb8e6d30490d55f4247818f1cee8a397980a3ba107eb4f53df59219d4",
+      "exportedSha256": "7323810bb8e6d30490d55f4247818f1cee8a397980a3ba107eb4f53df59219d4"
+    },
+    {
+      "path": "docs/handbook/public/screenshots/api-keys-mobile.jpg",
+      "sourceSha256": "1a6e4b16fa3406664701251b700fb0292202d835442eea1e17d9fc2a8191a679",
+      "exportedSha256": "1a6e4b16fa3406664701251b700fb0292202d835442eea1e17d9fc2a8191a679"
+    },
+    {
+      "path": "docs/handbook/public/screenshots/chat-desktop.png",
+      "sourceSha256": "3203d62a18f533d0f64fce632a44ccd9d029b0a30187aac33c7e931f02c02249",
+      "exportedSha256": "3203d62a18f533d0f64fce632a44ccd9d029b0a30187aac33c7e931f02c02249"
+    },
+    {
+      "path": "docs/handbook/public/screenshots/chat-mobile.png",
+      "sourceSha256": "beae4b13a85c128a3750a88ec7a146de59de3f49b790e065299ef0f99fd9adef",
+      "exportedSha256": "beae4b13a85c128a3750a88ec7a146de59de3f49b790e065299ef0f99fd9adef"
+    },
+    {
+      "path": "docs/handbook/public/screenshots/chat-refresh-desktop.jpg",
+      "sourceSha256": "51bb954ae1feadfcc064c873281b4c1849db3711bcbbd949cfbc592f7a2e8d09",
+      "exportedSha256": "51bb954ae1feadfcc064c873281b4c1849db3711bcbbd949cfbc592f7a2e8d09"
+    },
+    {
+      "path": "docs/handbook/public/screenshots/chat-refresh-mobile.jpg",
+      "sourceSha256": "32a0fa5e61247bcf7b50dc0f1c0af65358bf0fe5861619465be4ef79e3c39322",
+      "exportedSha256": "32a0fa5e61247bcf7b50dc0f1c0af65358bf0fe5861619465be4ef79e3c39322"
+    },
+    {
+      "path": "docs/handbook/public/screenshots/login-desktop.png",
+      "sourceSha256": "925452e3431b71d6cc3a0129ecf7b4d72e435bfac17b96aa53e242f82e7fe85b",
+      "exportedSha256": "925452e3431b71d6cc3a0129ecf7b4d72e435bfac17b96aa53e242f82e7fe85b"
+    },
+    {
+      "path": "docs/handbook/public/screenshots/pal-dark-desktop.jpg",
+      "sourceSha256": "0ea0b8b3fe32e4054ba000728d8c7566eeb7d3ff1af4d90d733dd7eb7df4f2e4",
+      "exportedSha256": "0ea0b8b3fe32e4054ba000728d8c7566eeb7d3ff1af4d90d733dd7eb7df4f2e4"
+    },
+    {
+      "path": "docs/handbook/public/screenshots/pal-desktop.jpg",
+      "sourceSha256": "b94efa3bfbccf7ec2f5f58d9bbcd62d226256fbb464f4b0c1dfd540bc91789eb",
+      "exportedSha256": "b94efa3bfbccf7ec2f5f58d9bbcd62d226256fbb464f4b0c1dfd540bc91789eb"
+    },
+    {
+      "path": "docs/handbook/public/screenshots/projects-desktop.png",
+      "sourceSha256": "a30f29b9771babca4d0e26b5a4df9c43207e5f0a8f1745fda52b0ac0b55a5f62",
+      "exportedSha256": "a30f29b9771babca4d0e26b5a4df9c43207e5f0a8f1745fda52b0ac0b55a5f62"
+    },
+    {
+      "path": "docs/handbook/public/screenshots/projects-refresh-desktop.jpg",
+      "sourceSha256": "cf707eaf923422195d79d90ccbcc80a5f0d23f817b216cc5e6d09dab401d75d1",
+      "exportedSha256": "cf707eaf923422195d79d90ccbcc80a5f0d23f817b216cc5e6d09dab401d75d1"
+    },
+    {
+      "path": "docs/handbook/public/screenshots/settings-mobile.jpg",
+      "sourceSha256": "fc6bf8e91371cf043464c0705691f568b186e7a493480d3d2aa6b864c4f7b525",
+      "exportedSha256": "fc6bf8e91371cf043464c0705691f568b186e7a493480d3d2aa6b864c4f7b525"
+    },
+    {
+      "path": "docs/handbook/recovery.md",
+      "sourceSha256": "8c0b62196dc91dea2874be33bc043e4f7962e4784f992dc87832d070d667911d",
+      "exportedSha256": "8c0b62196dc91dea2874be33bc043e4f7962e4784f992dc87832d070d667911d"
+    },
+    {
+      "path": "docs/handbook/research.md",
+      "sourceSha256": "8514b582afdf667860e53bb2bbec75549335287dacf18f7e8f7fb2fbf0dfec69",
+      "exportedSha256": "8514b582afdf667860e53bb2bbec75549335287dacf18f7e8f7fb2fbf0dfec69"
+    },
+    {
+      "path": "docs/handbook/roadmap.md",
+      "sourceSha256": "4229bf56ca48c0ff3b6f6d80b52f158e8d568c17f333c73aaa062913b658ddd6",
+      "exportedSha256": "4229bf56ca48c0ff3b6f6d80b52f158e8d568c17f333c73aaa062913b658ddd6"
+    },
+    {
+      "path": "docs/handbook/screenshots.md",
+      "sourceSha256": "4266652de3268c14920074869e8cbafd7bab2e023b716a0a03eca7eaa1190cb7",
+      "exportedSha256": "4266652de3268c14920074869e8cbafd7bab2e023b716a0a03eca7eaa1190cb7"
+    },
+    {
+      "path": "docs/handbook/status.md",
+      "sourceSha256": "f44a2d5cb13b41d3864405aba30278879fd15df5d00569ff0ba5ba6fd7f0ef9a",
+      "exportedSha256": "f44a2d5cb13b41d3864405aba30278879fd15df5d00569ff0ba5ba6fd7f0ef9a"
+    },
+    {
+      "path": "docs/handbook/worklog.md",
+      "sourceSha256": "0222ae202f4fb9beb2ad1934e590ba21a35a78ff0601044fc7e972b253844b43",
+      "exportedSha256": "0222ae202f4fb9beb2ad1934e590ba21a35a78ff0601044fc7e972b253844b43"
+    },
+    {
+      "path": "docs/wiki/Home.md",
+      "sourceSha256": "a39d963bbe40a51d8082d437e238193864c2a8ee95e65c57df82d48e0700615d",
+      "exportedSha256": "9f0ec757a8f590168efcfabd261ec72a9d828a19c83e78ad659f8acde4dba660"
+    },
+    {
+      "path": "docs/wiki/README.md",
+      "sourceSha256": "9240a1ebfcc36ac37b617e955ae5b8fd69fde0cdece5d450871e62b1baf62827",
+      "exportedSha256": "9240a1ebfcc36ac37b617e955ae5b8fd69fde0cdece5d450871e62b1baf62827"
+    },
+    {
+      "path": "docs/wiki/_Sidebar.md",
+      "sourceSha256": "881846877a02d5f76b614235dc447ddbf08657e6f208090170dac8197cb02eb9",
+      "exportedSha256": "418bee644b8ccd4fe2854b5e0e91b94da9057884f92d9d65e4326e8975b2c715"
+    },
+    {
+      "path": "scripts/docs-check.mjs",
+      "sourceSha256": "7ea6df95dfa3aa6c44a973a98e3fbe5408afa33ec958d87420913816da148f8e",
+      "exportedSha256": "7ea6df95dfa3aa6c44a973a98e3fbe5408afa33ec958d87420913816da148f8e"
+    }
+  ]
+}

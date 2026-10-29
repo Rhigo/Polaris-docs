@@ -1,0 +1,52 @@
+import { defineConfig } from 'vitepress';
+
+export default defineConfig({
+  title: 'Polaris',
+  description: 'Your AI workspace. Understand it, run it, extend it.',
+  lang: 'en-GB',
+  base: '/Polaris-docs/',
+  cleanUrls: false,
+  head: [['link', { rel: 'icon', href: '/Polaris-docs/mark.svg' }]],
+  themeConfig: {
+    logo: '/mark.svg',
+    nav: [
+      { text: 'Guide', link: '/guide' },
+      { text: 'Build', link: '/architecture' },
+      { text: 'Roadmap', link: '/roadmap' },
+      { text: 'Status', link: '/status' },
+    ],
+    sidebar: [
+      { text: 'Explore Polaris', items: [
+        { text: 'Overview', link: '/' },
+        { text: 'Current capabilities', link: '/status' },
+        { text: 'User guide', link: '/guide' },
+        { text: 'Screenshots', link: '/screenshots' },
+      ] },
+      { text: 'Run and extend', items: [
+        { text: 'Development setup', link: '/development' },
+        { text: 'Architecture', link: '/architecture' },
+        { text: 'Developer API', link: '/api' },
+        { text: 'API and extensions', link: '/extensions' },
+        { text: 'Operations and releases', link: '/operations' },
+        { text: 'Backup and recovery', link: '/recovery' },
+        { text: 'Artifact security', link: '/artifacts-security' },
+      ] },
+      { text: 'Build the next version', items: [
+        { text: 'Milestones', link: '/roadmap' },
+        { text: 'Feature backlog', link: '/backlog' },
+        { text: 'Polaris Pal', link: '/pal' },
+        { text: 'Pal runtime decision', link: '/pal-runtime' },
+        { text: 'Model contracts', link: '/models' },
+        { text: 'Dots feature comparison', link: '/dots-parity' },
+        { text: 'OpenAI research', link: '/research' },
+        { text: 'Connections', link: '/connections' },
+        { text: 'Execution protocol', link: '/execution' },
+        { text: 'Work log', link: '/worklog' },
+      ] },
+    ],
+    search: { provider: 'local' },
+    socialLinks: [{ icon: 'github', link: 'https://github.com/Rhigo/Polaris-docs' }],
+    editLink: { pattern: 'https://github.com/Rhigo/Polaris-docs-docs/edit/main/docs/handbook/:path' },
+    footer: { message: 'Independent, self-hosted AI software. Capability status is documented explicitly.', copyright: 'Polaris · AGPL-3.0-only' },
+  },
+});
