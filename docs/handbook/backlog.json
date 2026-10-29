@@ -104,7 +104,7 @@
       "milestone": "M1",
       "priority": "P1",
       "title": "Propagate cancellation and handle interrupted streams",
-      "status": "planned",
+      "status": "in_progress",
       "dependsOn": [
         "REL-02"
       ],
@@ -115,7 +115,7 @@
       "milestone": "M1",
       "priority": "P1",
       "title": "Add backup, restore and migration release gates",
-      "status": "in_progress",
+      "status": "done",
       "dependsOn": [
         "REL-01"
       ],
@@ -286,7 +286,7 @@
       "milestone": "M3",
       "priority": "P1",
       "title": "Unify context and retention policy",
-      "status": "planned",
+      "status": "in_progress",
       "dependsOn": [
         "AI-02"
       ],
@@ -354,7 +354,7 @@
       "milestone": "M3",
       "priority": "P1",
       "title": "Refactor voice into testable session states",
-      "status": "planned",
+      "status": "in_progress",
       "dependsOn": [
         "REL-02"
       ],
@@ -365,7 +365,7 @@
       "milestone": "M3",
       "priority": "P1",
       "title": "Share context and tool permissions with voice",
-      "status": "planned",
+      "status": "in_progress",
       "dependsOn": [
         "VOICE-01",
         "AI-03",
@@ -379,7 +379,7 @@
       "milestone": "M3",
       "priority": "P1",
       "title": "Handle duplex speech, interruptions and reconnects",
-      "status": "planned",
+      "status": "in_progress",
       "dependsOn": [
         "VOICE-02"
       ],
@@ -390,7 +390,7 @@
       "milestone": "M3",
       "priority": "P2",
       "title": "Evaluate GPT-Live alongside Realtime",
-      "status": "planned",
+      "status": "in_progress",
       "dependsOn": [
         "VOICE-03",
         "AI-02"
@@ -402,7 +402,7 @@
       "milestone": "M3",
       "priority": "P1",
       "title": "Add voice metering and audio model migrations",
-      "status": "planned",
+      "status": "in_progress",
       "dependsOn": [
         "VOICE-03",
         "AI-05"
@@ -607,7 +607,7 @@
       "milestone": "M5",
       "priority": "P2",
       "title": "Add persistent assistant identity and memory",
-      "status": "planned",
+      "status": "in_progress",
       "dependsOn": [
         "RUN-03",
         "AI-03"

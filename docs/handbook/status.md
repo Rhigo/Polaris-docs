@@ -52,3 +52,7 @@ Generated HTML now runs inside a restricted nested frame, including when opened 
 ## API and recovery verification
 
 The recovery milestone passed Node 22/24 with PostgreSQL 16, including restoration through the Compose service. API key implementation passes 14 HTTP tests and desktop/mobile browser checks; its final GitHub gates are tracked in the pull request. Recovery fixtures also verify key hashes, scopes, revocation state, rate buckets and lifecycle records under migration 0007. See [Developer API](./api) and [recovery](./recovery) for the precise supported scope.
+
+## Audio integration
+
+Current OpenAI dictation, read-aloud and Realtime adapters now have bounded lifecycle handling and production standalone HTTP/WebSocket coverage. Tests use a trusted local TLS provider fixture and synthetic audio; they do not claim physical microphone or live-provider validation. See [Voice and audio](./voice) for limitations, including unfinished temporary voice, context parity and metering.

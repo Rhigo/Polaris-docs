@@ -20,6 +20,8 @@ export default defineConfig({
         { text: 'Overview', link: '/' },
         { text: 'Current capabilities', link: '/status' },
         { text: 'User guide', link: '/guide' },
+        { text: 'Voice and audio', link: '/voice' },
+        { text: 'Temporary chat and privacy', link: '/privacy' },
         { text: 'Screenshots', link: '/screenshots' },
       ] },
       { text: 'Run and extend', items: [

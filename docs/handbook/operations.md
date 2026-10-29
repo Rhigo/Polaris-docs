@@ -22,9 +22,13 @@ Monitor database readiness, queue age once workers exist, request/provider error
 
 ## Documentation publication
 
-The public handbook is exported from a reviewed Polaris source revision into [Polaris-docs](https://github.com/Rhigo/Polaris-docs). The application repository remains private during development. This export contains documentation, reviewed screenshots, site tooling and a source manifest; it contains no application environment or private repository history.
+The [public handbook](https://rhigo.github.io/Polaris-docs/) and [wiki index](https://github.com/Rhigo/Polaris-docs/wiki) are published from the [Polaris-docs repository](https://github.com/Rhigo/Polaris-docs). The application repository remains private during development. Canonical documentation stays in the application repository's `docs/handbook`; the public export contains only reviewed documentation, screenshots, site tooling and a source manifest.
 
-The Pages workflow checks and builds the site on pull requests, then deploys approved main-branch changes. The site address is `https://rhigo.github.io/Polaris-docs/`; the Actions deployment result confirms publication. Preview the `/Polaris-docs/` base path when testing this public repository.
+For a release, run the public repository's `scripts/sync-handbook.mjs` with this checkout's absolute path and the reviewed source commit. Review the exported diff and `source-manifest.json`, then run its documentation checks/build and open a focused PR. Its CI verifies rendered links/assets, public edit destinations and exported hashes; approved main changes deploy through GitHub Actions. Confirm the successful deployment and live site before announcing an update.
+
+Leave the application's optional `PAGES_ENABLED` variable unset. The public repository handles deployment without that gate. Canonical previews use `/Polaris/`; public-repository previews and deployment use `/Polaris-docs/`. Test desktop/mobile navigation and search.
+
+The separate GitHub wiki has collaborator-only editing. Publish the maintained `Home.md` and `_Sidebar.md` index files after handbook updates; repository commits do not automatically update the wiki. Preserve custom pages. Never export environment files, chat logs, credentials, private review notes, backups or application Git history.
 
 ## Restore rehearsal
 

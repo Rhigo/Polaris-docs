@@ -64,13 +64,13 @@ Acceptance: Clean migration, upgrade fixture, seed rerun, two-user auth and chat
 
 ### REL-03 · Propagate cancellation and handle interrupted streams
 
-**P1 · planned** · Depends on: REL-02
+**P1 · in progress** · Depends on: REL-02
 
 Acceptance: Stop or disconnect releases upstream work and tool processes; reconnect cannot duplicate committed messages or charges.
 
 ### REL-04 · Add backup, restore and migration release gates
 
-**P1 · in progress** · Depends on: REL-01
+**P1 · done** · Depends on: REL-01
 
 Acceptance: A disposable restore recovers users, encrypted settings and artifacts; release notes identify backward compatibility and rollback steps.
 
@@ -176,7 +176,7 @@ Acceptance: Recorded streaming fixtures cover text, reasoning summaries, refusal
 
 ### AI-03 · Unify context and retention policy
 
-**P1 · planned** · Depends on: AI-02
+**P1 · in progress** · Depends on: AI-02
 
 Acceptance: Projects, memory, attachments and tool results use one context builder across chat/voice/jobs; retention and remote deletion are explicitly tested.
 
@@ -212,31 +212,31 @@ Acceptance: Multi-step research resumes after restart, preserves source citation
 
 ### VOICE-01 · Refactor voice into testable session states
 
-**P1 · planned** · Depends on: REL-02
+**P1 · in progress** · Depends on: REL-02
 
 Acceptance: Connecting, listening, speaking, interrupted, reconnecting and ended states have deterministic event tests and accessible controls.
 
 ### VOICE-02 · Share context and tool permissions with voice
 
-**P1 · planned** · Depends on: VOICE-01, AI-03, SEC-02, SEC-03
+**P1 · in progress** · Depends on: VOICE-01, AI-03, SEC-02, SEC-03
 
 Acceptance: Voice receives the selected project/model context and cannot invoke tools outside the same effective policy as text chat.
 
 ### VOICE-03 · Handle duplex speech, interruptions and reconnects
 
-**P1 · planned** · Depends on: VOICE-02
+**P1 · in progress** · Depends on: VOICE-02
 
 Acceptance: Mock event replay and an opt-in real WebRTC test cover barge-in, echo, mute, route changes, reconnect and transcript ordering.
 
 ### VOICE-04 · Evaluate GPT-Live alongside Realtime
 
-**P2 · planned** · Depends on: VOICE-03, AI-02
+**P2 · in progress** · Depends on: VOICE-03, AI-02
 
 Acceptance: An ADR compares latency, delegation, tool controls, model support, retention and duration costs; adapters expose one UI contract.
 
 ### VOICE-05 · Add voice metering and audio model migrations
 
-**P1 · planned** · Depends on: VOICE-03, AI-05
+**P1 · in progress** · Depends on: VOICE-03, AI-05
 
 Acceptance: Session duration caps, usage reconciliation and idle shutdown work; deprecated transcription/TTS paths have tested replacements.
 
@@ -354,7 +354,7 @@ Acceptance: Step, duration, token, tool, container and daily spend ceilings stop
 
 ### RUN-05 · Add persistent assistant identity and memory
 
-**P2 · planned** · Depends on: RUN-03, AI-03
+**P2 · in progress** · Depends on: RUN-03, AI-03
 
 Acceptance: User-controlled memory provenance, project boundaries, inspect/edit/forget and temporary mode persist consistently across supported channels.
 

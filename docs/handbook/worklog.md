@@ -64,3 +64,17 @@ Closed generated-HTML origin inheritance in new windows with a trusted wrapper a
 ## Scoped API access — 29 October 2026
 
 Added migration 0007, one-time random secrets stored as hashes, owner-only key management, atomic rotation/revocation, expiry, current-account checks, scoped model/profile reads and an OpenAPI document. Fixed two regressions found by adversarial HTTP tests: old active keys hidden by revoked history and expiry measured before a database-lock wait. Fourteen real HTTP tests now pass, along with 70 web unit tests, typechecking and production build. Chrome desktop/390px checks verified creation, scope validation, rotation, cancel/revoke, persistence and focus restoration; no page-wide mobile overflow or console errors were observed. Synthetic keys were revoked after screenshots. Streaming chat and spend budgets remain separate work.
+
+## Audio contracts and production packaging — 29 October 2026
+
+Implemented separate current-model adapters for dictation, read-aloud and Realtime calls, preserving administrator choices. Production HTTP tests caught two defects: Next middleware truncated multipart bodies above 10 MiB, and bundling ws broke its optional native-module resolution. Exact authenticated upload-route exclusions, bounded streamed parsing and externalized ws resolve these findings. Fourteen relocated standalone HTTP tests cover the real SDK WebSocket exchange, cancellation, ownership and upload limits. All Node 22/24, PostgreSQL 16, Compose and documentation CI checks passed before merge. A bounded live OpenAI speech/transcription roundtrip returned the exact synthetic sentence. Physical microphone/speaker behavior and continuous browser calls remain unverified.
+
+## Public documentation and temporary history — 29 October 2026
+
+Published the reviewed handbook and wiki in Polaris-docs while keeping application development private. Public CI passed, the live site returned HTTP 200, and desktop/mobile navigation and search were exercised. Phone testing found a doubled repository name in edit links; the export rule was corrected and build-time checks now verify all rendered links/assets, edit destinations and export hashes.
+
+Temporary text/voice context now stays in tab memory with authenticated encrypted continuation. Provider storage, automatic memories, document upload caching and starter prompts have explicit temporary/local boundaries. Cancellation reaches provider/tool transports; uncertain tool outcomes terminate the loop. The privacy guide records retained independent files, usage accounting and the limits of cancellation.
+
+The integrated privacy revision passes 134 web unit tests (three existing opt-in suites skipped), eight recovery safety tests, 11 standalone privacy HTTP cases and all 14 audio HTTP regressions. Production build, typecheck and documentation build/checks pass. GitHub CI must pass on the published head before merge. REL-03, AI-03 and RUN-05 remain in progress because transport cancellation is not workload rollback and full channel/retention parity is unfinished.
+
+CI caught an older ownership fixture sending temporary requests without the newly required context. The fixture now distinguishes malformed requests from valid foreign project/file access, and proves owned temporary context reaches model resolution without persisting history. All ten ownership HTTP checks pass locally; fresh Node 22/24 CI remains the merge gate.

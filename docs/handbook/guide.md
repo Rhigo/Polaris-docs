@@ -16,7 +16,7 @@ The current implementation has provider-specific paths. File behaviour on OpenAI
 
 Dictation converts speech into text, read-aloud speaks a response, and realtime voice opens a live conversation. These use different API paths and may have different models and costs. Microphone access requires browser permission and a secure context.
 
-Realtime is currently experimental: context continuity, tool-policy consistency, reconnect handling and metering are scheduled for M3. Do not infer from the presence of the voice panel that every text-chat attachment or instruction is automatically included.
+Current OpenAI audio adapters, bounded lifecycle handling and production transport tests are implemented. Full context parity, metering and real-device validation remain in M3. See [Voice and audio](./voice) for exact models, limits, privacy and validation boundaries.
 
 ## Settings and administration
 
