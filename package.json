@@ -7,7 +7,7 @@
   "engines": { "node": ">=22" },
   "scripts": {
     "docs:check": "node scripts/docs-check.mjs",
-    "docs:build": "vitepress build docs/handbook",
+    "docs:build": "vitepress build docs/handbook && node scripts/check-site.mjs",
     "docs:dev": "vitepress dev docs/handbook",
     "docs:preview": "vitepress preview docs/handbook",
     "docs:sync": "node scripts/sync-handbook.mjs"

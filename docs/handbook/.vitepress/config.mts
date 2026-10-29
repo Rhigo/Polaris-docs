@@ -46,7 +46,7 @@ export default defineConfig({
     ],
     search: { provider: 'local' },
     socialLinks: [{ icon: 'github', link: 'https://github.com/Rhigo/Polaris-docs' }],
-    editLink: { pattern: 'https://github.com/Rhigo/Polaris-docs-docs/edit/main/docs/handbook/:path' },
+    editLink: { pattern: 'https://github.com/Rhigo/Polaris-docs/edit/main/docs/handbook/:path' },
     footer: { message: 'Independent, self-hosted AI software. Capability status is documented explicitly.', copyright: 'Polaris · AGPL-3.0-only' },
   },
 });

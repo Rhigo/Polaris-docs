@@ -12,7 +12,7 @@
     {
       "path": "docs/handbook/.vitepress/config.mts",
       "sourceSha256": "7939a399cd55f4c0a9cfb7072d20cd43aafacfd91164455cd81b6610d26591f2",
-      "exportedSha256": "b7943e3259758dce9ae922cfd5024eb954765b8bf0e88f674bd82959a053f34e"
+      "exportedSha256": "82dba85d7f249a51d8750046df5a64deb3110bdb5832580db8061d0a30cab905"
     },
     {
       "path": "docs/handbook/.vitepress/theme/index.ts",
