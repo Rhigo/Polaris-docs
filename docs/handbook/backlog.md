@@ -52,7 +52,7 @@ Acceptance: Invalid JSON, roles, IDs and oversized text return 4xx; retries of o
 
 ### SEC-04 · Bound and isolate code execution
 
-**P1 · in progress** · Depends on: DOC-01
+**P1 · done** · Depends on: DOC-01
 
 Acceptance: Per-run isolation rejects cross-user files, symlinks, unbounded output and orphan subprocesses in Linux integration tests; no host execution fallback.
 
@@ -200,7 +200,7 @@ Acceptance: Citations open the correct source, retrieval respects owner boundari
 
 ### AI-07 · Modernise image generation and editing
 
-**P2 · planned** · Depends on: AI-02
+**P2 · in progress** · Depends on: AI-02
 
 Acceptance: Image inputs, masks where supported, variations, partial/final events and artifact download use supported model contracts and explicit usage limits.
 
@@ -336,7 +336,7 @@ Acceptance: A run survives web/worker restart with persisted cursor, attempts, l
 
 ### RUN-02 · Add schedules and event triggers
 
-**P1 · planned** · Depends on: RUN-01
+**P1 · in progress** · Depends on: RUN-01
 
 Acceptance: Timezone, DST, missed schedules, retries and overlapping runs have explicit policy and integration tests; inactive users cannot start work.
 
@@ -360,7 +360,7 @@ Acceptance: User-controlled memory provenance, project boundaries, inspect/edit/
 
 ### RUN-06 · Add proactive updates and notifications
 
-**P2 · planned** · Depends on: RUN-02, RUN-03
+**P2 · in progress** · Depends on: RUN-02, RUN-03
 
 Acceptance: Quiet hours, opt-in channels, meaningful-change suppression and delivery retries avoid duplicate or noisy updates.
 
@@ -378,7 +378,7 @@ Acceptance: A synthetic voice call can inspect, steer and stop a separate durabl
 
 ### PAL-04 · Build an attention inbox and notification controls
 
-**P1 · planned** · Depends on: RUN-06
+**P1 · in progress** · Depends on: RUN-06
 
 Acceptance: Important findings have evidence and deduplicated delivery; urgency, quiet hours, snooze and per-responsibility unsubscribe are tested with synthetic events.
 
