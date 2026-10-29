@@ -1,5 +1,7 @@
 # Polaris developer hub
 
+[Read the illustrated handbook](https://rhigo.github.io/Polaris-docs/) · [Documentation source and revision](https://github.com/Rhigo/Polaris-docs/blob/main/source-manifest.json)
+
 Polaris is a self-hosted AI workspace for chat, projects, artifacts and tools, with a staged programme for modern OpenAI support, a consistent mobile interface, programmable APIs, pipelines, persistent assistants and connected accounts.
 
 The version-controlled handbook is the canonical documentation. This wiki is an index into it so instructions and capability status have one maintained source.

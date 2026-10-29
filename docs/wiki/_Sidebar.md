@@ -1,6 +1,7 @@
 **Polaris**
 
 - [Wiki home](Home)
+- [Illustrated handbook](https://rhigo.github.io/Polaris-docs/)
 - [Current status](https://github.com/Rhigo/Polaris-docs/blob/main/docs/handbook/status.md)
 - [User guide](https://github.com/Rhigo/Polaris-docs/blob/main/docs/handbook/guide.md)
 - [Development](https://github.com/Rhigo/Polaris-docs/blob/main/docs/handbook/development.md)
