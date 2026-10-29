@@ -82,7 +82,7 @@
       "milestone": "M1",
       "priority": "P1",
       "title": "Bound and isolate code execution",
-      "status": "in_progress",
+      "status": "done",
       "dependsOn": [
         "DOC-01"
       ],
@@ -331,7 +331,7 @@
       "milestone": "M3",
       "priority": "P2",
       "title": "Modernise image generation and editing",
-      "status": "planned",
+      "status": "in_progress",
       "dependsOn": [
         "AI-02"
       ],
@@ -572,7 +572,7 @@
       "milestone": "M5",
       "priority": "P1",
       "title": "Add schedules and event triggers",
-      "status": "planned",
+      "status": "in_progress",
       "dependsOn": [
         "RUN-01"
       ],
@@ -619,7 +619,7 @@
       "milestone": "M5",
       "priority": "P2",
       "title": "Add proactive updates and notifications",
-      "status": "planned",
+      "status": "in_progress",
       "dependsOn": [
         "RUN-02",
         "RUN-03"
@@ -965,7 +965,7 @@
       "milestone": "M5",
       "priority": "P1",
       "title": "Build an attention inbox and notification controls",
-      "status": "planned",
+      "status": "in_progress",
       "dependsOn": [
         "RUN-06"
       ],

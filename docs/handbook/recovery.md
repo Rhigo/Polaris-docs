@@ -17,7 +17,7 @@ Backup directories use mode `0700`; files use `0600`. The supplied secret config
 
 Capture the actual `ENCRYPTION_KEY` used by this deployment. A new random key cannot decrypt existing provider or SSO configuration. Include `NEXTAUTH_SECRET`, required OAuth/provider/environment secrets and deployment-specific settings in the protected recovery config. Secret-manager references are not a substitute for a recoverable key. The command checks the key's format and presence, not access to your secret manager.
 
-This is a single-database application backup. Preserve release source/container images, Compose/proxy configuration, TLS material and external object stores separately. PostgreSQL cluster roles, grants and tablespaces are outside the dump policy; restored objects belong to the restoring role. Assign the intended application role before cutover. Redis is not a recovery source for durable jobs here; once durable queues exist, their consistency/replay policy must join this procedure. External provider file IDs and arbitrary paths embedded in document content are not recreated or rewritten.
+This is a single-database application backup. Preserve release source/container images, Compose/proxy configuration, TLS material and external object stores separately. PostgreSQL cluster roles, grants and tablespaces are outside the dump policy; restored objects belong to the restoring role. Assign the intended application role before cutover. Saved Pal tasks and their events live in PostgreSQL; Redis is not their recovery source. Keep their worker stopped until the restored queue has been reconciled as described below. External provider file IDs and arbitrary paths embedded in document content are not recreated or rewritten.
 
 PostgreSQL documents both the consistent single-database snapshot provided by `pg_dump` and the separate handling needed for cluster-wide objects. Its snapshot does not include application files. [PostgreSQL dump documentation](https://www.postgresql.org/docs/16/app-pgdump.html), [SQL dump recovery](https://www.postgresql.org/docs/16/backup-dump.html).
 
@@ -163,3 +163,17 @@ On 29 October 2026, eight safety tests, the real restore rehearsal and TypeScrip
 ## API-key recovery boundary
 
 Migration 0007 adds key hashes, revocation/expiry state, rate buckets and lifecycle events. The recovery rehearsal preserves those rows as well as user ownership. An older backup can resurrect a key revoked after capture: reconcile later revocations or revoke restored keys before exposing the recovered API. Never treat restoring a backup as permission to resume traffic.
+
+## Saved Pal task recovery boundary
+
+Stop both the web process and the separate `pnpm pal:worker` process before capturing a consistent backup. Migrations 0008 and 0009 add the task/event ledger and pricing provenance. The restore command does not start either process or replay tasks.
+
+Keep the worker stopped while inspecting a restored environment. A task that was queued at the checkpoint may have executed on the source after capture. Compare the source's later run events and dispatch records, then review or cancel duplicate restored requests before enabling the worker. Do not rewrite lease fields or delete migration journal rows to force a task to resume.
+
+The worker fences claims and does not automatically replay interrupted dispatches. An expired lease can still represent provider work that completed after the connection was lost; interruption is not proof that nothing ran or that no charge occurred. Restoring older state cannot undo that external work. See [saved task operations](./pal-tasks.md) for worker lifecycle and cancellation limits.
+
+## Reminder recovery boundary
+
+Migration `0010_pal_one_off_reminders` stores pending reminders, delivered inbox entries, read state and cancellation state in PostgreSQL. The same Pal worker services reminders and saved text tasks. Stop both worker loops before backup and keep them stopped during restore validation.
+
+An older backup can restore a reminder that was subsequently cancelled or removed, or make an entry unread again. A restored pending reminder whose due time has passed becomes eligible for delivery when the worker starts. Compare changes made after capture and reconcile those entries before enabling delivery; restoring the database is not permission to resume the queue. Delivery changes only the owned inbox row and does not send an email or contact message. See [reminder operations](./reminders.md) for delivery, retention and downgrade limits.

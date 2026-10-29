@@ -1,7 +1,7 @@
 {
   "sourceRepository": "Rhigo/Polaris",
-  "sourceRevision": "0e7e8ff727066e1fdb246286194a497b4c4abaf0",
-  "sourceCommitDate": "2026-10-29T21:15:42Z",
+  "sourceRevision": "a5be1bd8101a40d1b5eb7af07b264f2348f706ce",
+  "sourceCommitDate": "2026-10-29T22:17:27Z",
   "exportVersion": 1,
   "files": [
     {
@@ -11,8 +11,8 @@
     },
     {
       "path": "docs/handbook/.vitepress/config.mts",
-      "sourceSha256": "b442e311e550b89768eca40c361ca2c65f8cb06b9c3b3729c8c3a643f6abef45",
-      "exportedSha256": "abd56becad64857ca4a946ef6f36e4458a0d25acc7d26628831d4cf52ada3505"
+      "sourceSha256": "033d733655d814697459107327f5fe47ec72f5d48cb15aaa1753b4f09a01d39c",
+      "exportedSha256": "cee73bdbfdee713888074100dcce956994552a715be42ed160e850c0c28bc218"
     },
     {
       "path": "docs/handbook/.vitepress/theme/index.ts",
@@ -46,13 +46,13 @@
     },
     {
       "path": "docs/handbook/backlog.json",
-      "sourceSha256": "7a76145e79054c19f7217d8592d090b9f5a7535dd6bbb79d48bdb70f6e3b3431",
-      "exportedSha256": "7a76145e79054c19f7217d8592d090b9f5a7535dd6bbb79d48bdb70f6e3b3431"
+      "sourceSha256": "16c9de24e66f44f21a8c5e6b179487753a5e08dc84b1a041d57b0e184f3b3743",
+      "exportedSha256": "16c9de24e66f44f21a8c5e6b179487753a5e08dc84b1a041d57b0e184f3b3743"
     },
     {
       "path": "docs/handbook/backlog.md",
-      "sourceSha256": "59ae07823a7bf6862e0a0f3723a8a39d81d22ba26330308c1affcf953118b48d",
-      "exportedSha256": "59ae07823a7bf6862e0a0f3723a8a39d81d22ba26330308c1affcf953118b48d"
+      "sourceSha256": "c4d912df07fc3b2d8fbd8ffa209da2be1ef9ce854c44e4ab06caf4047138deea",
+      "exportedSha256": "c4d912df07fc3b2d8fbd8ffa209da2be1ef9ce854c44e4ab06caf4047138deea"
     },
     {
       "path": "docs/handbook/connections.md",
@@ -116,8 +116,8 @@
     },
     {
       "path": "docs/handbook/pal-tasks.md",
-      "sourceSha256": "2b9f5766908c8a24f5f86d7fa46827b048ca5304e48bc345f662a725545a3156",
-      "exportedSha256": "2b9f5766908c8a24f5f86d7fa46827b048ca5304e48bc345f662a725545a3156"
+      "sourceSha256": "e78bb28ed2d243c51e3cee8f14598cd0b4a7d07eeafc29e82e68e64fae6cb687",
+      "exportedSha256": "e78bb28ed2d243c51e3cee8f14598cd0b4a7d07eeafc29e82e68e64fae6cb687"
     },
     {
       "path": "docs/handbook/pal.md",
@@ -200,6 +200,16 @@
       "exportedSha256": "cf707eaf923422195d79d90ccbcc80a5f0d23f817b216cc5e6d09dab401d75d1"
     },
     {
+      "path": "docs/handbook/public/screenshots/reminders-desktop-inbox.jpg",
+      "sourceSha256": "2e7a42ff176695958c47f72b534717a0cf4e2ff11b39436a316c69338d6735f9",
+      "exportedSha256": "2e7a42ff176695958c47f72b534717a0cf4e2ff11b39436a316c69338d6735f9"
+    },
+    {
+      "path": "docs/handbook/public/screenshots/reminders-mobile-inbox.jpg",
+      "sourceSha256": "edd890dc40598ea6439d2e240a7c4ad03b322cef8609f42803fce2abb4aa40d6",
+      "exportedSha256": "edd890dc40598ea6439d2e240a7c4ad03b322cef8609f42803fce2abb4aa40d6"
+    },
+    {
       "path": "docs/handbook/public/screenshots/settings-mobile.jpg",
       "sourceSha256": "fc6bf8e91371cf043464c0705691f568b186e7a493480d3d2aa6b864c4f7b525",
       "exportedSha256": "fc6bf8e91371cf043464c0705691f568b186e7a493480d3d2aa6b864c4f7b525"
@@ -216,8 +226,13 @@
     },
     {
       "path": "docs/handbook/recovery.md",
-      "sourceSha256": "8c0b62196dc91dea2874be33bc043e4f7962e4784f992dc87832d070d667911d",
-      "exportedSha256": "8c0b62196dc91dea2874be33bc043e4f7962e4784f992dc87832d070d667911d"
+      "sourceSha256": "9b1a474bc5bcb990f60703133501b3aa2a0cb13f22afa646f8ff6c1a0b99bde0",
+      "exportedSha256": "9b1a474bc5bcb990f60703133501b3aa2a0cb13f22afa646f8ff6c1a0b99bde0"
+    },
+    {
+      "path": "docs/handbook/reminders.md",
+      "sourceSha256": "82cd1b70bac3616b14f7ab7d66888f21cb8878247745d3b626f5dc689cec58e8",
+      "exportedSha256": "82cd1b70bac3616b14f7ab7d66888f21cb8878247745d3b626f5dc689cec58e8"
     },
     {
       "path": "docs/handbook/research.md",
@@ -231,8 +246,8 @@
     },
     {
       "path": "docs/handbook/screenshots.md",
-      "sourceSha256": "ac16720322a1e57aefc746b4752fc928e4a32ef172f34b4494ad0cc8212ecd94",
-      "exportedSha256": "ac16720322a1e57aefc746b4752fc928e4a32ef172f34b4494ad0cc8212ecd94"
+      "sourceSha256": "e3c0b335a01424516850ce357e981cf7beda2f165d87af64829b7e340ffd9926",
+      "exportedSha256": "e3c0b335a01424516850ce357e981cf7beda2f165d87af64829b7e340ffd9926"
     },
     {
       "path": "docs/handbook/status.md",
@@ -251,13 +266,13 @@
     },
     {
       "path": "docs/handbook/worklog.md",
-      "sourceSha256": "f15d91501ee5d71622205ce457acfdf2e21bcb3a3ae76294b5415438e9e9f5d1",
-      "exportedSha256": "f15d91501ee5d71622205ce457acfdf2e21bcb3a3ae76294b5415438e9e9f5d1"
+      "sourceSha256": "987e08ccbd848b38ad1775386f87900f238e727f67437fe98d17c09ba517ee9a",
+      "exportedSha256": "987e08ccbd848b38ad1775386f87900f238e727f67437fe98d17c09ba517ee9a"
     },
     {
       "path": "docs/wiki/Home.md",
-      "sourceSha256": "7457f5b70374e91df12247aaaaca47e887579f2018284f35e1c6cb0191b0a7a4",
-      "exportedSha256": "640d14cc3ae23fbfd31e6b71fe4cb96f6f71eca3e3111fd11938f7ad67cd40ae"
+      "sourceSha256": "c2f7ca06e6f12f44b4d49e7153be803da30c43c34ff26d367d2ff6dae1a0854a",
+      "exportedSha256": "edf459821b5633c63451bf5164e28978a7cb08511cf55489e6512ea6e9d1c7ec"
     },
     {
       "path": "docs/wiki/README.md",
@@ -266,13 +281,13 @@
     },
     {
       "path": "docs/wiki/_Sidebar.md",
-      "sourceSha256": "12d63514a1123845c6c518fa334feef709974dce2de293a234a10a94031c6287",
-      "exportedSha256": "f8de133d6bf8d29c23d7474669dee850b46ffa662d80d804f841d5f7f2da9015"
+      "sourceSha256": "fae022dfd15d644c030f13a1c1da012adc166679aea1f66c99482a01580f6312",
+      "exportedSha256": "f383b5d4a5ba5ce28498e6fdb33d4848397514a74cf2205a83800cce99d22c08"
     },
     {
       "path": "scripts/docs-check.mjs",
-      "sourceSha256": "f4331fb0c1a80def3e83a104eb38e0d82764740e76a4b355f54aacec07f05821",
-      "exportedSha256": "f4331fb0c1a80def3e83a104eb38e0d82764740e76a4b355f54aacec07f05821"
+      "sourceSha256": "ecf3b5ffa139ee94d7d1e1c6eb091ce0ff8693626c8b75529964cdd64e832ac9",
+      "exportedSha256": "ecf3b5ffa139ee94d7d1e1c6eb091ce0ff8693626c8b75529964cdd64e832ac9"
     }
   ]
 }

@@ -18,6 +18,14 @@ These are actual production-build captures with synthetic accounts, following th
 
 ![Pal home in dark mode](/screenshots/pal-dark-desktop.jpg)
 
+## Scheduled reminder inbox · 29 October 2026
+
+These captures show a production build with synthetic reminder accounts. The real worker delivered the inbox entries at their scheduled times; no provider API or external notification channel was used. Desktop dark mode and a 390-pixel mobile light viewport were checked, including unread state, acknowledgement and reload. [Reminder behavior and limits](./reminders.md).
+
+![Scheduled reminders and unread inbox in desktop dark mode](/screenshots/reminders-desktop-inbox.jpg)
+
+<img class="mobile-shot" src="/screenshots/reminders-mobile-inbox.jpg" alt="Reminder inbox with unread and read entries at 390 pixels">
+
 ## Preserved baseline captures
 
 Captured 29 October 2026 from a local production build of source `f50ff4f`. These show the existing product, before the planned redesign. Accounts and conversations are synthetic; the assistant text was seeded for presentation and is not evidence of a live model call.

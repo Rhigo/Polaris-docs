@@ -22,6 +22,7 @@ export default defineConfig({
         { text: 'User guide', link: '/guide' },
         { text: 'Voice and audio', link: '/voice' },
         { text: 'Saved Pal text tasks', link: '/pal-tasks' },
+        { text: 'One-off reminders', link: '/reminders' },
         { text: 'Chat attachments', link: '/attachments' },
         { text: 'Image generation', link: '/images' },
         { text: 'Temporary chat and privacy', link: '/privacy' },

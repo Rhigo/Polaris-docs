@@ -12,6 +12,10 @@ The version-controlled handbook is the canonical documentation. This wiki is an 
 | Voice, dictation and read-aloud | [Voice guide](https://rhigo.github.io/Polaris-docs/voice.html) |
 | Temporary chat and retention | [Privacy guide](https://rhigo.github.io/Polaris-docs/privacy.html) |
 | Personal API keys and automation | [API guide](https://rhigo.github.io/Polaris-docs/api.html) |
+| Saved Pal text tasks | [Task guide](https://rhigo.github.io/Polaris-docs/pal-tasks.html) |
+| Image generation and edits | [Image guide](https://rhigo.github.io/Polaris-docs/images.html) |
+| Files attached to chat | [Attachment guide](https://rhigo.github.io/Polaris-docs/attachments.html) |
+| Isolated code execution | [Execution guide](https://rhigo.github.io/Polaris-docs/execution-isolation.html) |
 | Using Polaris | [User guide](https://github.com/Rhigo/Polaris-docs/blob/main/docs/handbook/guide.md) |
 | Setting up development | [Development setup](https://github.com/Rhigo/Polaris-docs/blob/main/docs/handbook/development.md) |
 | How the application fits together | [Architecture](https://github.com/Rhigo/Polaris-docs/blob/main/docs/handbook/architecture.md) |

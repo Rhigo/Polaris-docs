@@ -1,6 +1,6 @@
 # Saved text tasks
 
-Pal can save a bounded drafting, summarising or planning task, run it in a separate local worker, and show its saved activity and result after a reload. This first workflow makes one text model request using the information you supply. Browser control, terminal commands, file access, connected apps, notifications and schedules are not enabled by starting a saved text task.
+Pal can save a bounded drafting, summarising or planning task, run it in a separate local worker, and show its saved activity and result after a reload. This first workflow makes one text model request using the information you supply. Browser control, terminal commands, file access, connected apps, notifications and schedules are not enabled by starting a saved text task. [One-off reminders](./reminders) have their own explicit date/time form and inbox, serviced by an independent loop in the same worker.
 
 ## Use it
 
@@ -30,7 +30,7 @@ Native tools and function tools are absent from the provider request. Unexpected
 
 ## Run the local worker
 
-Use an approved source checkout with its locked dependencies installed and the same database and configuration-encryption key as the web application. Apply that release's migrations using the [release and recovery procedure](./recovery), including `0008_pal_saved_text_runs` and `0009_usage_cost_basis`, before starting the worker.
+Use an approved source checkout with its locked dependencies installed and the same database and configuration-encryption key as the web application. Apply that release's migrations using the [release and recovery procedure](./recovery), including `0008_pal_saved_text_runs`, `0009_usage_cost_basis` and `0010_pal_one_off_reminders`, before starting the worker.
 
 From the repository root:
 
