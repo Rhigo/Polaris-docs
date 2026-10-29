@@ -24,7 +24,7 @@ for (const name of paths) {
   if (/\.(md|mjs|mts|ts|css|json|svg)$/.test(name)) {
     let value = original.toString('utf8');
     assert(!/sk-proj-|sk-live-|-----BEGIN (?:RSA |OPENSSH |EC )?PRIVATE KEY-----|\/Users\//.test(value), `Private content marker in ${name}`);
-    if (name === 'docs/handbook/.vitepress/config.mts') value = value.replaceAll('/Polaris/', '/Polaris-docs/').replaceAll('https://github.com/Rhigo/Polaris', 'https://github.com/Rhigo/Polaris-docs');
+    if (name === 'docs/handbook/.vitepress/config.mts') value = value.replaceAll(/https:\/\/github\.com\/Rhigo\/Polaris(?=\/|['"]|$)/g, 'https://github.com/Rhigo/Polaris-docs').replaceAll('/Polaris/', '/Polaris-docs/');
     if (name.startsWith('docs/wiki/')) value = value.replaceAll('https://github.com/Rhigo/Polaris/blob/main/docs/handbook/', 'https://github.com/Rhigo/Polaris-docs/blob/main/docs/handbook/');
     if (name === 'docs/wiki/Home.md') value = value.replace('# Polaris developer hub\n', '# Polaris developer hub\n\n[Read the illustrated handbook](https://rhigo.github.io/Polaris-docs/) · [Documentation source and revision](https://github.com/Rhigo/Polaris-docs/blob/main/source-manifest.json)\n');
     if (name === 'docs/wiki/_Sidebar.md') value = value.replace('- [Wiki home](Home)', '- [Wiki home](Home)\n- [Illustrated handbook](https://rhigo.github.io/Polaris-docs/)');
