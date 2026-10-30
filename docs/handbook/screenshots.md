@@ -97,3 +97,11 @@ Actual Chrome fixture captures at 390 pixels show installation guidance and the 
 <img class="mobile-shot" src="/screenshots/pwa-install-mobile.jpg" alt="Polaris installation help and explicit update controls at 390 pixels">
 
 <img class="mobile-shot" src="/screenshots/pwa-offline-mobile.jpg" alt="Public Polaris connection notice after a real offline navigation">
+
+## Versioned text workflows · 30 October 2026
+
+Actual 1200px and 390px Chrome captures from frozen release `16822fd`, using synthetic accounts and a loopback model fixture. They show the JSON editor, immutable revisions and a completed two-step run; they are not evidence of a paid model request. API/client import/export round trips passed. Native file-picker automation remains unverified because the browser extension required file-URL access; that permission was not changed. See the [workflow guide](./workflows).
+
+![Text workflow editor with a saved second revision](/screenshots/workflows-desktop.jpg)
+
+<img class="mobile-shot" src="/screenshots/workflows-mobile.jpg" alt="Two completed synthetic workflow steps and saved results at 390 pixels">

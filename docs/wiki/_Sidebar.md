@@ -12,6 +12,7 @@
 - [Browser workspace](https://rhigo.github.io/Polaris-docs/computer-workspace.html)
 - [Charts and tables](https://rhigo.github.io/Polaris-docs/rich-data.html)
 - [Reminders](https://rhigo.github.io/Polaris-docs/reminders.html)
+- [Text workflows](https://rhigo.github.io/Polaris-docs/workflows.html)
 - [Saved Pal tasks](https://rhigo.github.io/Polaris-docs/pal-tasks.html)
 - [Images and edits](https://rhigo.github.io/Polaris-docs/images.html)
 - [Chat attachments](https://rhigo.github.io/Polaris-docs/attachments.html)

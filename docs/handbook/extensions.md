@@ -2,17 +2,17 @@
 
 ## Current interface
 
-The [versioned API](./api) exposes scoped model/profile reads and bounded saved-text tasks. Keys can opt into task creation, inspection and cancellation; the worker checks the originating key again before dispatch. The broader cookie-authenticated `/api/...` UI routes are internal contracts. Do not distribute session cookies as API credentials.
+The [versioned API](./api) exposes scoped model/profile reads, bounded saved-text tasks and [versioned text workflows](./workflows). Keys can opt into task creation, inspection and cancellation; the worker checks the originating key again before dispatch. The broader cookie-authenticated `/api/...` UI routes are internal contracts. Do not distribute session cookies as API credentials.
 
 Administrator-managed custom functions can call configured OpenAI or HTTP endpoints. The existing MCP form and manual call path do not establish complete protocol interoperability. Discovery, credential lifecycle, result validation and transport behavior still need their own implementation and tests. The OpenWebUI router in `docs/` remains a separate example with unfinished file-storage hooks.
 
 ## Next external API capabilities
 
-Streaming chat needs explicit cancellation, model/tool permissions, request identity and accounting before it joins the public contract. Files, workflows and detailed usage need separate scopes. The implemented API does not claim drop-in OpenAI SDK compatibility. Task token/time limits are not dollar spending caps.
+Streaming chat needs explicit cancellation, model/tool permissions, request identity and accounting before it joins the public contract. Files and detailed usage need separate scopes; native text workflows already have six explicit opt-in permissions. The implemented API does not claim drop-in OpenAI SDK compatibility. Task token/time limits are not dollar spending caps.
 
-## Workflow framework in development
+## Native text workflows and remaining graph work
 
-The first native workflow slice is a versioned JSON definition with one text input and one to four sequential OpenAI model steps. It is intended to provide immutable revisions, persisted per-step progress/output, cancellation and JSON import/export through a separate worker. This implementation is still in progress and is not part of the current release. It introduces no Python, JavaScript, arbitrary URLs or external tools.
+The implemented native workflow slice uses a versioned JSON definition with one text input and one to four sequential OpenAI model steps. It provides immutable revisions, persisted per-step progress/output, cancellation, a JSON editor, import/export and an executable API client through a separate worker. See the [workflow contract](./workflows). Python, JavaScript, arbitrary URLs and external tools are outside this slice.
 
 The broader framework remains planned: validated model/tool/transform/branch/parallel/approval/output graphs, a visual editor, explicit credential references, bounded resources and trace events. The sequential editor does not satisfy those broader acceptance criteria.
 

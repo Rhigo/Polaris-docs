@@ -24,6 +24,7 @@ export default defineConfig({
         { text: 'Install Polaris', link: '/pwa' },
         { text: 'Voice and audio', link: '/voice' },
         { text: 'Saved Pal text tasks', link: '/pal-tasks' },
+        { text: 'Versioned text workflows', link: '/workflows' },
         { text: 'One-off reminders', link: '/reminders' },
         { text: 'Isolated browser workspace', link: '/computer-workspace' },
         { text: 'Chat attachments', link: '/attachments' },
