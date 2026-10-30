@@ -1,5 +1,7 @@
 # Temporary chat and privacy
 
+For everyday use: temporary chat is not saved as ordinary Polaris conversation history. Reloading loses its local context. This does **not** promise zero provider retention or erase separately uploaded/generated files and completed tool actions. Use saved chat when you need to return to the conversation; read [costs and data](./costs) before sharing content.
+
 Temporary chat keeps conversation history in the current tab's memory. It does not create saved Polaris conversation, message or tool-execution records, and automatic memory use and saving are disabled. Reloading or resetting the temporary session discards its local context. Content-free usage accounting still applies.
 
 ## Text and voice continuity

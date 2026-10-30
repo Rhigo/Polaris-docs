@@ -32,13 +32,13 @@ Each item is a focused branch/PR with its own tests, documentation and rollback 
 
 ## The full feature list
 
-The [102-item backlog](./backlog) contains stable IDs, priorities, dependencies and measurable acceptance criteria. `docs/handbook/backlog.json` is the source of truth; the readable list is generated and checked in CI. “Done” refers to the current branch deliverable; a deployment or release is recorded separately in the [work log](./worklog).
+The [feature backlog](./backlog) contains stable IDs, priorities, dependencies and measurable acceptance criteria. `docs/handbook/backlog.json` is the source of truth; the readable list is generated and checked in CI. “Done” refers to the current branch deliverable; a deployment or release is recorded separately in the [work log](./worklog).
 
 Effort is deliberately not presented as a guaranteed calendar estimate. OAuth reviews, provider access, live voice/device testing and cloud infrastructure can dominate elapsed time. Each larger feature starts with a narrow vertical slice and a feasibility checkpoint.
 
 ## Pal product direction
 
-The [Pal experience](./pal) makes the browser, terminal, file explorer, custom appearance, proactive responsibilities and voice orchestration explicit. The [runtime decision](./pal-runtime) separates local Codex integration, managed Agents sessions, direct Responses and Decisions classification. Local computer support is a first-class target; paid cloud execution is optional.
+The [Pal experience](./pal) makes the browser, terminal, file explorer, custom appearance, proactive responsibilities and voice orchestration explicit. The [persistent computer plan](./pal-computer) defines one private continuous Pal conversation and one reconnectable desktop per user, including shared-host resource limits. The [runtime decision](./pal-runtime) separates local Codex integration, managed Agents sessions, direct Responses and Decisions classification. Local computer support is a first-class target; paid cloud execution is optional.
 
 ## Decisions needed at the relevant stage
 

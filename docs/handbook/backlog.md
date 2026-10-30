@@ -1,6 +1,6 @@
 # Feature backlog
 
-Updated 2026-10-30. 103 work items. Generated from `backlog.json`; run `pnpm roadmap:generate` after editing the source.
+Updated 2026-10-30. 115 work items. Generated from `backlog.json`; run `pnpm roadmap:generate` after editing the source.
 
 P1 is required for the relevant release gate; P2 extends the product after its dependencies are proven. Planned features are not advertised as shipped. See [milestones](./roadmap) and [execution protocol](./execution).
 
@@ -23,6 +23,12 @@ Acceptance: Pages build passes, local search works, desktop/mobile layouts are c
 **P2 · done** · Depends on: DOC-01
 
 Acceptance: Real desktop/mobile screenshots use synthetic content and record viewport, source revision and limitations.
+
+### DOC-04 · Complete beginner onboarding and administrator handoff
+
+**P1 · in progress** · Depends on: DOC-02, REL-01, REL-04
+
+Acceptance: An unassisted reader chooses existing-server or administrator setup, understands private source access, signs in, configures a provider/model using verified controls, and completes first chat, file, task, workflow and reminder journeys with synthetic fixtures. Costs, key types, privacy, optional workers and recovery responsibilities are clear before use. A disposable installation and restore follows the written steps without undocumented commands. Published links work without private repository access; source-only checks and any unrun walkthrough remain explicit.
 
 ## M1
 
@@ -92,6 +98,12 @@ Acceptance: Seed runs with supported Node versions and reruns without resetting 
 
 Acceptance: Request IDs connect API, provider and worker events; secrets are redacted; health separates liveness from DB/worker readiness.
 
+### SEC-06 · Independently review security across the accepted feature set
+
+**P1 · planned** · Depends on: SEC-01, SEC-02, SEC-03, SEC-04, SEC-05
+
+Acceptance: An independent reviewer records exact source/images, deployment assumptions, author/reviewer boundaries and scope across auth, ownership/API keys, credentials, artifacts, workers, browser/terminal isolation, connectors and recovery. Concrete findings include path/line, severity, reproducible synthetic tests and remediation; race and Linux isolation claims require appropriate real boundary evidence. Blocking findings are fixed with regressions at the accepted commit or retain a release hold. Residual risks, unsupported platforms and untested external behavior are explicit; the review never claims everything is secure.
+
 ## M2
 
 ### UX-01 · Create the Polaris design system
@@ -152,7 +164,7 @@ Acceptance: Preview, source, version history and download work for code, HTML an
 
 **P2 · in progress** · Depends on: UX-04, UX-08
 
-Acceptance: Versioned screenshots come from deterministic demo fixtures and show new behaviour without credentials or real conversations.
+Acceptance: After functionality is accepted, versioned real-build captures cover 390/768/1440px, both themes, chat/files/history/settings and Pal customization/tasks/reminders/workflows/browser handoff, including useful empty/error/disconnected states. Synthetic accounts, provider fixtures, real worker/browser activity and separately authorized live evidence are labelled distinctly. Screenshots and reusable captioned video/optional GIF clips carry source/build, viewport, date and hash provenance; no keys, real conversations, private sign-in or fabricated UI/feed is shown. Public playback/readability, keyboard access, still alternatives and reduced motion are checked. Emulated mobile captures do not claim physical-device validation; beginner recipes pass the DOC-04 walkthrough.
 
 ### PAL-01 · Customise the Polaris Pal companion
 
@@ -165,6 +177,12 @@ Acceptance: Appearance persists per user; shape, colour, eyes and accessories re
 **P1 · in progress** · Depends on: PAL-01, UX-02
 
 Acceptance: Owned activity, attention and computer surfaces have useful empty states; disconnected tools never pretend to execute tasks; mobile navigation is verified.
+
+### DOC-05 · Publish a dated model and feature support matrix
+
+**P1 · planned** · Depends on: AI-01, AI-02, AI-05
+
+Acceptance: Exact model IDs and dated provider contracts map text, image, audio/voice, reasoning, structured output, tools, files and background work to Polaris adapter support, account entitlement and administrator configuration. Each cell states tested, synthetic-only, awaiting live validation, unavailable or unreviewed; no blank implies support. Links cover limits, pricing exclusions and source/test evidence. Unknown, retired and local/cloud models remain distinct. Accepted feature/model releases update the matrix without making paid calls solely to fill cells.
 
 ## M3
 
@@ -418,6 +436,18 @@ Acceptance: Predicate/choice/score contracts are tested on synthetic cases, cost
 
 Acceptance: User-selected read scopes produce attributed private findings; tests prove research cannot write connected services, control computers or create monitoring subscriptions by itself.
 
+### PAL-11 · Keep one continuous private Pal conversation per user
+
+**P1 · in progress** · Depends on: SEC-01, PAL-01
+
+Acceptance: Database uniqueness and concurrent-first-open tests prove one owner, Pal and thread. Normal chat/search/archive controls cannot expose or remove the Pal thread. Avatar settings and computer panels remain keyboard and mobile accessible.
+
+### PAL-12 · Add bounded user and Pal message reactions
+
+**P1 · in progress** · Depends on: PAL-11
+
+Acceptance: An accessible fixed-emoji picker adds/removes owned reactions. A server-context tool lets Pal react only to the current persisted user message; actor spoofing, stale or foreign message IDs and unsupported providers fail explicitly.
+
 ## M6
 
 ### CLOUD-01 · Define interchangeable execution providers
@@ -440,7 +470,7 @@ Acceptance: Per-user browser state, live preview, sign-in handoff, domain policy
 
 ### CLOUD-04 · Add computer-use action controls
 
-**P1 · planned** · Depends on: CLOUD-03, RUN-03
+**P1 · in progress** · Depends on: CLOUD-03, RUN-03
 
 Acceptance: External page instructions cannot widen permissions; submissions/purchases require the user's applicable action policy and concrete review when needed. Watching, human takeover, agent return-control and access revocation have distinct verified effects.
 
@@ -464,13 +494,13 @@ Acceptance: Credentials remain outside model-visible events; private browser sig
 
 ### LOC-01 · Run an isolated local computer provider
 
-**P1 · planned** · Depends on: SEC-04, CLOUD-01
+**P1 · in progress** · Depends on: SEC-04, CLOUD-01
 
 Acceptance: A per-workspace Linux container or VM runs on the local host with no host-shell fallback, scoped mounts, credential separation, resource caps and verified teardown.
 
 ### LOC-02 · Watch and take over the local browser
 
-**P1 · planned** · Depends on: LOC-01, CLOUD-03
+**P1 · in progress** · Depends on: LOC-01, CLOUD-03
 
 Acceptance: Chrome/Chromium tabs and a live view are owner-authenticated; two-client tests prove exclusive input lease, agent pause on takeover and fresh observation after return-control.
 
@@ -492,17 +522,59 @@ Acceptance: Owned directory listing, preview, edit, upload and download reject s
 
 Acceptance: Pairing binds one user and device, narrowly scoped folders/apps, authenticated heartbeat and immediate revocation; it grants no implicit access to personal browser sessions or unrelated chats. Browser-history access requires its own visible opt-in grant and revocation path.
 
+### DESK-01 · Bind one persistent logical desktop to each Pal
+
+**P1 · in progress** · Depends on: PAL-11, SEC-04
+
+Acceptance: Atomic provisioning and database uniqueness prevent duplicate desktops. Reconnect, restart and owner revocation preserve identity without allowing cross-user sessions; destroy remains an explicit lifecycle action.
+
+### DESK-02 · Provide a reconnectable Debian and Xfce desktop
+
+**P1 · in progress** · Depends on: DESK-01, LOC-01
+
+Acceptance: A real isolated Debian 13/Xfce guest opens Chromium, terminal and file manager through an owner-authenticated viewer. Closing the viewer leaves authorized background jobs alive; no host home, shell, SSH agent or unrelated mounts are exposed.
+
+### DESK-03 · Retain browser profiles with verified private control handoff
+
+**P1 · planned** · Depends on: DESK-02, PAL-06
+
+Acceptance: Synthetic cookies/files survive disconnect and guest restart while other users cannot read them. Server-enforced observation/input fencing, explicit resume and fresh observation pass adversarial client tests. Private human contexts do not reuse an agent-modified shell home, and the documented boundary does not claim secrecy from unrestricted code in a shared context.
+
+### DESK-04 · Configure desktop sizes and pooled host admission
+
+**P1 · planned** · Depends on: DESK-01
+
+Acceptance: Administrators define allowed CPU, RAM and storage profiles; per-user and host admission limits are atomic. Reservations, limits and oversubscription are distinct. Workspace, OS, snapshots, logs and staging are accounted separately, and separate Pal guests never imply shared files or credentials.
+
+### DESK-05 · Round-trip chat attachments through the visible desktop
+
+**P1 · planned** · Depends on: PAL-11, DESK-02, LOC-03, LOC-04
+
+Acceptance: An owned synthetic PDF reaches the shared workspace, a visible terminal conversion produces a Word document, and an owned result is returned to the Pal thread. Traversal, symlinks, cross-user references, expired files, limits and interrupted transfers fail safely; conversion fidelity limits are documented.
+
+### DESK-06 · Reconcile desktop restart and restore authority
+
+**P1 · planned** · Depends on: DESK-01, DESK-02
+
+Acceptance: Crash, cold restart and restored-snapshot tests preserve durable files while invalidating stale control authority. An independent recovery witness or mandatory quarantine prevents rolled-back epochs and uncertain actions from replaying; cleanup cannot delete another desktop.
+
+### DESK-07 · Continue authorized Pal desktop jobs without a viewer
+
+**P1 · planned** · Depends on: DESK-02, DESK-03, DESK-05, DESK-06, RUN-03, RUN-04
+
+Acceptance: Bounded multi-step browser/terminal/file runs continue after viewer disconnect, publish durable progress/artifacts, respect pause and takeover, and do not auto-replay uncertain external actions. Provider permissions, expiry, budgets, cancel and restart behavior pass real runtime tests before live unattended work is enabled.
+
 ## M7
 
 ### CON-01 · Build OAuth, webhooks and sync infrastructure
 
-**P1 · planned** · Depends on: EXT-01, RUN-01
+**P1 · in progress** · Depends on: EXT-01, RUN-01
 
 Acceptance: OAuth state/PKCE, refresh races, webhook signature/replay checks, subscription renewal and idempotent delta cursors pass provider fixtures.
 
 ### CON-02 · Add Microsoft 365 mail and calendar
 
-**P1 · planned** · Depends on: CON-01
+**P1 · in progress** · Depends on: CON-01
 
 Acceptance: Graph delegated read/search, drafts and calendar operations pass against a test tenant; send/write scopes are separate and admin consent is documented.
 

@@ -4,6 +4,16 @@ A text workflow saves a sequence of one to four OpenAI model steps. Each step re
 
 Open **Pal → Build a saved text workflow**. Edit the JSON or import a definition, save it, choose a revision and supply the original input. Publish a new revision to change future work. Export returns the selected revision as importable JSON. This runner performs text generation only; it does not execute tools, Python, browser actions, file operations or connected-app actions.
 
+## Try the two-step example
+
+1. Open **Pal → Build a saved text workflow**, then **New workflow**.
+2. Expand **Available OpenAI models** and choose an exact ID available to you. Copy the example below into **Definition JSON** and replace both model IDs if needed. Change the name or prompt to make it your own; keep the JSON structure and step references intact.
+3. Wait for **Valid version 1 definition**, then select **Save workflow**. If validation fails, check quotes, commas, model IDs and the displayed error. This is a JSON editor, not a visual drag-and-drop builder.
+4. Select the intended **Saved revision**, enter harmless text under **Original input**, then choose **Run saved workflow**. Each step can incur provider charges. The separate worker must be running.
+5. Follow **Run progress** and each step’s result. Reloading does not queue another run. **Cancel run** requests cancellation; inspect the saved state before intentionally starting a replacement.
+
+Editing a saved definition requires **Publish new revision** before future runs use the change. **Export JSON** downloads that definition, not all run history. These control labels were checked against source; provider-account availability and a new-user walkthrough are separate validation gates.
+
 ## Definition contract
 
 ```json

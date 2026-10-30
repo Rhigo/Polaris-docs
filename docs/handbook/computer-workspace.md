@@ -1,6 +1,6 @@
 # Isolated browser workspace
 
-The Pal Browser workspace provides a temporary Chromium page that its owner can watch and control. Pal's text tasks are not connected to it. Terminal and general file editing remain disconnected; the Files tab can save completed browser downloads and retrieve previously saved exports.
+The Pal Browser workspace provides a temporary Chromium page that its owner can watch and control. Pal's text tasks are not connected to it. The separate opt-in [public research pilot](./public-browser-research) can use a fresh restricted profile when its dedicated worker and broker role are configured. Terminal and general file editing remain disconnected; the Files tab can save completed browser downloads and retrieve previously saved exports.
 
 ## Use
 

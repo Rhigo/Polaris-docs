@@ -1,5 +1,16 @@
 # Product screenshots
 
+## Microsoft Inbox pilot · 30 October 2026
+
+These are actual production-build captures with synthetic accounts and local Microsoft responses. The tests used the real owned application routes, database and worker; they did not connect a real mailbox. The desktop Inbox and transient plain-text message viewer share the application design. Mobile views use a 390-pixel Chromium viewport, not a physical phone. [Setup, retention and remaining interoperability gate](./microsoft-inbox).
+
+![Read-only Microsoft Inbox with synthetic message summaries and optional local notices](/screenshots/microsoft-inbox-owned-desktop.jpg)
+
+<img class="mobile-shot" src="/screenshots/microsoft-inbox-owned-body-mobile.jpg" alt="Plain-text test message on mobile; HTML and remote-image markup stay literal">
+
+
+The separate [automated security fixture screenshot](/screenshots/ci-nginx-policy.png) records the passing proxy-policy media and artifact checks from PR31. It is a test page, not the product interface or a physical microphone test.
+
 ## Interface refresh · 29 October 2026
 
 These are actual production-build captures with synthetic accounts, following the Pal and shared-interface changes. Desktop/tablet/mobile Chrome checks cover 1440, 768 and 390 pixels, both themes, keyboard focus, dialog dismissal, saved Pal preferences and composer limits. They do not prove physical-device microphone or Safari compatibility.
@@ -121,3 +132,13 @@ Actual 390-pixel Chrome captures from the synthetic voice fixture show bounded r
 <img class="mobile-shot" src="/screenshots/voice-context-mobile.jpg" alt="Voice setup showing the recent text included from the current chat">
 
 <img class="mobile-shot" src="/screenshots/voice-recovery-mobile.jpg" alt="Voice connection failure with an explicit Start a new call action">
+
+## Watched public research · 30 October 2026
+
+Actual Chrome captures from the browser pilot production test build show a real isolated Linux browser, its takeover control, a completed report and the 390-pixel consent form. Accounts, catalogue content and the model provider are synthetic; displayed token usage is fixture data. The UI is preserved in frozen browser release `545161a`. These images do not establish real-model quality, physical-phone compatibility or live-demo enablement. See [setup and limits](./public-browser-research).
+
+![Watched isolated browser with an explicit takeover control](/screenshots/public-research-live-browser.jpg)
+
+![A completed synthetic comparison report with sources](/screenshots/public-research-report-desktop.jpg)
+
+<img class="mobile-shot" src="/screenshots/public-research-consent-mobile.jpg" alt="Reviewed collection and explicit provider-data consent at 390 pixels">

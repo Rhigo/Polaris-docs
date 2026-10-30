@@ -1,4 +1,6 @@
-# Install Polaris
+# Add Polaris to your device
+
+First open your existing Polaris server in a browser. These steps add an app window or home-screen icon; they do not create a server or an account. Need an account or a server? [Start here](./start-here).
 
 Polaris can open in its own app window on browsers that support installation. It still needs a connection to your Polaris server to load chats, files and account details. Installation does not add offline chat, background synchronization, push notifications or a mobile-native application.
 

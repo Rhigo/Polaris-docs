@@ -1,5 +1,7 @@
 # Provider credential expiry
 
+Connecting a provider for the first time? Follow [provider and model setup](./providers) first. The expiry control described here is optional and does not create a provider account or spending limit.
+
 An administrator can set an optional UTC cutoff for an OpenAI or Anthropic API key in **Admin → Providers**. Polaris refuses new provider dispatches at or after that time. Existing configurations without a cutoff keep their previous behavior. This feature needs no database migration; the timestamp is stored in the provider configuration JSON.
 
 ## Set or remove a cutoff

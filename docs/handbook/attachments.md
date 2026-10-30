@@ -1,5 +1,13 @@
 # Attachments in saved conversations
 
+## Use an attachment
+
+Choose **Attach file** in the chat composer, wait for upload/analysis to finish, then send your request. The picker accepts PDF, common images, text/code, office documents and archives; acceptance and useful extraction depend on the actual content and selected provider/model. The default upload limit is **50 MiB per file**, subject to the administrator’s configured server limit. An accepted archive or document is not a promise that every model can interpret it.
+
+Open a saved chat and click an available attachment for its preview or download. An unavailable item may be deleted, expired or inaccessible; Polaris deliberately does not reveal another user’s file details. Use the preview’s Retry control after an error, or ask the administrator about the original upload. Re-upload only content you are entitled to use. [Costs and privacy](./costs) also apply to files.
+
+## Saved files and previews
+
 Uploaded images, PDFs and text files stay visible when a conversation is opened again or refreshed. The conversation and paginated message endpoints now return `attachedFiles`, matching the chat store's existing attachment model. Messages containing only attachments remain visible.
 
 The server resolves saved `file` and `image` part IDs against the signed-in user's file records. Names, MIME types and sizes come from those records; saved URL, name and MIME hints do not control previews. IDs are deduplicated within a message. Storage paths and owner IDs are never serialized. The existing conversation and file authorization checks still apply.

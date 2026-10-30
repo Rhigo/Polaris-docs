@@ -1,5 +1,7 @@
 # Operations and releases
 
+For a fresh installation and first login, start with [administrator setup](./server-setup). This page is the operator reference. Existing users should ask their server administrator about availability and backups.
+
 ## Deployment status
 
 Application Compose includes the web app, PostgreSQL, Redis and proxy, with optional local-model services. Execution is disabled until an external broker is configured; the application stack contains no sandbox service or Docker socket. A dedicated `db-init` image applies the ordered Drizzle journal and seeds the initial administrator before the standalone application starts. `pnpm db:init` performs the same initialization for source-based development.
@@ -12,13 +14,19 @@ The CI deployment check exercises PostgreSQL 16, initialization reruns and HTTPS
 
 Python and shell execution use a separately deployed broker and one fresh container per run on a dedicated Linux execution VM/host. Configure both `SANDBOX_SERVICE_URL` and `SANDBOX_SECRET` only after that host passes its acceptance checks and `/ready` is reachable over a private encrypted route. Never copy application/provider/database credentials to the execution host. The [execution isolation guide](./execution-isolation) covers fixed budgets, cancellation, confirmed cleanup and janitor recovery. Ordinary containers share the execution VM's kernel; this does not certify unattended cloud tenancy or a different runtime.
 
+## Entra sign-in configuration
+
+A saved Entra configuration is authoritative. Disabling it blocks new Entra sign-ins even when `AZURE_AD_*` environment credentials exist; an enabled but incomplete saved configuration also fails closed. Environment-only configuration is used only when no saved Entra row exists. Fresh initialization seeds a disabled row, so an operator using legacy environment setup must explicitly configure and enable the saved settings. Deleting a saved row can restore the environment fallback; use **Disable** to turn sign-in off.
+
+Entra role and group mappings are applied only after Auth.js accepts the stable provider/account association. Matching an existing email does not link an account or authorize permission changes. Disabling the provider does not terminate already-established sessions; disabling the user uses the application's current-user revocation checks.
+
 ## Release discipline
 
 Every release records its exact commit, supported Node/PostgreSQL versions, changed environment variables, migrations, feature flags and provider changes. Additive migrations precede code that needs new fields; destructive cleanup requires an explicit later release and a verified backup. Reverting application code may not revert a data migration.
 
 Before an upgrade, back up PostgreSQL, uploaded/generated files and the encrypted-configuration key material using the deployment's secure backup process. Rehearse restoration into a disposable environment. Never commit credentials or production backups. Check that restored provider settings can be decrypted and that file references resolve.
 
-Monitor database readiness, queue age once workers exist, request/provider errors, tool timeouts, storage growth and actual usage. Unknown costs must not appear as free usage. Apply per-user and per-run resource limits before enabling expensive cloud jobs.
+Monitor database readiness, background-worker availability and queue age, request/provider errors, tool timeouts, storage growth and actual usage. Unknown costs must not appear as free usage. Apply per-user and per-run resource limits before enabling expensive cloud jobs.
 
 ## Documentation publication
 
@@ -36,6 +44,6 @@ Use the [backup and recovery guide](./recovery) to capture a protected checkpoin
 
 ## Saved-task worker upgrades
 
-The [saved-text worker](./pal-tasks) is a separate source-checkout process, not a service started by the web-only deployment. Back up the database and encryption key, stop workers, apply the approved `0008_pal_saved_text_runs` then `0009_usage_cost_basis` journal entries, deploy matching web/worker source, and start only the intended worker processes. Verify a synthetic queued task, persisted output and cancellation before accepting work. Two processes can use the global two-claim capacity; the database enforces one active claim per owner.
+The [saved-text worker](./pal-tasks) is a separate source-checkout process, not a service started by the web-only deployment. Back up the database and encryption key, stop workers, apply the complete migration journal shipped with the approved release (including saved-task, pricing, reminder, API-origin and workflow migrations), deploy matching web/worker source, and start only the intended worker processes. Verify a synthetic queued task, persisted output and cancellation before accepting work. Two processes can use the global two-claim capacity; the database enforces one active claim per owner.
 
 Stop workers before rolling the application back. Keep run history and cost provenance; do not drop additive tables/columns or run an older initializer against a newer migration journal. A release without the worker cannot process its queue. On return to a compatible release, expired claims become interrupted without replay. Failure before a completion record can leave provider charges unaccounted for; reconcile billing separately from [token estimates](./token-accounting).
