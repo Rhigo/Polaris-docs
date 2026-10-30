@@ -7,6 +7,8 @@
 - [Voice](https://rhigo.github.io/Polaris-docs/voice.html)
 - [Temporary chat](https://rhigo.github.io/Polaris-docs/privacy.html)
 - [API keys](https://rhigo.github.io/Polaris-docs/api.html)
+- [Charts and tables](https://rhigo.github.io/Polaris-docs/rich-data.html)
+- [Reminders](https://rhigo.github.io/Polaris-docs/reminders.html)
 - [Saved Pal tasks](https://rhigo.github.io/Polaris-docs/pal-tasks.html)
 - [Images and edits](https://rhigo.github.io/Polaris-docs/images.html)
 - [Chat attachments](https://rhigo.github.io/Polaris-docs/attachments.html)

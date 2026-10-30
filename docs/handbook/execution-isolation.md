@@ -1,5 +1,7 @@
 # Per-execution isolation
 
+**Acceptance is in progress.** Additional recovery and platform isolation checks are underway. Keep `SANDBOX_SERVICE_URL` and `SANDBOX_SECRET` unset for unattended use until the reopened SEC-04 criteria pass. The local demo currently disables these application Python/shell calls; provider-native code tools have their own settings. Prior Linux test results below describe the checks performed, not completion of the new review.
+
 SEC-04 replaces shared subprocess execution with a narrow broker that creates a
 new Linux container for each Python or shell call. It is a code-execution slice of
 the Pal runtime. Persistent browser sessions, interactive terminal takeover,
