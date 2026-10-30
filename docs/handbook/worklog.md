@@ -123,3 +123,31 @@ Actual worker-timed browser checks passed in desktop dark and 390-pixel mobile l
 This completes the one-off inbox slice only. RUN-02, RUN-06 and PAL-04 remain in progress for recurrence, external triggers/channels, quiet hours, snooze and evidence-backed findings. The current live demo stays on its prior verified migration history until CI, backup and restore rehearsal gates pass.
 
 GitHub CI on the first reminder PR head caught an outdated pricing-upgrade fixture: it assumed migration 0009 was the final journal entry. The fixture now finds that historical migration explicitly, builds the preceding 0008 schema, and upgrades through the complete current journal. The existing legacy-cost, unknown-provenance and removed-default assertions remain intact. The disposable pricing/admin HTTP suite and its forced-timeout cleanup probe passed after correction; Linux Node 22/24 checks must pass again on the updated head before merge.
+
+## 2026-10-29 — rich-data integration and mobile correction
+
+The combined reminder/rich-data build passed 212 web and 8 recovery unit tests (8 intentional opt-in skips), production build/typecheck, reminder and saved-task database/HTTP checks, privacy/image/attachment/pricing regressions and five rich-data HTTP records. A separate Chrome check at 390 by 844 pixels exposed a flex layout case missed by the earlier wide-table fixture: a chart title collapsed beside its export controls and made the card 1825 pixels tall. A shrinkable 12rem title basis now wraps the controls, producing a 24-pixel title and 485-pixel card with no document overflow. The rebuilt production fixture and HTTP checks passed. Mobile SVG axis labels still need readable geometry before this release is published; the current snapshot is not a completed mobile chart claim.
+
+## 2026-10-29 — reminder deployment and recovery rehearsal
+
+Reminder PR #15 merged at `a5be1bd` after the final `d965fdd` head passed every required CI check. A migration-fixture assumption discovered by CI was corrected to identify migration 0009 explicitly rather than treating it as the final journal entry.
+
+The local demo deployment stopped both owned writers before each backup. A verified PostgreSQL 18 bundle was restored into a separate database and storage tree, then migrated through 0010 without starting its task worker. Every existing column across all 28 original tables retained its row count and canonical fingerprint. Ten authenticated/readiness routes passed; a synthetic generated-file round trip verified the restored storage root, anonymous denial and cleanup. A second fresh backup preceded the actual forward migration. The same 28-table preservation check and ten HTTP checks passed on the live build before normal use resumed. The new worker enables one-off reminders and bounded saved text tasks; no autonomous computer tools were enabled.
+
+Public documentation PR #5 deployed the 30-page handbook from source `a5be1bd`, with 57 exported file hashes and 28 edit destinations checked. The native wiki Home and sidebar were synchronized with its published task, image, attachment and execution guides.
+
+## 2026-10-29 — streamed data release preparation
+
+Integrated the bounded data-format slice with the reminder release, then corrected two mobile defects found in browser review: export controls could collapse a chart title to one character per line, and a fixed SVG viewBox shrank axis text to about 5.5 pixels. Source `8d9928b` wraps the header and measures actual chart width, preserves 13px axis text, reduces category-label density, wraps long legends and offers a table fallback below 200px.
+
+The final chart candidate passed 216 web unit tests, eight recovery tests, 15 focused rich-data tests, six standalone HTTP records, production build, typecheck and documentation checks/build. The earlier combined release run also passed reminder, saved-task, pricing, privacy, image and attachment regressions. Real Chrome checks at 390px and 1440px measured 15px rendered label boxes, bounded legends and no page-wide overflow. Focus, disclosure state and the same chart identity survived resize and streamed-row completion. These are synthetic-provider and emulated-viewport checks, not physical-device tests.
+
+One bounded live GPT-6 Luna request used the production format instruction and parser with OpenAI SDK 7.45.1. It completed in 154 text deltas; observed rows progressed from zero through three, retaining the supplied negative and missing values without invented sources. Usage reported 436 input and 158 output tokens; tools and provider storage were disabled. This verifies the direct SDK/display-format path for one request, not the entire browser journey or all models. The temporary credential remained outside Git and within its expiry/test allowance.
+
+README, current status, gallery and wiki source now describe the implemented scope instead of retaining outdated baseline warnings. AI-09 remains in progress while the separate first-conversation navigation/focus correction is integrated. The candidate still requires exact-head GitHub checks before merge; the live demo remains on the verified reminder release.
+
+## 2026-10-29 — additional execution review and reversible demo hold
+
+Further adversarial review reopened SEC-04 for recovery and platform isolation verification. The local demo now has both application broker settings disabled; only its owned web and task-worker processes were restarted. The broker, VM, database, storage, authentication and encryption configuration were left intact. The production configuration helper rejected new execution requests and ten login/readiness/feature HTTP checks passed after reload. The previous private configuration is retained for controlled recovery, but execution will remain disabled until the additional checks pass. Earlier Linux results remain evidence for their original scope. The separate browser workspace also remains disconnected from the live demo pending independent acceptance.
+
+The first PR #16 documentation check rejected a mismatch between the reopened SEC-04 generated page and its canonical JSON entry. The JSON source is now updated and the roadmap regenerated. Local documentation validation and rendering were rerun; the updated GitHub head must pass all required checks before merge.

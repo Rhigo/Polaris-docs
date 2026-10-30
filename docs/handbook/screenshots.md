@@ -69,3 +69,11 @@ Captured from production source 536e282, whose runtime matches the merged privac
 ![Temporary chat retains context within its tab](/screenshots/temporary-two-turns-desktop.jpg)
 
 <img class="mobile-shot" src="/screenshots/temporary-two-turns-mobile.jpg" alt="Temporary chat and privacy notice at 390px">
+
+## Streamed charts and tables · 29 October 2026
+
+Production source `8d9928b` with synthetic accounts and a loopback provider. The 1440px desktop and 390px mobile checks measured readable axes, preserved missing values, export controls, keyboard table focus and disclosure state across streamed rows and resize. These are real app captures, not evidence of a paid provider request or physical-device testing. [Format and limitations](./rich-data.md).
+
+![Streamed synthetic quarterly data with chart and downloads](/screenshots/rich-data-desktop.jpg)
+
+<img class="mobile-shot" src="/screenshots/rich-data-mobile.jpg" alt="Chart axes and table fallback at a 390-pixel viewport">

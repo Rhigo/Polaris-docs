@@ -82,11 +82,11 @@
       "milestone": "M1",
       "priority": "P1",
       "title": "Bound and isolate code execution",
-      "status": "done",
+      "status": "in_progress",
       "dependsOn": [
         "DOC-01"
       ],
-      "acceptance": "Per-run isolation rejects cross-user files, symlinks, unbounded output and orphan subprocesses in Linux integration tests; no host execution fallback."
+      "acceptance": "Per-run isolation rejects cross-user files, symlinks, unbounded output and orphan subprocesses in Linux integration tests; no host execution fallback. Recovery preserves uncertain resource admission across restarts, and supported platforms pass explicit socket-policy negative tests. Additional adversarial review reopened these criteria; unattended application execution remains on hold pending verification."
     },
     {
       "id": "REL-02",
@@ -1084,7 +1084,7 @@
       "milestone": "M3",
       "priority": "P2",
       "title": "Stream accessible charts and tables into chat",
-      "status": "planned",
+      "status": "in_progress",
       "dependsOn": [
         "AI-02",
         "UX-09"

@@ -25,6 +25,7 @@ export default defineConfig({
         { text: 'One-off reminders', link: '/reminders' },
         { text: 'Chat attachments', link: '/attachments' },
         { text: 'Image generation', link: '/images' },
+        { text: 'Charts and data tables', link: '/rich-data' },
         { text: 'Temporary chat and privacy', link: '/privacy' },
         { text: 'Screenshots', link: '/screenshots' },
       ] },

@@ -52,9 +52,9 @@ Acceptance: Invalid JSON, roles, IDs and oversized text return 4xx; retries of o
 
 ### SEC-04 · Bound and isolate code execution
 
-**P1 · done** · Depends on: DOC-01
+**P1 · in progress** · Depends on: DOC-01
 
-Acceptance: Per-run isolation rejects cross-user files, symlinks, unbounded output and orphan subprocesses in Linux integration tests; no host execution fallback.
+Acceptance: Per-run isolation rejects cross-user files, symlinks, unbounded output and orphan subprocesses in Linux integration tests; no host execution fallback. Recovery preserves uncertain resource admission across restarts, and supported platforms pass explicit socket-policy negative tests. Additional adversarial review reopened these criteria; unattended application execution remains on hold pending verification.
 
 ### REL-02 · Add database and browser regression CI
 
@@ -248,7 +248,7 @@ Acceptance: Users explicitly share and stop each source; permissions denied and 
 
 ### AI-09 · Stream accessible charts and tables into chat
 
-**P2 · planned** · Depends on: AI-02, UX-09
+**P2 · in progress** · Depends on: AI-02, UX-09
 
 Acceptance: Validated chart/table specs update incrementally with source links and export; malicious specs never execute application-origin script and mobile/keyboard fallbacks are tested.
 
