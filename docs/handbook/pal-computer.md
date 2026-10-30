@@ -1,45 +1,58 @@
 # Your Pal's computer
 
-**In development.** This page describes the next persistent-desktop milestone. The existing [browser workspace](./computer-workspace) and [public research pilot](./public-browser-research) have narrower, separately tested behavior. They are not yet the always-available desktop described here.
+The first manual desktop slice is implemented and tested against a separate synthetic Debian 13 prototype. It opens a real Xfce desktop beside the [continuous Pal conversation](./continuous-pal). Installation, operator configuration and the release deployed on your server still determine availability. This does not enable autonomous desktop work.
 
-## One Pal, one private conversation, one computer
+## Open, watch and control
 
-Each Polaris user will have one Pal identity, one continuous conversation with that Pal, and one persistent logical computer. Reconnecting will open the same computer. Opening two tabs must not create two Pals or provision two desktops.
+1. Open **My Pal → Desktop**. If no runtime or matching policy is configured, the panel explains what is missing; it does not pretend a computer is connected.
+2. An administrator must assign the supported resource policy. **Connect desktop** then binds the one configured runtime to the existing Pal and logical desktop. Reconnecting does not allocate another machine.
+3. Choose **Observe desktop** for a read-only view, or **Control desktop** for keyboard/pointer access. If someone already controls it, **Take over control** asks for confirmation and replaces that controller.
+4. Use the desktop's Chromium, Terminal or Files dock. These are real guest applications, not app-side simulations. Resources remain available in the **Desktop resources** disclosure.
+5. Choose **Close viewer** when finished. It closes only your viewer; desktop files and profile remain. Stopping the VM is a separate operator action and ends running processes.
 
-The Pal conversation will feel like a message thread: messages stay together, a small reaction picker offers a few emojis, and Pal can react to the current user message through a bounded server tool. Ordinary chats remain separate. The Pal avatar opens its settings; a side panel opens its computer. On a phone, those panels use the full screen.
+On a wide screen, the panel is docked so you can type to Pal while watching. On narrow screens it is modal, with Tab containment, Escape and return focus. Changing width preserves the mounted viewer. In the desktop, **Focus desktop** directs keys to the guest; **F8** releases held keys and returns focus to that toolbar. Tab can then reach Disconnect and leave the iframe for the parent close control.
 
-## Connect, watch and take over
+The desktop and 390px browser layouts were exercised. Physical iOS/Android remote typing, virtual-keyboard controls and touch gestures were not. There is no **Resume Pal** control because this runtime has no agent role.
 
-The planned desktop uses Debian 13 Trixie with Xfce, Chromium, a terminal and a file manager. A small dock makes those applications easy to open. Browser profiles and workspace files belong to the desktop, rather than to the browser tab used to watch it.
+## What persists
 
-**Connect** opens the live view. **Take over** pauses Pal's control and gives the user the keyboard and pointer. **Resume Pal** explicitly hands control back after Pal has observed the current state. These permissions must be enforced by the server; disabling buttons in the viewer is not sufficient.
+The application retains one logical desktop per owner/Pal. The operator VM has its own runtime identity and boot generation. Binding, active-account checks, one-use viewer tickets and exclusive writer leases are enforced on the server; noVNC's visual mode is not authorization.
 
-Closing the viewer must not cancel an authorized background task. The hosting machine still needs to remain powered, connected and able to run the desktop. Websites can expire their sign-ins independently. Retaining a browser profile does not guarantee permanent access to an account.
+Synthetic files and a local test sign-in survived viewer disconnect, gateway recovery and a cold VM restart. A cold stop frees RAM and ends programs; it retains disk data rather than suspending processes. Websites can expire cookies independently. Real OAuth/provider sign-in and a private human-versus-agent context have not been validated.
 
-## The same files in chat, terminal and file manager
+## Shared files: current boundary
 
-A chat attachment should be copied into that user's workspace through an authenticated transfer. Pal and the user can then work with the same file in the visible desktop. An exported result receives an owned Polaris download reference before it is returned in the Pal thread.
+Terminal and Files see the same guest `/workspace`. A synthetic PDF→DOCX→PDF conversion and text checks passed inside the manual prototype, and the real windows appear in the [gallery](./screenshots). That proves a bounded local conversion, not arbitrary document fidelity or a completed chat attachment round trip.
 
-The first demonstration will use a synthetic PDF and a Word document: watch the conversion, find the output in the file manager, and download it from chat. This is an acceptance target, not a claim that arbitrary PDF layout conversion already works. Transfers must reject other users' files, traversal, expired references and oversized content.
+Authenticated transfer from a Pal chat attachment into that workspace, followed by an owned result returned to the thread, remains DESK-05. Do not assume dragging a file into chat makes it available in the desktop. General editor/PTY APIs also remain separate from typing in the real Xfce applications.
 
-## Shared hardware, separate user environments
+## Resources and hosting
 
-An installation can pool its hardware while keeping separate desktops. A single shared Linux login is not the intended isolation boundary.
+The first adapter is one operator-provisioned slot: **2 vCPUs, 3072 MiB RAM, 20 GiB sparse OS disk**. Workspace/profile storage shares that disk; there is no separately enforced data quota. A file-transfer limit is not a disk quota. An administrator's policy record does not resize or provision a machine.
 
-| Deployment model | Intended boundary |
-| --- | --- |
-| One VM per Pal on a shared host | Reference option for stronger separation between users; CPU, memory and storage still come from a shared pool |
-| One container per Pal on a dedicated execution host | Possible trusted-user tier, with its limitations documented and tested separately |
-| Several ordinary Linux user sessions | Cooperative multi-user desktop behavior; not a sufficient hostile-code isolation guarantee |
+The proposed larger profiles and a pool of per-user VMs are future work. Reservations, actual limits, disk usage, snapshots and host memory pressure need separate accounting before multiple desktops are admitted. Ordinary Linux users sharing one guest are not the intended hostile-code isolation boundary.
 
-Administrators will set limits and choose which sizes users can request. **4 vCPU, 10 GiB RAM and 32 GiB workspace storage** are a proposed starting profile, not a minimum or a validated capacity recommendation. The operating system, snapshots, logs and temporary transfers need additional capacity. A vCPU limit is not a promise of a dedicated physical CPU, and reserving resources is different from allowing oversubscription.
+## Polaris appearance
 
-The development prototype may use a smaller profile. Hosting capacity must be measured before admitting multiple desktops; it must not silently consume all of the host's memory or disk.
+The reversible preset uses the existing curved star, charcoal surfaces, teal accents, Inter typography and a Chromium/Terminal/Files dock. Standard Xfce menus, window controls, panels and preferences remain usable. Real before/after captures and exact eleven-file rollback/reapply checks passed; the [operator handoff](./desktop-operator-handoff#appearance-and-rollback) explains customization and its limits. The preset changes no runtime/network permissions and generates no new artwork.
 
-## Privacy and recovery gates
+## Privacy, recovery and deployment
 
-Other users must not receive the desktop's session, files, cookies or control credentials. Pal's own working environment is a different trust boundary: code allowed to use a folder can read that folder. A shared terminal home can also retain history or modified startup scripts. Private sign-in and genuinely private human input need a separately verified flow; a client-side “view only” switch does not provide that guarantee.
+This manual pilot permits only loopback/local fixture networking. It has no host-home mounts, SSH-agent forwarding or host-shell fallback. The same guest account can read its own browser profile; do not treat that as protection from code it runs.
 
-Disconnect, restart and restore are distinct operations. A restored snapshot must not revive stale control credentials or replay an uncertain external action. Stopping a desktop must preserve its identity and durable files; destruction must be explicit. An idle policy must distinguish a disconnected viewer from a running background job.
+Full snapshot recovery is not accepted: a restored disk/database must not revive stale authority or uncertain actions. Keep the desktop path disabled during restore and reconcile the retained ownership record before re-enabling. Never reset a bound runtime to assign it to another owner. [Runtime/API operations](./persistent-desktop) and the [operator handoff](./desktop-operator-handoff) cover exact-origin policy, leases and rollout.
 
-The [backlog](./backlog) tracks the continuous thread (`PAL-11`–`PAL-12`), persistent desktop (`DESK-01`–`DESK-07`) and existing terminal/file work (`LOC-03`–`LOC-04`). The first milestone is a documented manual playground with synthetic data. Autonomous work, multi-user isolation and private sign-in remain separate acceptance gates.
+The preserved synthetic prototype and the fresh empty/unbound deployment are different machines. At this documentation checkpoint, the former was cold-stopped with its profile/state intact; the latter was being prepared but had not completed acceptance or been connected to the live app. Screenshots do not establish that rollout.
+
+## Remaining desktop acceptance
+
+| Backlog item | Completed part | Still required |
+| --- | --- | --- |
+| DESK-01 | Unique owner/Pal/logical desktop and retained runtime reservation | Broader provisioning/lifecycle and explicit retirement/destroy acceptance |
+| DESK-02 | Real isolated Debian/Xfce, manual viewer, native apps and retained files | Full authorized background-job lifecycle within the intended deployment |
+| DESK-03 | Synthetic profile persistence, observe/input fencing and takeover | Verified private human-versus-agent contexts, return-control/fresh observation and real sign-in limits |
+| DESK-04 | Immutable named resource policies, owner overrides and single-slot reservation | Host pool admission/accounting, resizing and storage/snapshot/staging budgets |
+| DESK-05 | Manual synthetic conversion inside the prototype only | Owned chat attachment→desktop→Pal result round trip and all transfer failure cases |
+| DESK-06 | Gateway crash recovery and cold restart evidence | Coordinated snapshot restore, independent rollback witness/quarantine and stale-authority reconciliation |
+| DESK-07 | No autonomous desktop role | Bounded durable browser/terminal/file jobs, budgets, takeover, cancellation and restart gates |
+| DESK-08 | Reversible Polaris preset, real launchers, customization, rollback and before/after evidence | Scoped acceptance complete; it does not close any runtime/isolation item above |

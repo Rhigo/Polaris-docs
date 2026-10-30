@@ -2,49 +2,58 @@
 
 ## What runs today
 
-Polaris is a pnpm workspace. `apps/web` combines the Next.js 15 / React 19 interface, authenticated API routes, provider adapters and chat orchestration. PostgreSQL stores users, conversations, messages, projects, files, configuration, memory and usage through Drizzle. Nginx fronts the app. A separate Python/FastAPI broker creates one container per execution on a dedicated Linux VM; the application stack has no shared executor. Optional Compose services include Ollama and SearXNG. Redis is configured but durable job processing is not implemented.
+Polaris is a pnpm workspace. `apps/web` combines the Next.js 15 / React 19 interface, authenticated API routes, provider adapters and chat orchestration. PostgreSQL stores application state through Drizzle. Nginx fronts the app. Separate source workers process saved text tasks, sequential workflows, one-off reminders, optional Inbox sync and the public-browser pilot. Their durable claims and events are in PostgreSQL; Redis is not their recovery source.
 
 ```text
-Browser ── HTTPS / SSE ── Next.js UI + API
-                             │
-                Auth + model/tool policy
-                             │
-                    Chat orchestration
-                   /         │          \
-          PostgreSQL     AI providers   Tool clients
-             │                 │             │
-       Messages/files    Native tools   External broker
+Browser ── HTTPS/SSE ── Next.js UI/API ── PostgreSQL
+  │                         │                │
+  │                   provider adapters   durable workers
+  │                         │                │
+  │                   model providers    bounded requests
+  │
+  └─ separate-origin viewer ── manual desktop gateway ── Xfce guest
+
+Tool clients ── external execution broker ── fresh per-run containers
+Browser pilot ── separate browser broker ── isolated Chromium
 ```
 
-Chat selects the effective base or virtual model, resolves allowed custom functions, builds history/project/file context, streams a provider response, invokes tools and persists messages and usage. Artifacts are materialised for preview/download. Realtime currently uses a separate WebRTC setup and tool bridge; unifying its context and permissions is part of M3.
+These three computer paths have different authority and lifetimes. Per-run code execution cleans temporary workloads. The browser pilot supports a reviewed public research flow. The persistent manual desktop retains its guest profile/files and exposes no agent role. None falls back to the host shell or grants access to personal host folders.
+
+## Normal chat and continuous Pal
+
+Chat resolves the selected model and current owner/group permissions, builds bounded context, streams a provider response, executes permitted tools and persists messages/usage. Temporary chat has a separate stateless retention contract; saved normal chats retain their supported provider continuation.
+
+Migration 0016 adds an owner-unique Pal and conversation plus scoped reactions. First-open locks/rechecks the active account; uniqueness prevents two tabs creating two threads. Normal conversation/search/archive APIs exclude that thread. Its history pages retain microsecond ordering, while model context is limited to 200 recent records. Previous reasoning, tools and provider continuation do not replay as Pal history. Owned attachments still pass hydration/expiry checks.
+
+The reaction tool receives trusted owner/Pal/current-user-message IDs from orchestration. The caller cannot choose an actor or target. Assistant/tool rows retain the user parent, so simultaneous turns, cancellation and reload cannot attach a result to another prompt. User reactions use cookie-authenticated owner routes and require no model request.
+
+## Manual desktop authority
+
+Migration 0017 adds immutable resource policies, per-owner selection and one logical desktop with a retained runtime reservation. A composite Pal/owner foreign key and unique runtime key prevent cross-owner binding. The application record exists independently of the operator VM; materializing it does not allocate hardware.
+
+The web process alone holds the private runtime URL/key. It verifies runtime identity and the fixed profile, records binding intent before dispatch and retains uncertain outcomes. A lost response does not free the slot. A bound runtime cannot be reassigned by clearing application state; account deletion is blocked while a retained reservation exists.
+
+The browser receives a transient 20-second, one-use fragment ticket for a separate origin. The gateway enforces RFB observation/input restrictions, an exclusive writer, boot generation and bounded leases. App renewals recheck the current account. Closing a panel releases only its captured viewer ID, never a newer controller. The UI compares the proxy's exact-origin marker; artifact restrictions and PWA public-only caching remain separate.
+
+The docked/modal shell changes focus behavior with width while preserving one iframe. The desktop's F8 release returns keyboard focus to its own toolbar, then back into the application. There is no autonomous desktop dispatcher, general PTY API, pooled allocator or verified snapshot-restore witness in this slice.
 
 ## Source map
 
 | Path | Responsibility |
 | --- | --- |
-| `apps/web/app/(app)` | Chat, projects, settings and administration screens |
-| `apps/web/app/api` | Authenticated internal HTTP routes |
-| `apps/web/auth.ts` | Credentials and Microsoft Entra authentication |
-| `apps/web/db/schema.ts` | Persistent model and relationships |
-| `apps/web/db/migrations/meta/_journal.json` | Applied migration sequence |
-| `apps/web/lib/orchestration/engine.ts` | Context assembly, provider loop, tool execution and persistence |
-| `apps/web/lib/providers` | Provider adapters, capability heuristics and estimated costs |
-| `apps/web/lib/functions/runtime.ts` | OpenAI/webhook/MCP function execution |
-| `apps/web/components/chat` | Chat, composer, voice, artifacts and navigation |
-| `services/sandbox` | Dedicated broker, per-run workload and independent janitor |
-| `docker-compose.yml`, `nginx`, `scripts/install.sh` | Deployment services and bootstrap |
+| `apps/web/auth.ts`, `lib/auth` | Current-account and credentials/Entra boundaries |
+| `apps/web/lib/orchestration`, `lib/providers` | Context, provider contracts, tools and nullable usage provenance |
+| `apps/web/lib/pal/thread`, `components/pal` | Continuous thread, reactions, appearance, activities and desktop UI |
+| `apps/web/lib/pal/desktops` | Owner API, retained binding, resource policy and viewer lifecycle |
+| `apps/web/lib/pal/runs`, `lib/workflows`, `lib/connectors` | Durable text work, reminders and scoped connection lifecycle |
+| `apps/web/db/schema.ts`, `db/migrations/meta/_journal.json` | Reviewed schema and ordered migrations |
+| `services/sandbox` | Per-run execution broker, workload and independent cleanup |
+| `services/computer` | Separate isolated browser and public research protocol |
+| `services/desktop` | Manual Debian/Xfce gateway, RFB authority and reversible appearance |
+| `docker-compose.yml`, `nginx`, `scripts/install.sh` | App deployment, exact viewer policy and bootstrap |
 
-## Proposed evolution
+## Next boundaries
 
-Keep the working application and extract narrow services behind tested interfaces. A wholesale rewrite would make the existing file/tool behaviour harder to preserve.
+Chat-to-desktop file transfer, durable multi-step desktop orchestration, approvals, budgets, general recurring responsibilities and pooled admission remain separate work. External writes need idempotency and explicit uncertain-outcome handling; a restarted queue must not replay them blindly. Full DB/disk restore must reconcile identities and authority before either workers or desktops resume.
 
-1. **Principal and policy service:** current user status, group/model access, project ownership and effective tool permissions. Used by chat, voice, API keys and background runs.
-2. **Context service:** normalised messages, files, project instructions, memory, token budgets, compaction and provider state. Keep retention/deletion policy explicit.
-3. **Provider registry:** versioned capabilities and contract adapters. Account model discovery does not by itself prove support for every parameter or tool.
-4. **Run service:** durable state, event cursor, checkpoints, leases, cancellation and usage reservations. The web process renders/subscribes; a separate worker executes.
-5. **Tool gateway:** typed input/output, credential references, approvals, retry/idempotency and audit records. Pipelines and connectors share it.
-6. **Execution adapters:** local isolated jobs, managed agent environments and cloud browsers behind resource and ownership boundaries.
-
-Proposed records include `api_keys`, `runs`, `run_events`, `run_checkpoints`, `schedules`, `approvals`, `credential_refs`, `connections`, `sync_cursors`, `pipeline_versions`, `execution_sessions` and `usage_reservations`. These are design targets, not existing tables. Add them using additive, reviewed migrations with upgrade fixtures.
-
-For background side effects, an outbox and idempotency keys are essential: a queue retry must not send another email or create another calendar event. A run should move through queued → running → waiting/needs input → succeeded/failed/cancelled, retaining enough evidence to resume or explain failure.
+The ongoing SEC-06 review retains parser resource containment and file/database storage reconciliation as open gates. Upload byte limits alone prove neither. A passing narrow fixture is not a blanket security or multi-tenant certification.

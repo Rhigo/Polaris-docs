@@ -2,8 +2,12 @@
 
 The public handbook, screenshots and roadmap for Polaris.
 
-- **Documentation:** https://rhigo.github.io/Polaris-docs/
-- **Wiki:** https://github.com/Rhigo/Polaris-docs/wiki
+![Continuous Pal conversation beside its branded manual desktop](docs/handbook/public/screenshots/pal-thread-docked.jpg)
+
+*A real authenticated Debian desktop beside a synthetic test reply. Manual viewing/control is tested; public desktop browsing and autonomous desktop work remain separate gates. [See the gallery and evidence limits](docs/handbook/screenshots.md).*
+
+- **Documentation:** [Illustrated handbook](https://rhigo.github.io/Polaris-docs/)
+- **Wiki:** [Guide index](https://github.com/Rhigo/Polaris-docs/wiki)
 - **Status:** [What is implemented and verified](docs/handbook/status.md)
 - **Source record:** [Reviewed upstream revision and file hashes](source-manifest.json)
 

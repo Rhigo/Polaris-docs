@@ -1,5 +1,33 @@
 # Product screenshots
 
+## Continuous Pal and a manual branded computer · 30 October 2026
+
+These are genuine application and authenticated noVNC/RFB captures, not composites or generated artwork. The account, messages, provider replies, local sign-in and files are synthetic. Desktop UI source is frozen at `81382f3`; runtime `46bfb6b`, keyboard follow-up `bd147be` and reversible appearance `a51b3af` are retained in the combined `c5ea88d` source. The reaction image predates the final resource-panel refinement; its reaction component is unchanged.
+
+At **1440×1000**, chat remains usable beside the actual desktop. The reply below came from a loopback synthetic model, while the right side is a real streamed Xfce session. Resource details are collapsed, and the dock/footer fit inside the panel. This does not show Pal controlling the computer.
+
+![Continuous Pal chat alongside the real manual Xfce desktop, with a synthetic reply and visible dock](/screenshots/pal-thread-docked.jpg)
+
+The **390×844 Chromium viewport** shows responsive viewing and keyboard focus on the resource disclosure. Resize preserved the same mounted connection; modal Tab/Escape/return focus were checked. No physical iOS/Android typing, on-screen keyboard or mobile touch acceptance is implied.
+
+<img class="mobile-shot" src="/screenshots/pal-thread-mobile.jpg" alt="Manual desktop observation in the modal Pal workspace at 390 pixels, with the resource disclosure focused">
+
+The fixed picker uses six labelled choices. This capture shows the user's menu and a server-authored Pal reaction to the current synthetic message. Save/remove/reload and keyboard focus were checked; the visible model name is not evidence of a paid provider call.
+
+![Six-choice reaction picker beside the current message and a completed synthetic Pal reaction tool](/screenshots/pal-thread-reactions.jpg)
+
+### Real Xfce appearance and applications
+
+The reversible layer reuses Polaris's existing star, charcoal/teal palette and Inter typography. Chromium, Terminal and Files opened from the actual dock. Standard Xfce controls remain. The [before-preset capture](/screenshots/pal-computer-before.jpg) preserves the initial plain desktop; rollback restores settings, not the later installed SVG/font packages. The [operator handoff](./desktop-operator-handoff#appearance-and-rollback) describes that distinction.
+
+![Real Polaris-themed Xfce desktop with Chromium, Terminal and Files dock](/screenshots/pal-computer-theme.jpg)
+
+Terminal and Thunar show the same `/workspace` with synthetic Warmup PDF/DOCX files. Manual PDF→DOCX→PDF/text checks passed within the prototype. This is not a completed chat attachment round trip, arbitrary conversion-fidelity claim or autonomous task.
+
+![Actual Terminal pwd and file listing beside Thunar with synthetic document-conversion files](/screenshots/pal-computer-terminal-files.jpg)
+
+All viewer tickets, disposable app/database/processes and browser tabs were cleaned. The preserved synthetic prototype was subsequently cold-stopped with its disk/profile/binding intact. The fresh empty/unbound deployment has a separate identity and acceptance process; these screenshots do not certify its rollout. [Conversation](./continuous-pal), [computer](./pal-computer) and [operator](./desktop-operator-handoff) guides describe the limits.
+
 ## Microsoft Inbox pilot · 30 October 2026
 
 These are actual production-build captures with synthetic accounts and local Microsoft responses. The tests used the real owned application routes, database and worker; they did not connect a real mailbox. The desktop Inbox and transient plain-text message viewer share the application design. Mobile views use a 390-pixel Chromium viewport, not a physical phone. [Setup, retention and remaining interoperability gate](./microsoft-inbox).

@@ -1241,7 +1241,7 @@
       "milestone": "M1",
       "priority": "P1",
       "title": "Independently review security across the accepted feature set",
-      "status": "planned",
+      "status": "in_progress",
       "dependsOn": [
         "SEC-01",
         "SEC-02",
@@ -1249,14 +1249,14 @@
         "SEC-04",
         "SEC-05"
       ],
-      "acceptance": "An independent reviewer records exact source/images, deployment assumptions, author/reviewer boundaries and scope across auth, ownership/API keys, credentials, artifacts, workers, browser/terminal isolation, connectors and recovery. Concrete findings include path/line, severity, reproducible synthetic tests and remediation; race and Linux isolation claims require appropriate real boundary evidence. Blocking findings are fixed with regressions at the accepted commit or retain a release hold. Residual risks, unsupported platforms and untested external behavior are explicit; the review never claims everything is secure."
+      "acceptance": "An independent reviewer records exact source/images, deployment assumptions, author/reviewer boundaries and scope across auth, ownership/API keys, credentials, artifacts, workers, browser/terminal isolation, connectors and recovery. Concrete findings include path/line, severity, reproducible synthetic tests and remediation; race and Linux isolation claims require appropriate real boundary evidence. Blocking findings are fixed with regressions at the accepted commit or retain a release hold. Parser resource containment and file/database reconciliation remain separate open review and remediation gates; upload byte limits alone do not establish either. Residual risks, unsupported platforms and untested external behavior are explicit; the review never claims everything is secure."
     },
     {
       "id": "PAL-11",
       "milestone": "M5",
       "priority": "P1",
       "title": "Keep one continuous private Pal conversation per user",
-      "status": "in_progress",
+      "status": "done",
       "dependsOn": [
         "SEC-01",
         "PAL-01"
@@ -1268,7 +1268,7 @@
       "milestone": "M5",
       "priority": "P1",
       "title": "Add bounded user and Pal message reactions",
-      "status": "in_progress",
+      "status": "done",
       "dependsOn": [
         "PAL-11"
       ],
@@ -1303,7 +1303,7 @@
       "milestone": "M6",
       "priority": "P1",
       "title": "Retain browser profiles with verified private control handoff",
-      "status": "planned",
+      "status": "in_progress",
       "dependsOn": [
         "DESK-02",
         "PAL-06"
@@ -1315,7 +1315,7 @@
       "milestone": "M6",
       "priority": "P1",
       "title": "Configure desktop sizes and pooled host admission",
-      "status": "planned",
+      "status": "in_progress",
       "dependsOn": [
         "DESK-01"
       ],
@@ -1340,7 +1340,7 @@
       "milestone": "M6",
       "priority": "P1",
       "title": "Reconcile desktop restart and restore authority",
-      "status": "planned",
+      "status": "in_progress",
       "dependsOn": [
         "DESK-01",
         "DESK-02"
@@ -1362,6 +1362,17 @@
         "RUN-04"
       ],
       "acceptance": "Bounded multi-step browser/terminal/file runs continue after viewer disconnect, publish durable progress/artifacts, respect pause and takeover, and do not auto-replay uncertain external actions. Provider permissions, expiry, budgets, cancel and restart behavior pass real runtime tests before live unattended work is enabled."
+    },
+    {
+      "id": "DESK-08",
+      "milestone": "M6",
+      "priority": "P1",
+      "title": "Brand the Pal desktop consistently with Polaris",
+      "status": "done",
+      "dependsOn": [
+        "DESK-02"
+      ],
+      "acceptance": "A reversible Xfce appearance layer reuses Polaris assets, colors and typography; Chromium, Terminal and Files have a clear dock. Standard desktop controls remain usable. Host customization, theme rollback and before/after screenshots are documented without changing runtime isolation."
     }
   ]
 }

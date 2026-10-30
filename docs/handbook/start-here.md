@@ -24,7 +24,8 @@ Do not clone the documentation repository expecting it to run chat. If you do no
 | Ask a question or draft text | [Chat](./guide) | An enabled model you can access |
 | Work with a file | [Attachments](./attachments) | An accepted file and a model that supports the intended use |
 | Find an old conversation | [Search and history](./conversation-history) | Your saved conversations |
-| Change my companion | [My Pal](./guide#make-pal-your-own) | Your signed-in account |
+| Talk to or customize my companion | [My Pal](./continuous-pal) | Your signed-in account and an available model for replies |
+| Watch my manual desktop | [Pal computer](./pal-computer) | Separately provisioned runtime, assigned policy and matching viewer-origin configuration |
 | Save a background text task | [Saved tasks](./pal-tasks) | An enabled model and a running worker |
 | Schedule an inbox reminder | [Reminders](./reminders) | A running worker; no model request is required |
 | Run several text steps | [Text workflows](./workflows) | A JSON definition, an enabled OpenAI model and a running worker |

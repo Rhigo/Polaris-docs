@@ -1,6 +1,6 @@
 # Feature backlog
 
-Updated 2026-10-30. 115 work items. Generated from `backlog.json`; run `pnpm roadmap:generate` after editing the source.
+Updated 2026-10-30. 116 work items. Generated from `backlog.json`; run `pnpm roadmap:generate` after editing the source.
 
 P1 is required for the relevant release gate; P2 extends the product after its dependencies are proven. Planned features are not advertised as shipped. See [milestones](./roadmap) and [execution protocol](./execution).
 
@@ -100,9 +100,9 @@ Acceptance: Request IDs connect API, provider and worker events; secrets are red
 
 ### SEC-06 · Independently review security across the accepted feature set
 
-**P1 · planned** · Depends on: SEC-01, SEC-02, SEC-03, SEC-04, SEC-05
+**P1 · in progress** · Depends on: SEC-01, SEC-02, SEC-03, SEC-04, SEC-05
 
-Acceptance: An independent reviewer records exact source/images, deployment assumptions, author/reviewer boundaries and scope across auth, ownership/API keys, credentials, artifacts, workers, browser/terminal isolation, connectors and recovery. Concrete findings include path/line, severity, reproducible synthetic tests and remediation; race and Linux isolation claims require appropriate real boundary evidence. Blocking findings are fixed with regressions at the accepted commit or retain a release hold. Residual risks, unsupported platforms and untested external behavior are explicit; the review never claims everything is secure.
+Acceptance: An independent reviewer records exact source/images, deployment assumptions, author/reviewer boundaries and scope across auth, ownership/API keys, credentials, artifacts, workers, browser/terminal isolation, connectors and recovery. Concrete findings include path/line, severity, reproducible synthetic tests and remediation; race and Linux isolation claims require appropriate real boundary evidence. Blocking findings are fixed with regressions at the accepted commit or retain a release hold. Parser resource containment and file/database reconciliation remain separate open review and remediation gates; upload byte limits alone do not establish either. Residual risks, unsupported platforms and untested external behavior are explicit; the review never claims everything is secure.
 
 ## M2
 
@@ -438,13 +438,13 @@ Acceptance: User-selected read scopes produce attributed private findings; tests
 
 ### PAL-11 · Keep one continuous private Pal conversation per user
 
-**P1 · in progress** · Depends on: SEC-01, PAL-01
+**P1 · done** · Depends on: SEC-01, PAL-01
 
 Acceptance: Database uniqueness and concurrent-first-open tests prove one owner, Pal and thread. Normal chat/search/archive controls cannot expose or remove the Pal thread. Avatar settings and computer panels remain keyboard and mobile accessible.
 
 ### PAL-12 · Add bounded user and Pal message reactions
 
-**P1 · in progress** · Depends on: PAL-11
+**P1 · done** · Depends on: PAL-11
 
 Acceptance: An accessible fixed-emoji picker adds/removes owned reactions. A server-context tool lets Pal react only to the current persisted user message; actor spoofing, stale or foreign message IDs and unsupported providers fail explicitly.
 
@@ -536,13 +536,13 @@ Acceptance: A real isolated Debian 13/Xfce guest opens Chromium, terminal and fi
 
 ### DESK-03 · Retain browser profiles with verified private control handoff
 
-**P1 · planned** · Depends on: DESK-02, PAL-06
+**P1 · in progress** · Depends on: DESK-02, PAL-06
 
 Acceptance: Synthetic cookies/files survive disconnect and guest restart while other users cannot read them. Server-enforced observation/input fencing, explicit resume and fresh observation pass adversarial client tests. Private human contexts do not reuse an agent-modified shell home, and the documented boundary does not claim secrecy from unrestricted code in a shared context.
 
 ### DESK-04 · Configure desktop sizes and pooled host admission
 
-**P1 · planned** · Depends on: DESK-01
+**P1 · in progress** · Depends on: DESK-01
 
 Acceptance: Administrators define allowed CPU, RAM and storage profiles; per-user and host admission limits are atomic. Reservations, limits and oversubscription are distinct. Workspace, OS, snapshots, logs and staging are accounted separately, and separate Pal guests never imply shared files or credentials.
 
@@ -554,7 +554,7 @@ Acceptance: An owned synthetic PDF reaches the shared workspace, a visible termi
 
 ### DESK-06 · Reconcile desktop restart and restore authority
 
-**P1 · planned** · Depends on: DESK-01, DESK-02
+**P1 · in progress** · Depends on: DESK-01, DESK-02
 
 Acceptance: Crash, cold restart and restored-snapshot tests preserve durable files while invalidating stale control authority. An independent recovery witness or mandatory quarantine prevents rolled-back epochs and uncertain actions from replaying; cleanup cannot delete another desktop.
 
@@ -563,6 +563,12 @@ Acceptance: Crash, cold restart and restored-snapshot tests preserve durable fil
 **P1 · planned** · Depends on: DESK-02, DESK-03, DESK-05, DESK-06, RUN-03, RUN-04
 
 Acceptance: Bounded multi-step browser/terminal/file runs continue after viewer disconnect, publish durable progress/artifacts, respect pause and takeover, and do not auto-replay uncertain external actions. Provider permissions, expiry, budgets, cancel and restart behavior pass real runtime tests before live unattended work is enabled.
+
+### DESK-08 · Brand the Pal desktop consistently with Polaris
+
+**P1 · done** · Depends on: DESK-02
+
+Acceptance: A reversible Xfce appearance layer reuses Polaris assets, colors and typography; Chromium, Terminal and Files have a clear dock. Standard desktop controls remain usable. Host customization, theme rollback and before/after screenshots are documented without changing runtime isolation.
 
 ## M7
 

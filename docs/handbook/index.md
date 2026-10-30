@@ -31,8 +31,10 @@ features:
 
 ## A workspace in active development
 
-![Polaris Pal and the refreshed desktop workspace](/screenshots/pal-desktop.jpg)
+![Continuous Pal chat beside a real manual desktop](/screenshots/pal-thread-docked.jpg)
+
+*Real application and RFB desktop; synthetic owner and model reply. Manual control, not autonomous work.*
 
 Already have a Polaris account? Open the server address supplied by your administrator and follow [Start here](./start-here). The application source is currently private; the public documentation repository does not install a server.
 
-Chat, saved text tasks, reminders, versioned text workflows, search, the installable browser app and a manual isolated browser are implemented. Your server needs the matching release and optional services. Live voice has separate verification limits; terminal control, autonomous work and connected accounts must not be inferred from a screenshot. [Current capabilities](./status) separates reviewed source, tests, the documented demo and planned work.
+Chat, a continuous Pal thread with reactions, saved tasks, reminders, workflows, search and the installable app are implemented. A separately provisioned manual Pal desktop adds real Chromium, Terminal and Files beside chat. Your server needs the matching release and optional services. Autonomous desktop jobs, chat file round trips, full snapshot recovery, physical mobile typing and real Microsoft account interoperability remain incomplete. [Current capabilities](./status) separates reviewed source, tests, the documented demo and planned work.
