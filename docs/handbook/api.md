@@ -1,6 +1,6 @@
 # Developer API
 
-Create a key from your account menu → **Developer access**. External scripts can discover models, read a minimal profile, and create, inspect or cancel bounded [saved Pal text tasks](./pal-tasks). A separate worker makes one text model request using the supplied information. Streaming chat, files, tools, pipelines and OpenAI-compatible request formats remain separate, unfinished capabilities. The machine-readable OpenAPI 3.1 contract is served by your installation at `/api/v1/openapi`.
+Create a key from your account menu → **Developer access**. External scripts can discover models, read a minimal profile, manage [versioned text workflows](./workflows), and create, inspect or cancel bounded [saved Pal text tasks](./pal-tasks). A separate worker makes one text model request using the supplied information. Streaming chat, files, tools, general workflow graphs and OpenAI-compatible request formats remain separate, unfinished capabilities. The machine-readable OpenAPI 3.1 contract is served by your installation at `/api/v1/openapi`.
 
 ## Create and manage a key
 
@@ -20,6 +20,12 @@ The three task permissions are separate opt-ins. Existing keys gain no new scope
 Rotation invalidates the old key and returns a replacement once, preserving its scopes, rate and original expiry. Revocation is permanent for that key. Requests that already passed authorization can finish; new requests are rejected. Disabling or deleting the owner also invalidates their keys. API keys cannot administer accounts, manage other keys or substitute for a browser session.
 
 If a create/rotate response is interrupted, refresh the list and revoke the new record whose secret you did not receive before retrying. Do not automatically retry key issuance. Use HTTPS for deployments and keep secrets out of URLs, source control, screenshots and client-side application bundles.
+
+## Versioned text workflows
+
+The [workflow API and executable client](./workflows) use six additional, explicit opt-in scopes: `workflows:read`, `workflows:write`, `workflow-runs:create`, `workflow-runs:read`, `workflow-runs:cancel` and `workflow-runs:delete`. Existing keys gain no rights. API-created definitions and runs are bound to their originating key; a rotated replacement cannot take them over. Signed-in owners retain access and cancellation through the application.
+
+Definitions contain one to four sequential OpenAI text steps with explicit input references. Immutable revisions, bounded output, persisted progress and no automatic replay are part of this contract. It is native Polaris JSON, not an OpenWebUI Python plugin or a general graph runtime. The separate Pal worker must run the matching release and migration 0013. Its token/time limits are not dollar spend caps.
 
 ## Limits and responses
 

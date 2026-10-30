@@ -80,4 +80,6 @@ POLARIS_PAL_INTEGRATION=1 pnpm test:integration:pal
 
 The suite creates a unique `polaris_pal_<uuid>` database, migrates it, uses synthetic users/models and injected provider events, then drops only that database. It proves concurrent admission, ownership and idempotency, cancellation, expired/replaced claim fencing, current account/model access, result reconstruction, and atomic terminal/accounting rollback. It skips before initialization unless the opt-in flag is set. It does not test live provider quality, provider-side cancellation, or browser/terminal execution.
 
-This is a first slice of RUN-01, RUN-03 and RUN-04. Full multi-step runs, action outcomes, schedules, approvals, computer control and the broader [Pal journey](./pal) remain separate acceptance work.
+The same worker also runs [versioned text workflows](./workflows), a separate bounded sequence of one to four OpenAI text steps. Apply the matching release through 0013 before enabling that worker version. Saved tasks keep the single-request behavior described here.
+
+This is a first slice of RUN-01, RUN-03 and RUN-04. General multi-step agents, action outcomes, schedules, approvals, computer control and the broader [Pal journey](./pal) remain separate acceptance work.
