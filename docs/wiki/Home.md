@@ -28,6 +28,9 @@ The version-controlled handbook is the canonical documentation. This wiki is an 
 | Search and history | [History guide](https://rhigo.github.io/Polaris-docs/conversation-history.html) |
 | Browser workspace | [Browser guide](https://rhigo.github.io/Polaris-docs/computer-workspace.html) |
 | Public browser research | [Guide](https://rhigo.github.io/Polaris-docs/public-browser-research.html) |
+| Your Pal conversation | [Guide](https://rhigo.github.io/Polaris-docs/continuous-pal.html) |
+| Manual desktop setup | [Guide](https://rhigo.github.io/Polaris-docs/persistent-desktop.html) |
+| Desktop operator handoff | [Guide](https://rhigo.github.io/Polaris-docs/desktop-operator-handoff.html) |
 | Using Polaris | [User guide](https://rhigo.github.io/Polaris-docs/guide.html) |
 | Setting up development | [Development setup](https://rhigo.github.io/Polaris-docs/development.html) |
 | How the application fits together | [Architecture](https://rhigo.github.io/Polaris-docs/architecture.html) |

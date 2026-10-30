@@ -28,14 +28,18 @@ Generated files and previews are called **artifacts**. Check the downloaded resu
 
 ## Make Pal your own
 
-Open **My Pal → Customize Pal**. Choose the shape, colour, eyes, accessory and motion options, then save. Appearance belongs to your account. Themes and operating-system reduced-motion preferences apply across the interface.
+Open **My Pal** and click its avatar to open settings. Choose the shape, colour, eyes, accessory and motion options, then save. Appearance belongs to your account. Themes and operating-system reduced-motion preferences apply across the interface.
 
-From Pal you can choose distinct workflows:
+My Pal is one saved continuous conversation, separate from normal chat history. Use the plus beside a persisted message for a fixed-emoji reaction. The model gets bounded recent context, not unlimited memory. [Thread and reaction details](./continuous-pal).
+
+Open **Desktop** for the configured manual computer, or **Activities** for distinct saved workflows:
 
 - [Saved text task](./pal-tasks): one bounded model request that keeps its activity/result after reload. **Waiting for worker** means it has not been claimed by the background service. Ask the administrator if it stays there; repeatedly creating replacements queues additional work.
 - [One-off reminder](./reminders): a chosen date/time/zone, delivered to your Polaris inbox by the worker. It does not promise a phone notification, email or SMS.
 - [Text workflow](./workflows): one to four sequential OpenAI text steps, configured through the current JSON editor. It does not run browser/terminal tools.
 - [Browser workspace](./computer-workspace): a separately configured temporary Chromium session you can watch and control. Saved text tasks do not control it. Terminal access and general file editing remain separate capabilities.
+
+The [manual Pal desktop](./pal-computer) is separate from the browser pilot: real Xfce applications, explicit observe/control/takeover, and chat alongside the viewer on wide screens. It has no agent role; attaching a file to chat does not yet transfer it into the desktop. Mobile acceptance covers responsive viewing/focus, not physical remote typing.
 
 A disconnected optional service should say so. It does not mean a task is secretly running elsewhere. Worker-based tasks need the server/worker host to remain available even if you close your own browser.
 

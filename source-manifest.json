@@ -1,8 +1,8 @@
 {
   "sourceRepository": "Rhigo/Polaris",
-  "sourceRevision": "94191177af853b69927e8775b32487906adbff72",
-  "sourceCommitDate": "2026-10-30T10:52:12Z",
-  "exportVersion": 2,
+  "sourceRevision": "42ac8b976095b4c2c7317d0417037084ebea2370",
+  "sourceCommitDate": "2026-10-30T13:07:00Z",
+  "exportVersion": 3,
   "files": [
     {
       "path": "LICENSE",
@@ -11,8 +11,8 @@
     },
     {
       "path": "docs/handbook/.vitepress/config.mts",
-      "sourceSha256": "5878dced4364894233b5075559285f765353b61855ad55a59b623d9d7c133f94",
-      "exportedSha256": "ff8fbf8447953f9fc3df0c815e664f53d5570c5266c8c57cd1151831ea66f531"
+      "sourceSha256": "9bddcebf930c9215fa367a3e7787bedc5e34abfa3dab346fc51911a320e306dc",
+      "exportedSha256": "520642cf18d8f01b09f5f8dc4cf4b70ac5877f98c8f316fb14c72e9bfb874e1a"
     },
     {
       "path": "docs/handbook/.vitepress/theme/index.ts",
@@ -31,8 +31,8 @@
     },
     {
       "path": "docs/handbook/architecture.md",
-      "sourceSha256": "ae8c20dd8c52b024181b756086df09c9b14ef24c2b60b7aadb637e81d2c4ac3f",
-      "exportedSha256": "ae8c20dd8c52b024181b756086df09c9b14ef24c2b60b7aadb637e81d2c4ac3f"
+      "sourceSha256": "1594945a0ddfdae2ca755eeab873651f3041e741aa02c72305db7496200a784b",
+      "exportedSha256": "1594945a0ddfdae2ca755eeab873651f3041e741aa02c72305db7496200a784b"
     },
     {
       "path": "docs/handbook/artifacts-security.md",
@@ -46,13 +46,13 @@
     },
     {
       "path": "docs/handbook/backlog.json",
-      "sourceSha256": "0befb36ace6db1d752b28b79a80d37beeb0d6be2a332e86db0de4954cc12903b",
-      "exportedSha256": "0befb36ace6db1d752b28b79a80d37beeb0d6be2a332e86db0de4954cc12903b"
+      "sourceSha256": "3fd6c53a4ce54c00eabf1b201fb0751975baae45b496e19e3b2f2d9b18892d17",
+      "exportedSha256": "3fd6c53a4ce54c00eabf1b201fb0751975baae45b496e19e3b2f2d9b18892d17"
     },
     {
       "path": "docs/handbook/backlog.md",
-      "sourceSha256": "596fd7ef2456bf448db7fb281d88f82e925fa2874534e019bd038c3a5c51bbcf",
-      "exportedSha256": "596fd7ef2456bf448db7fb281d88f82e925fa2874534e019bd038c3a5c51bbcf"
+      "sourceSha256": "d1b5ab8b56348fb2bb552dc17eca484987cb933f1e737505b4f4239b277866f0",
+      "exportedSha256": "d1b5ab8b56348fb2bb552dc17eca484987cb933f1e737505b4f4239b277866f0"
     },
     {
       "path": "docs/handbook/computer-workspace.md",
@@ -65,6 +65,11 @@
       "exportedSha256": "cd94b28c4664df01647e81a78fe4e890250afef9930a1beec3df031c942245a2"
     },
     {
+      "path": "docs/handbook/continuous-pal.md",
+      "sourceSha256": "539905bf41bc6dbc425ba6d6b4532cc4998a1b3809b1addab0d329c99e59c4b3",
+      "exportedSha256": "539905bf41bc6dbc425ba6d6b4532cc4998a1b3809b1addab0d329c99e59c4b3"
+    },
+    {
       "path": "docs/handbook/conversation-history.md",
       "sourceSha256": "3830a5077a27419843b209d51cf7abebcee38ed406419a9803a1c0ffa38c03a1",
       "exportedSha256": "3830a5077a27419843b209d51cf7abebcee38ed406419a9803a1c0ffa38c03a1"
@@ -73,6 +78,11 @@
       "path": "docs/handbook/costs.md",
       "sourceSha256": "d862c6e603bcf552b229b95b976e3b6517406440334d96a0d38097285b927b15",
       "exportedSha256": "d862c6e603bcf552b229b95b976e3b6517406440334d96a0d38097285b927b15"
+    },
+    {
+      "path": "docs/handbook/desktop-operator-handoff.md",
+      "sourceSha256": "6d13e17a230521ff50b48ddcc96534ab3347a3593f9d2738a359724c14452951",
+      "exportedSha256": "6d13e17a230521ff50b48ddcc96534ab3347a3593f9d2738a359724c14452951"
     },
     {
       "path": "docs/handbook/development.md",
@@ -101,8 +111,8 @@
     },
     {
       "path": "docs/handbook/guide.md",
-      "sourceSha256": "802799e4d9e0f8a2e222cd542d1df3fbf9742062ce768204595917530bc63190",
-      "exportedSha256": "802799e4d9e0f8a2e222cd542d1df3fbf9742062ce768204595917530bc63190"
+      "sourceSha256": "d222505175e297ca5f7397dd1bf0146b445339de1741396c3dac25428bca0751",
+      "exportedSha256": "d222505175e297ca5f7397dd1bf0146b445339de1741396c3dac25428bca0751"
     },
     {
       "path": "docs/handbook/images.md",
@@ -111,8 +121,8 @@
     },
     {
       "path": "docs/handbook/index.md",
-      "sourceSha256": "dbf9de9104159da646001a95eb2811fcb5922c1a515ba01d8db60ed60fcaba7c",
-      "exportedSha256": "dbf9de9104159da646001a95eb2811fcb5922c1a515ba01d8db60ed60fcaba7c"
+      "sourceSha256": "02c1671d4d083377646b7f8765d30647a3a2611cedbe09a4f29399ccc7894e68",
+      "exportedSha256": "02c1671d4d083377646b7f8765d30647a3a2611cedbe09a4f29399ccc7894e68"
     },
     {
       "path": "docs/handbook/microsoft-inbox.md",
@@ -126,13 +136,13 @@
     },
     {
       "path": "docs/handbook/operations.md",
-      "sourceSha256": "5ee2eeb6fceb4c2201ef2eb865334a9b28d2ab637188fea0cd8c7354c1315a84",
-      "exportedSha256": "5ee2eeb6fceb4c2201ef2eb865334a9b28d2ab637188fea0cd8c7354c1315a84"
+      "sourceSha256": "854a75f337b28e21ffccba80b588a4f167cd69b7853ba339aac903f0ffe8f1b8",
+      "exportedSha256": "854a75f337b28e21ffccba80b588a4f167cd69b7853ba339aac903f0ffe8f1b8"
     },
     {
       "path": "docs/handbook/pal-computer.md",
-      "sourceSha256": "f10daced42ae619a289200cdbecc0e9fe37d346498c05b972afda8348df94e86",
-      "exportedSha256": "f10daced42ae619a289200cdbecc0e9fe37d346498c05b972afda8348df94e86"
+      "sourceSha256": "b4a16133e5031aa9163ba0fb2f0c69c99cac67cd234c5c2d64dc4120a79b2cc9",
+      "exportedSha256": "b4a16133e5031aa9163ba0fb2f0c69c99cac67cd234c5c2d64dc4120a79b2cc9"
     },
     {
       "path": "docs/handbook/pal-runtime.md",
@@ -146,8 +156,13 @@
     },
     {
       "path": "docs/handbook/pal.md",
-      "sourceSha256": "ccbd6aee0bab51d4dea2167960314c8bd834b032d6b30ec51970be5e56e59a67",
-      "exportedSha256": "ccbd6aee0bab51d4dea2167960314c8bd834b032d6b30ec51970be5e56e59a67"
+      "sourceSha256": "67c05566a4ab1094986fef71e32bdf1599f3fcbbdd79d1dc7bc80d472ea8f230",
+      "exportedSha256": "67c05566a4ab1094986fef71e32bdf1599f3fcbbdd79d1dc7bc80d472ea8f230"
+    },
+    {
+      "path": "docs/handbook/persistent-desktop.md",
+      "sourceSha256": "4a1cd643447a2d6a99eccc1f719ccfe6c9d3a44d899d70a4e66ea7457e24eeb9",
+      "exportedSha256": "4a1cd643447a2d6a99eccc1f719ccfe6c9d3a44d899d70a4e66ea7457e24eeb9"
     },
     {
       "path": "docs/handbook/privacy.md",
@@ -245,6 +260,21 @@
       "exportedSha256": "49dd646a36e788a76be99dae01fa6ed12d585bd882a9e742ae47ac8318799fad"
     },
     {
+      "path": "docs/handbook/public/screenshots/pal-computer-before.jpg",
+      "sourceSha256": "02e3c8a91b0d0d9cfe741711064eb37f20c85396872aae39d86bf567a0c5c2e5",
+      "exportedSha256": "02e3c8a91b0d0d9cfe741711064eb37f20c85396872aae39d86bf567a0c5c2e5"
+    },
+    {
+      "path": "docs/handbook/public/screenshots/pal-computer-terminal-files.jpg",
+      "sourceSha256": "dd93308f0b9f4a52fee415079b5b611c06e73a94d34a00f6942d428e18660ad3",
+      "exportedSha256": "dd93308f0b9f4a52fee415079b5b611c06e73a94d34a00f6942d428e18660ad3"
+    },
+    {
+      "path": "docs/handbook/public/screenshots/pal-computer-theme.jpg",
+      "sourceSha256": "b6d61f4763785f574ce8a52b6a1d6e70c45d2ac06f3e13644182cd7b4673cccc",
+      "exportedSha256": "b6d61f4763785f574ce8a52b6a1d6e70c45d2ac06f3e13644182cd7b4673cccc"
+    },
+    {
       "path": "docs/handbook/public/screenshots/pal-dark-desktop.jpg",
       "sourceSha256": "0ea0b8b3fe32e4054ba000728d8c7566eeb7d3ff1af4d90d733dd7eb7df4f2e4",
       "exportedSha256": "0ea0b8b3fe32e4054ba000728d8c7566eeb7d3ff1af4d90d733dd7eb7df4f2e4"
@@ -253,6 +283,21 @@
       "path": "docs/handbook/public/screenshots/pal-desktop.jpg",
       "sourceSha256": "b94efa3bfbccf7ec2f5f58d9bbcd62d226256fbb464f4b0c1dfd540bc91789eb",
       "exportedSha256": "b94efa3bfbccf7ec2f5f58d9bbcd62d226256fbb464f4b0c1dfd540bc91789eb"
+    },
+    {
+      "path": "docs/handbook/public/screenshots/pal-thread-docked.jpg",
+      "sourceSha256": "fcb530a93f525f23774708dde6112bad155c91caaa8c187e8373217a4d37734d",
+      "exportedSha256": "fcb530a93f525f23774708dde6112bad155c91caaa8c187e8373217a4d37734d"
+    },
+    {
+      "path": "docs/handbook/public/screenshots/pal-thread-mobile.jpg",
+      "sourceSha256": "8131c8df8f562041f58cc00349dc06034eaceae12705437530178f4c17a0dd64",
+      "exportedSha256": "8131c8df8f562041f58cc00349dc06034eaceae12705437530178f4c17a0dd64"
+    },
+    {
+      "path": "docs/handbook/public/screenshots/pal-thread-reactions.jpg",
+      "sourceSha256": "13a31f901ad2b3b71391a8428d929047a2322997b592e423e8864ba25c1d1b43",
+      "exportedSha256": "13a31f901ad2b3b71391a8428d929047a2322997b592e423e8864ba25c1d1b43"
     },
     {
       "path": "docs/handbook/public/screenshots/projects-desktop.png",
@@ -361,8 +406,8 @@
     },
     {
       "path": "docs/handbook/recovery.md",
-      "sourceSha256": "ed2e82ddd4fce0fb8158e324a072b9a3491bab4f0f51d84924d8593ac43aba2d",
-      "exportedSha256": "ed2e82ddd4fce0fb8158e324a072b9a3491bab4f0f51d84924d8593ac43aba2d"
+      "sourceSha256": "60442e6f40a4ab14bd1885cd917ff53b27a180d93cf074dc27c11b9aa4513cbf",
+      "exportedSha256": "60442e6f40a4ab14bd1885cd917ff53b27a180d93cf074dc27c11b9aa4513cbf"
     },
     {
       "path": "docs/handbook/reminders.md",
@@ -381,28 +426,28 @@
     },
     {
       "path": "docs/handbook/roadmap.md",
-      "sourceSha256": "abe64f18237cc34d5452baab3fc2cdd6cae5f597969939c5ca3e052168375e49",
-      "exportedSha256": "abe64f18237cc34d5452baab3fc2cdd6cae5f597969939c5ca3e052168375e49"
+      "sourceSha256": "13e83d9008a7170caeaeebdefb1cdb923b501ddd1049e122e87fed7b905c1b2d",
+      "exportedSha256": "13e83d9008a7170caeaeebdefb1cdb923b501ddd1049e122e87fed7b905c1b2d"
     },
     {
       "path": "docs/handbook/screenshots.md",
-      "sourceSha256": "9f486798318e96a13997f15053e707c8ec83fd69db424ceddce4bbaeafac5582",
-      "exportedSha256": "9f486798318e96a13997f15053e707c8ec83fd69db424ceddce4bbaeafac5582"
+      "sourceSha256": "beaca40a8d891d5f64342abcd002f944748a691499e7461103d1a27bc0980a93",
+      "exportedSha256": "beaca40a8d891d5f64342abcd002f944748a691499e7461103d1a27bc0980a93"
     },
     {
       "path": "docs/handbook/server-setup.md",
-      "sourceSha256": "3086cc93b7b3b41772834f365b32ec1b86c0e0471be994eb83a987230ca67892",
-      "exportedSha256": "3086cc93b7b3b41772834f365b32ec1b86c0e0471be994eb83a987230ca67892"
+      "sourceSha256": "402e4306953549647c7039ebeedf8cad07e177b06e3f8494ff0e99247ec019b6",
+      "exportedSha256": "402e4306953549647c7039ebeedf8cad07e177b06e3f8494ff0e99247ec019b6"
     },
     {
       "path": "docs/handbook/start-here.md",
-      "sourceSha256": "aa341a11ca3aeec18f216a32abe6a03476b21b82cb30ea4d3e534a80992fcbd4",
-      "exportedSha256": "aa341a11ca3aeec18f216a32abe6a03476b21b82cb30ea4d3e534a80992fcbd4"
+      "sourceSha256": "b055f5bea186e1b20992b288387e8c36dbf2b5faa5838eeda1b7797c00276150",
+      "exportedSha256": "b055f5bea186e1b20992b288387e8c36dbf2b5faa5838eeda1b7797c00276150"
     },
     {
       "path": "docs/handbook/status.md",
-      "sourceSha256": "604769cacc59a0ab8c26203ca9781f39de3bfab74ebfaef4cb52ab0ce49570a2",
-      "exportedSha256": "604769cacc59a0ab8c26203ca9781f39de3bfab74ebfaef4cb52ab0ce49570a2"
+      "sourceSha256": "84496e7eab91ac5baa12accf716368a12c3ba427eb6b47ef8d064b374c1fbebb",
+      "exportedSha256": "84496e7eab91ac5baa12accf716368a12c3ba427eb6b47ef8d064b374c1fbebb"
     },
     {
       "path": "docs/handbook/token-accounting.md",
@@ -421,13 +466,13 @@
     },
     {
       "path": "docs/handbook/worklog.md",
-      "sourceSha256": "1956cb8acc02eef12b313d3303ad57b9feedeb027b1f2fb370ccbabe75ca3816",
-      "exportedSha256": "1956cb8acc02eef12b313d3303ad57b9feedeb027b1f2fb370ccbabe75ca3816"
+      "sourceSha256": "e8a76d85903216594390633a39e3e27048e887c4bdc95b07922497110689c978",
+      "exportedSha256": "e8a76d85903216594390633a39e3e27048e887c4bdc95b07922497110689c978"
     },
     {
       "path": "docs/wiki/Home.md",
       "sourceSha256": "78d7ba948edbc05d8d726681554ebb8cb4411fedd9cef8e24971105e2c91bf5a",
-      "exportedSha256": "78d7ba948edbc05d8d726681554ebb8cb4411fedd9cef8e24971105e2c91bf5a"
+      "exportedSha256": "f63d14b1d051240c7bbeaf071a1a463689ec78f13e3c74ba08b42d0aafd94619"
     },
     {
       "path": "docs/wiki/README.md",
@@ -437,12 +482,12 @@
     {
       "path": "docs/wiki/_Sidebar.md",
       "sourceSha256": "55b4f0a57e7884315f6004a3fa338eea83b8ab29ad59a9b1e5d8b3a005915333",
-      "exportedSha256": "d69ca3582ac17d84820dd4f7f13f8be542eb0ab79e28c9ea3e8866c0fde343ee"
+      "exportedSha256": "8523a86b9d9070276f9ea76fbc7b513a84a6fc56d9ab2d8530cc92f88add63e0"
     },
     {
       "path": "scripts/docs-check.mjs",
-      "sourceSha256": "24d66614780a9f6cc2320ad4f9efa43eed0e066ec7c7072d94fda4aaa4b62cb3",
-      "exportedSha256": "24d66614780a9f6cc2320ad4f9efa43eed0e066ec7c7072d94fda4aaa4b62cb3"
+      "sourceSha256": "ddf031fae9532f6873f14891735cdeb037f19f6e63c46f90380ae34cd73967ba",
+      "exportedSha256": "ddf031fae9532f6873f14891735cdeb037f19f6e63c46f90380ae34cd73967ba"
     }
   ]
 }

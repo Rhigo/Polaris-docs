@@ -1,59 +1,32 @@
 # Polaris Pal
 
-**Product plan, not a shipped feature list.** Polaris Pal is the working name for a personal assistant that can talk, remember responsibilities and work in an inspectable computer. Saved appearance and a first [bounded text-task workflow](./pal-tasks) are implemented. That separate local worker saves task progress/results and supports cancellation; it makes one model request without tools. Multi-step responsibilities, computer control and connected-account monitoring remain planned.
+Pal has one continuous private conversation for each signed-in user. Open **My Pal**, type a message, or click its avatar to change its appearance. Ordinary chats stay separate. The thread, fixed-emoji reactions and manual desktop panel are implemented in this release; broader autonomous responsibilities remain unfinished.
 
-## The experience
+## Conversation, reactions and activities
 
-Open Pal to see what needs your attention, what it is doing and what it finished. Speak naturally or type while background tasks continue. Open a task to see evidence, files, errors and decisions. Stop a task without accidentally deleting its saved schedule. Resume work with its original context and workspace.
+The [continuous conversation guide](./continuous-pal) covers saved history, attachments, bounded context and reactions. Older messages load in pages of 50. The model receives at most 200 recent message records, subject to the existing content limits; a continuous visible thread is not unlimited model memory. Changing a model does not rewrite the model identity recorded on earlier replies.
 
-Customise a small companion with shapes, colours, eyes and accessories. Animation should explain a real state—listening, working, waiting or resting—and respect reduced motion. Appearance never substitutes for explicit text status. Mobile uses the same task history and permissions as desktop.
+Use the **plus beside a message** to choose one of six reactions or remove your reaction. Pal can independently react to the current user message through a local tool, when the selected model supports it. The server chooses the actor and target; a provider request is not needed for a user's reaction. A completion-only Ollama fixture also verified that an unsolicited reaction call is rejected without changing reactions or falling back to OpenAI; this is not a real Ollama/provider interoperability claim.
 
-OpenAI's documented dots experience separates persistent responsibilities, conversation context, saved notes and scheduled work. It also distinguishes messaging channels from access to apps and computers. Pal adopts those product boundaries with its own implementation and permission model; access to an API does not automatically reproduce the application. [Tasks and memory](https://learn.chatgpt.com/docs/dots/tasks-and-memory), [Computers and apps](https://learn.chatgpt.com/docs/dots/computers-and-apps).
+The avatar opens account-owned appearance settings. **Activities** opens the existing saved-task, workflow and reminder surfaces. These have their own worker and permission requirements; they do not become autonomous desktop jobs merely because they appear beside the thread.
 
-## The computer workspace
+## Watch a real computer while chatting
 
-| Surface | Planned user experience | Release evidence |
-| --- | --- | --- |
-| Browser | Watch a dedicated Chrome/Chromium session, inspect tabs and URLs, take over mouse/keyboard, then return control | A two-client test proves only the lease holder can send input; agent input stops before human control begins |
-| Terminal | See commands and output, open an interactive terminal, resize it and interrupt a process | PTY disconnect/reconnect, output limits and process cleanup work inside the isolated environment |
-| Files | Browse workspace folders, preview/edit supported files, upload inputs and download outputs | Path traversal, symlinks, cross-user access, overwrite conflicts and large files are tested |
-| Activity | Follow task steps, tool requests, approvals and results without exposing secrets | Reconnecting reconstructs saved events without repeating actions |
-| Sign-in | Take over privately when a site requires authentication | Credentials avoid conversation history and model-visible logs; session retention and sign-out are explicit |
+**Desktop** opens the [manual computer](./pal-computer) when an administrator has configured it. A wide window reserves space for chat and the viewer together. A narrow window uses a modal drawer; close it to return to the conversation. Resizing keeps the same viewer connection. Resource details collapse while connected and remain available through **Desktop resources**.
 
-The first computer provider should run in an isolated Linux environment on the user's machine or server. A Mac uses a Linux VM/container runtime; generated commands never fall back to the host shell. Access to personal folders must be an explicit, narrow grant. Cloud execution is a separate provider with its own lifecycle and spending controls.
+This first adapter uses an independently provisioned Debian 13/Xfce desktop with Chromium, Terminal and Files. It has no agent role: Pal cannot operate it from the conversation. The separate [public browser research pilot](./public-browser-research) is still a different runtime, with its own reviewed pages, consent, worker and limits.
 
-Watching is read-only. Takeover acquires an exclusive, short-lived control lease after pausing agent input. A disconnected controller loses its lease; control does not silently return to an agent with stale screen state. Return-control requires a new observation before the next action. The browser, terminal and file APIs all authenticate the same workspace owner.
+## Saved work and notices
 
-Code execution now uses one bounded Linux container per execution through a dedicated broker, with private temporary files and verified cleanup. The accepted execution service does not provide a long-lived browser or terminal workspace. The browser pilot uses a separate runtime and Linux VM; its renderer sandbox and egress controls must pass their own conformance checks before connection.
+- [Saved text tasks](./pal-tasks) make one bounded model request and persist progress/results. Interrupted work is not automatically replayed.
+- [Text workflows](./workflows) run one to four sequential OpenAI text steps, with immutable revisions and cancellation.
+- [Reminders](./reminders) deliver a chosen one-off date/time to the owned local inbox. They do not send phone notifications or email.
+- [Microsoft Inbox](./microsoft-inbox) has an explicitly linked read-only pilot and optional local notices. Its accepted fixtures use synthetic Microsoft responses; real tenant consent and mailbox behavior remain unverified.
 
-## Responsibilities and proactive updates
+A worker and its host must remain available for queued work. Closing the browser is different from shutting down that host. Quiet hours, general recurring responsibilities, cross-channel private memory and autonomous desktop work still have separate [backlog](./backlog) gates.
 
-Pal needs durable tasks, schedules, event subscriptions, an attention inbox and saved notes. Each responsibility records its owner, sources, time zone, budget, notification rule and allowed actions. Reminders must survive browser closure and worker restart. Retries must not send duplicate notifications or repeat external writes.
+## What remains beyond this slice
 
-Email monitoring begins with a user-selected account and read scope. Useful findings go to the user's attention inbox; outgoing replies and changes use separately granted permissions. Quiet hours, urgency thresholds, snooze and unsubscribe belong in the same control centre. Connecting an account alone does not create a monitoring task.
+Talking to Pal while steering an independent durable desktop job, transferring chat files into the desktop and returning owned results, private human-versus-agent sign-in, pooled hosting, and coordinated snapshot recovery are not implemented end to end. A saved profile in the same Linux account is readable by code run as that account; it is not private from an unrestricted agent.
 
-Identity can continue across Polaris, Teams, Telegram or another supported channel while conversations remain audience-specific. Private notes must not leak into a group channel. Users can inspect, edit and delete saved notes, see their provenance and revoke a connection without losing unrelated settings.
-
-Local unattended work requires the computer and worker to remain available. Cloud work can continue independently only after a cloud provider has actually been configured. Development automation used to build Polaris is separate from Pal's future product scheduler.
-
-## Voice, images and live chat artifacts
-
-The voice track evaluates GPT-Live alongside the existing Realtime integration, with interruption, typed interjections, call history and delegation to durable tasks. A call must remain responsive while a background task works. Microphone state must match the visible mute control, including permission prompts and reconnection.
-
-The image track adds the current provider image-generation/editing contract, progress and partial-image events, cancellation, artifact ownership and usage accounting. Model IDs and supported parameters come from the versioned capability registry, not UI labels.
-
-Charts and tables should stream into chat as validated data and rendering specifications. Provide accessible tables, source links and export alongside charts. Avoid executing arbitrary model-generated JavaScript in the application origin. Large datasets, malformed updates and mobile layouts are explicit test cases.
-
-See [runtime decision](./pal-runtime) for the current Agents, Codex, Responses and Decisions comparison and live-contract release gates.
-
-## First complete journey
-
-1. Customise Pal and start an owned task with a small execution budget.
-2. Close the browser; reopen it and recover the same task without redispatch.
-3. Watch its isolated browser, inspect terminal output and open an output file.
-4. Take control, complete a private sign-in and explicitly return control.
-5. Call Pal while the task continues; interrupt its speech and steer the task.
-6. Schedule a follow-up, restart the worker and receive one relevant notification.
-7. Cancel the responsibility and verify no further scheduled runs or messages occur.
-
-Each step must work with synthetic accounts before connecting real personal services. The [backlog](./backlog) tracks separate acceptance checks; a working customiser or workspace layout alone does not complete this journey.
+Voice, images and charts retain their own [voice](./voice), [image](./images) and [data](./rich-data) contracts. The [runtime decision](./pal-runtime) records the larger orchestration direction. A genuine screenshot proves the visible tested journey, not every provider, device or deployment.

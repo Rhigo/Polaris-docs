@@ -14,6 +14,14 @@ The CI deployment check exercises PostgreSQL 16, initialization reruns and HTTPS
 
 Python and shell execution use a separately deployed broker and one fresh container per run on a dedicated Linux execution VM/host. Configure both `SANDBOX_SERVICE_URL` and `SANDBOX_SECRET` only after that host passes its acceptance checks and `/ready` is reachable over a private encrypted route. Never copy application/provider/database credentials to the execution host. The [execution isolation guide](./execution-isolation) covers fixed budgets, cancellation, confirmed cleanup and janitor recovery. Ordinary containers share the execution VM's kernel; this does not certify unattended cloud tenancy or a different runtime.
 
+## Continuous Pal and manual desktop upgrades
+
+Apply the complete approved journal, including 0016 (Pal/thread/reactions) and 0017 (desktop ownership/policies), with all old web and worker writers stopped. Preserve existing data and encrypted configuration; the earlier 0014 browser and 0015 Inbox migrations remain immutable prerequisites. Pal materializes lazily on first open, not during a destructive data rewrite.
+
+The app stack does not allocate or start a persistent desktop. Follow the [desktop operator handoff](./desktop-operator-handoff) for a new empty runtime, a one-owner policy assignment and exact app/proxy/viewer-origin matching. Use a separate identity/key/state from any retained test prototype. Rebuild the proxy when its viewer origin changes and inspect delivered headers before enabling the owner path.
+
+A failed or lost bind keeps its reservation. Do not clear it, initialize existing state or reassign the runtime to make a retry succeed. Closing an iframe is not stopping the VM; cold stop ends processes but retains disk/profile. Full snapshot restore and retirement remain manual reconciliation gates. Keep the desktop path disabled during restore and never boot two writable copies.
+
 ## Entra sign-in configuration
 
 A saved Entra configuration is authoritative. Disabling it blocks new Entra sign-ins even when `AZURE_AD_*` environment credentials exist; an enabled but incomplete saved configuration also fails closed. Environment-only configuration is used only when no saved Entra row exists. Fresh initialization seeds a disabled row, so an operator using legacy environment setup must explicitly configure and enable the saved settings. Deleting a saved row can restore the environment fallback; use **Disable** to turn sign-in off.

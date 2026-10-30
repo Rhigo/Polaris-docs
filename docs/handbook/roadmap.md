@@ -38,7 +38,7 @@ Effort is deliberately not presented as a guaranteed calendar estimate. OAuth re
 
 ## Pal product direction
 
-The [Pal experience](./pal) makes the browser, terminal, file explorer, custom appearance, proactive responsibilities and voice orchestration explicit. The [persistent computer plan](./pal-computer) defines one private continuous Pal conversation and one reconnectable desktop per user, including shared-host resource limits. The [runtime decision](./pal-runtime) separates local Codex integration, managed Agents sessions, direct Responses and Decisions classification. Local computer support is a first-class target; paid cloud execution is optional.
+The [Pal experience](./pal) makes the browser, terminal, file explorer, custom appearance, proactive responsibilities and voice orchestration explicit. The [manual computer slice](./pal-computer) implements a continuous private thread and one operator-bound desktop, while shared-host pools, autonomous jobs and recovery remain open. PAL-11, PAL-12 and DESK-08 meet their scoped acceptance, including a synthetic unsupported-capability rejection check. Other desktop items are not promoted by a screenshot or a manual-only demonstration. The [runtime decision](./pal-runtime) separates local Codex integration, managed Agents sessions, direct Responses and Decisions classification. Local computer support is a first-class target; paid cloud execution is optional.
 
 ## Decisions needed at the relevant stage
 

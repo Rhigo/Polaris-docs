@@ -193,3 +193,11 @@ The combined 30 October upgrade was rehearsed in a restored database with the wo
 ## Workflow recovery boundary
 
 Migration `0013_text_workflows` adds definitions, immutable revisions, runs and events. Stop the matching tasks/reminders/workflows worker together with the web process before backup. A restored queued workflow might have run after the original checkpoint; reconcile later dispatch records and key revocations before resuming. Interrupted or uncertain steps must not be replayed automatically. Preserve the additive tables and journal during recovery; an older application is not approved merely because its queries still work. See [workflow operations](./workflows).
+
+## Continuous Pal and persistent desktop recovery
+
+Migration 0016 stores owner-unique Pal/thread identity and scoped reactions; 0017 adds resource policies, logical desktops and retained runtime reservations. The complete journal preserves earlier migrations. A restored older snapshot may omit later messages/reactions or restore old account authority; reconcile subsequent changes before exposing it.
+
+The normal application bundle does **not** back up the external guest disk, Chromium profile, gateway state or theme backup. Preserve these separately with the approved source/images and operator configuration. Before any restore, disable desktop access, quiesce viewers/controllers and stop conflicting writers. Reconcile the application's owner/Pal/desktop/runtime reservation against protected runtime state before re-enabling. A local pending-write witness is not an independent whole-VM rollback witness. Never start two writable copies or reset an existing runtime to make a restored record fit.
+
+Synthetic disconnect, gateway recovery and cold restart passed on the manual prototype. Full coordinated snapshot/DB/disk restore, stale-authority reconciliation and automated retirement remain DESK-06; this release does not close them. The [operator handoff](./desktop-operator-handoff) distinguishes the preserved synthetic prototype from the fresh empty/unbound deployment.

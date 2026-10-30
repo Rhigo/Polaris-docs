@@ -29,7 +29,11 @@ for (const name of paths) {
     if (name === 'docs/wiki/Home.md') value = value.replace('# Polaris developer hub\n', '# Polaris developer hub\n\n[Read the illustrated handbook](https://rhigo.github.io/Polaris-docs/) · [Documentation source and revision](https://github.com/Rhigo/Polaris-docs/blob/main/source-manifest.json)\n');
     if (name === 'docs/wiki/_Sidebar.md') value = value.replace('- [Wiki home](Home)', '- [Wiki home](Home)\n- [Illustrated handbook](https://rhigo.github.io/Polaris-docs/)');
     // Index a guide only when it belongs to this reviewed source revision.
-    for (const [slug, label] of [['conversation-history', 'Search and history'], ['computer-workspace', 'Browser workspace']]) {
+    for (const [slug, label] of [
+      ['conversation-history', 'Search and history'], ['computer-workspace', 'Browser workspace'],
+      ['continuous-pal', 'Your Pal conversation'], ['persistent-desktop', 'Manual desktop setup'],
+      ['desktop-operator-handoff', 'Desktop operator handoff'],
+    ]) {
       if (!paths.includes(`docs/handbook/${slug}.md`) || value.includes(`/${slug}.html`)) continue;
       const url = `https://rhigo.github.io/Polaris-docs/${slug}.html`;
       if (name === 'docs/wiki/Home.md') {
@@ -56,5 +60,5 @@ for (const name of paths) {
   manifest.push({ path: name, sourceSha256: hash(original), exportedSha256: hash(exported) });
 }
 execFileSync(process.execPath, [path.join(target, 'scripts/docs-check.mjs')], { cwd: target, stdio: 'inherit' });
-await fs.writeFile(path.join(target, 'source-manifest.json'), JSON.stringify({ sourceRepository: 'Rhigo/Polaris', sourceRevision: revision, sourceCommitDate: git('show', '-s', '--format=%cI', revision).toString().trim(), exportVersion: 2, files: manifest }, null, 2) + '\n');
+await fs.writeFile(path.join(target, 'source-manifest.json'), JSON.stringify({ sourceRepository: 'Rhigo/Polaris', sourceRevision: revision, sourceCommitDate: git('show', '-s', '--format=%cI', revision).toString().trim(), exportVersion: 3, files: manifest }, null, 2) + '\n');
 console.log(`Exported ${manifest.length} reviewed files from ${revision}`);
