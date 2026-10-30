@@ -11,6 +11,8 @@ Pal can save a bounded drafting, summarising or planning task, run it in a separ
 
 Cancellation stops further local task work and aborts the provider request where supported. It does not prove that remote computation or billing has stopped. A completed response is saved as plain text. The current view lists the latest 30 tasks; older task URLs still open their saved results.
 
+External scripts can submit the same bounded workflow through the [Developer API](./api), with explicit task scopes. API tasks are visible to their signed-in owner in Pal. They retain an originating-key identity: expiry, revocation or rotation before dispatch prevents them from starting; a replacement key cannot inspect or cancel them through the API. The owner can still use the task's Pal URL.
+
 ## Limits and access
 
 | Limit | Current value |
@@ -30,7 +32,7 @@ Native tools and function tools are absent from the provider request. Unexpected
 
 ## Run the local worker
 
-Use an approved source checkout with its locked dependencies installed and the same database and configuration-encryption key as the web application. Apply that release's migrations using the [release and recovery procedure](./recovery), including `0008_pal_saved_text_runs`, `0009_usage_cost_basis` and `0010_pal_one_off_reminders`, before starting the worker.
+Use an approved source checkout with its locked dependencies installed and the same database and configuration-encryption key as the web application. Apply every migration through `0012` for this release using the [release and recovery procedure](./recovery), including `0008_pal_saved_text_runs`, `0009_usage_cost_basis`, `0010_pal_one_off_reminders` and `0011_pal_api_task_origin`, before starting the worker. Stop all older workers during upgrade and use matching web/worker code; older workers do not enforce the originating-key policy.
 
 From the repository root:
 

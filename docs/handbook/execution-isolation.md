@@ -80,6 +80,10 @@ preloaded immutable image digest/ID is accepted; the broker never pulls images.
 Images declaring implicit volumes are rejected. The image build currently resolves its
 Python base tag when built: record and approve the resulting immutable image ID,
 and review rebuilds before replacing it.
+The broker also requires the workload image's `native-offline-v2` policy marker
+and amd64/arm64 architecture, so pairing it with the old unfiltered workload image
+fails readiness. The marker prevents a release mismatch; approval of image contents
+remains the trusted operator's responsibility.
 
 | Resource | Enforced policy |
 | --- | --- |
@@ -88,7 +92,7 @@ and review rebuilds before replacing it.
 | Runtime | Caller timeout 1–45 seconds; independent absolute expiry 90 seconds after creation. |
 | Filesystem | Read-only image; no host binds/devices. Fresh private local volumes backed by tmpfs: workspace 64 MiB/1,024 inodes and root-only control 1 MiB/32 inodes. Native temporary tmpfs 8 MiB/256 inodes. |
 | Process limits | CPU time, 512 MiB address space per process, 1 MiB single-file writes, 64 descriptors, zero core size. PID cgroups avoid cross-run `RLIMIT_NPROC` coupling through equal host UIDs. |
-| Network | Docker `none` network, no published ports; only isolated loopback. No policy to enable egress exists in the request. |
+| Network | Docker `none`, no published ports, plus an inherited native-ABI filter denying socket/socketpair and all io_uring calls. No policy to enable egress exists in the request. |
 | Output | 64 KiB stdout, 8 KiB stderr; overflow terminates execution and withholds artifacts. |
 | Artifacts | At most ten top-level regular files, 1 MiB each and 4 MiB total; 8 MiB archive/read budget, 1,000 entries, bounded names/PAX metadata. |
 
@@ -98,6 +102,23 @@ not silently remove unsupported limits. Docker resource settings and its default
 seccomp profile remain part of the deployment contract.
 [Resource controls](https://docs.docker.com/engine/containers/resource_constraints/),
 [default seccomp](https://docs.docker.com/engine/security/seccomp/)
+
+The image-resident launcher installs an additional raw BPF seccomp filter after
+dropping to UID 65532 and immediately before executing source. Only native Linux
+amd64 or arm64 is supported. The filter denies every socket family, socket pairs
+and io_uring entry point with `EPERM`; a different syscall ABI, including amd64
+int0x80/i386 and x32, terminates the calling process. This avoids depending on
+libseccomp's legacy socketcall expansion. Docker documents that native socket
+argument filters alone do not cover that multiplexed path; Moby explains the
+compatibility-rule behavior. [Docker seccomp](https://docs.docker.com/engine/security/seccomp/),
+[Moby profile change](https://github.com/moby/profiles/releases/tag/seccomp%2Fv0.2.2)
+
+Socket-based IPC is deliberately unavailable, including Unix-domain socket pairs
+used by some Python libraries. Pipes, files and ordinary fork/exec still work.
+The trusted supervisor closes inherited descriptors and provides only null input
+and output pipes; the policy assumes no socket is inherited. The child cannot
+weaken an installed filter. This does not replace the dedicated VM or claim that
+all kernel attack surfaces have been removed.
 
 ## Completion, cancellation and artifacts
 
@@ -129,9 +150,13 @@ volume removals. The broker confirms all three are gone before returning output
 files. If the daemon is unavailable or destruction cannot
 be confirmed, the caller receives an error with no artifacts. An uncertain create
 is reconciled by broker/run labels rather than assuming no container was created.
-An uncertain create or failed destruction also quarantines broker admission and
-readiness. Reconcile the daemon's resources before restarting that broker; this
-prevents new requests from over-admitting while an earlier create may complete late.
+Before any Docker create, the broker fsyncs a private allocation intent. A fully
+acknowledged allocation becomes `known`; uncertain creation becomes `quarantined`.
+An interrupted `allocating` record is also a barrier on restart. Neither immediate
+404 responses, expiry, physical resource cleanup nor restarting the broker clears
+that barrier: the daemon may still complete an earlier request. Failed destruction
+also quarantines admission and readiness. No output is returned before physical
+cleanup and the final state transition have both succeeded.
 
 The independent janitor runs every five seconds. It only removes resources with
 the expected managed marker, broker identity, valid run/owner labels and expired
@@ -161,9 +186,12 @@ outcomes and exactly-once side effects remain separate RUN work.
 
 Use `deploy/execution/compose.yml` only on the dedicated execution VM. Do not merge
 it into application Compose. Maintain **one broker container and one Uvicorn worker
-per Docker daemon**; do not scale replicas or workers. Admission reservations are
-process-local, and multiple broker instances could race the shared inventory.
-The independent janitor is separate and may continue after the broker stops.
+per Docker daemon**; do not scale replicas or workers. A private persistent state
+volume is mounted only into the broker, never the janitor or a workload. Its
+exclusive process lock also prevents a second broker or recovery process using
+the same state concurrently. Giving another broker a different state volume or
+broker identity is outside this deployment contract. The independent janitor may
+continue after the broker stops, but cannot clear retained allocation uncertainty.
 
 1. Provision a disposable/rebuildable Linux VM with Docker Engine API v1.45 support,
    cgroup v2 and the required resource/seccomp controls. Keep the host patched.
@@ -194,6 +222,45 @@ The independent janitor is separate and may continue after the broker stops.
    before enabling execution. Alert on repeated 503s, failed janitor operations,
    unexpected resource inventory and exhausted capacity.
 
+### Quarantine and operator recovery
+
+The broker's mode-0700 `/state` directory holds bounded mode-0600 metadata: run
+UUIDs, phases, resource labels and hashed principals. It contains no submitted
+source, credentials or output. Preserve the named state volume and stable broker
+identity across upgrades. A missing initialized ledger, malformed records,
+unexpected permissions or another holder of its lock fail closed. Do not use
+`docker compose down -v`, delete ledger files or change the broker ID to bypass a
+quarantine. Fully acknowledged old runs can be removed on startup without replay;
+unknown allocations require an operator.
+
+When upgrading from the earlier broker that held quarantine only in memory, keep
+application execution disabled, stop the old controllers and quiesce/restart the
+dedicated daemon or VM before initializing a fresh ledger. A new empty ledger
+cannot retroactively prove that an old create request has stopped. Rebuild and
+review both images; the new broker deliberately rejects the old workload image.
+
+1. Disable new application execution requests and stop the execution broker and
+   janitor. Keep their private operator configuration and state volume.
+2. Restart/quiesce the **dedicated execution Docker daemon or VM** so no earlier
+   create request can still commit. This is a manual infrastructure action; the
+   recovery tool neither performs it nor proves an operator's attestation. A
+   container restart or an empty Docker inventory is insufficient.
+3. With the same reviewed broker image, Compose project and private environment,
+   inspect retained IDs using `docker compose run --rm --no-deps broker python
+   recovery.py status`. This requires the stopped broker's exclusive state lock.
+4. Clear only inspected IDs with `docker compose run --rm --no-deps broker python
+   recovery.py clear --run-id <UUID> --confirm-dedicated-daemon-restarted`. The tool
+   validates exact resource labels/options, removes containers before volumes and
+   verifies absence before clearing each record. A failed check retains state.
+   Repeat `--run-id` only for other retained IDs; unknown IDs are rejected.
+5. Start the reviewed broker and janitor, verify readiness and a disposable
+   synthetic execution, then explicitly re-enable the application endpoint.
+
+Run these commands from `deploy/execution` with the operator's existing private
+environment selection. Never clear a live user's records or restart an unrelated
+daemon. Corrupt/missing state needs operator investigation or restoration from a
+trusted snapshot; this tool has no force-reset or destructive migration mode.
+
 A future local Mac adapter should provision a dedicated Linux VM and send only
 this RPC across the private boundary. It must not execute source in macOS, mount
 the user's home directory or fall back to a host shell when the VM is unavailable.
@@ -207,6 +274,8 @@ No VM installer or purchasing flow is included in this change.
 | Duplicate/traversal/sparse/PAX/link archives, byte/file/entry limits | Synthetic archive regressions; no extraction. |
 | Maximum UTF-8 source, partial uploads, marker/integrity checks, no source in container metadata | Host-safe bootstrap regressions plus real Linux metadata/control probes. |
 | Cancellation during volume/container create, start/upload/export; uncertain create/removal | Mocked lifecycle regressions verify resource removal, quarantine and withheld artifacts. |
+| Durable intent, restart quarantine, exclusive lock, recovery and state corruption | Host-safe real-file/process tests plus a Linux fresh-process/late-volume fixture. Operator daemon restart is an explicit manual prerequisite, not simulated as proven by CI. |
+| Native socket/socketpair/io_uring and alternate ABI paths | Linux probes require `EPERM`; amd64 additionally proves compat getpid works without the extra filter, then requires `SIGSYS` for int0x80/socketcall and x32 inside the filtered child. ARM64 does not claim i386 execution evidence. |
 | Fresh UID/caps/groups, other-run file/PID absence, no secret/socket/network | Real Linux HTTP probes in `test_linux_container.py`. |
 | Artifact hash/ownership boundary, fresh workspaces, shell support | Real Linux file round-trip; web client tests prove trusted principal selection and reject unconfirmed cleanup. Database ownership stays covered by existing file authorization tests. |
 | Kernel memory/PID/file/inode limits and output bounds | Real Linux resource probes inside disposable workloads. |

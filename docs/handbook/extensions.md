@@ -2,20 +2,28 @@
 
 ## Current interface
 
-Polaris provides [scoped user API keys and a versioned read API](./api) for model discovery and minimal profile access. Its broader cookie-authenticated `/api/...` UI routes remain internal contracts. Do not distribute session cookies as API credentials.
+The [versioned API](./api) exposes scoped model/profile reads and bounded saved-text tasks. Keys can opt into task creation, inspection and cancellation; the worker checks the originating key again before dispatch. The broader cookie-authenticated `/api/...` UI routes are internal contracts. Do not distribute session cookies as API credentials.
 
-Existing custom functions can call OpenAI, a webhook or a basic MCP endpoint. The OpenWebUI Python router in `docs/` is a separate integration example, including unfinished file-storage hooks. It does not establish in-app Python plugin compatibility.
+Administrator-managed custom functions can call configured OpenAI or HTTP endpoints. The existing MCP form and manual call path do not establish complete protocol interoperability. Discovery, credential lifecycle, result validation and transport behavior still need their own implementation and tests. The OpenWebUI router in `docs/` remains a separate example with unfinished file-storage hooks.
 
 ## Next external API capabilities
 
-Streaming chat needs explicit cancellation, idempotency, model/tool permissions and spend controls before it joins the public contract. Files, runs, pipelines and detailed usage will follow with their own scopes. OpenAI-compatible endpoint names and payloads remain a design; the implemented `/api/v1` read API does not claim drop-in compatibility.
+Streaming chat needs explicit cancellation, model/tool permissions, request identity and accounting before it joins the public contract. Files, workflows and detailed usage need separate scopes. The implemented API does not claim drop-in OpenAI SDK compatibility. Task token/time limits are not dollar spending caps.
 
-## Planned workflow framework
+## Workflow framework in development
 
-A pipeline is a versioned graph with validated model/tool/transform/branch/parallel/approval/output nodes. A run records node inputs, redacted outputs, timings, errors and provenance. Dry runs use fixtures or explicit limited credentials. Exported definitions contain credential references, never tokens.
+The first native workflow slice is a versioned JSON definition with one text input and one to four sequential OpenAI model steps. It is intended to provide immutable revisions, persisted per-step progress/output, cancellation and JSON import/export through a separate worker. This implementation is still in progress and is not part of the current release. It introduces no Python, JavaScript, arbitrary URLs or external tools.
 
-Provide a visual editor and JSON interchange with schema validation, version history and rollback. OpenWebUI-style Pipes, Filters, Actions, Events and Valves are compatibility targets; support is declared per version and tested example. Arbitrary Python extensions require isolated execution.
+The broader framework remains planned: validated model/tool/transform/branch/parallel/approval/output graphs, a visual editor, explicit credential references, bounded resources and trace events. The sequential editor does not satisfy those broader acceptance criteria.
 
-MCP integrations need initialization, tool discovery, schemas, supported transports, session recovery and owner-scoped authentication. OpenAPI imports need endpoint allowlists, schema validation and explicit approval policies. All extension mechanisms share the same tool gateway and run budgets.
+## MCP protocol versions
 
-See `API-*` and `EXT-*` in the [backlog](./backlog).
+The modern and legacy wire contracts need distinct adapters. The 2026-07-28 specification uses per-request version/capability metadata and discovery, and removes the initialization handshake and protocol-level HTTP sessions. The 2025-11-25 contract retains initialization and session behavior. A connector must select a supported version deliberately, validate bounded results and apply that version's cancellation/recovery rules. [Modern changelog](https://modelcontextprotocol.io/specification/2026-07-28/changelog), [legacy lifecycle](https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle), [TypeScript SDK negotiation](https://ts.sdk.modelcontextprotocol.io/v2/protocol-versions).
+
+Protocol descriptions, tool annotations and discovered schemas are untrusted input. Owned encrypted credentials, destination policy, explicit selected tools and a durable pre-dispatch record are separate application requirements. A configured bearer header is not full OAuth interoperability.
+
+## OpenWebUI compatibility boundaries
+
+Three contracts must be tested separately: an external Pipelines service's client API; OpenWebUI's Python Function hooks and injected application context; and native Polaris JSON workflows. A compatible endpoint or JSON definition does not make Python source, Valves or lifecycle hooks interchangeable. See the [Pipelines repository](https://github.com/open-webui/pipelines) and [Function documentation](https://docs.openwebui.com/features/extensibility/plugin/functions/).
+
+Future compatibility claims will name the tested upstream version, hook and supported subset, with executable examples and rejection cases. Arbitrary Python modules will require an isolated runtime; the current offline code runner cannot transparently host networked plugins. See `API-*` and `EXT-*` in the [backlog](./backlog).

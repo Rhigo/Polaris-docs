@@ -24,7 +24,7 @@ The first computer provider should run in an isolated Linux environment on the u
 
 Watching is read-only. Takeover acquires an exclusive, short-lived control lease after pausing agent input. A disconnected controller loses its lease; control does not silently return to an agent with stale screen state. Return-control requires a new observation before the next action. The browser, terminal and file APIs all authenticate the same workspace owner.
 
-The current Python code service does **not** meet this boundary. Its new resource and artifact protections reduce risk, but shared process identity and filesystem access remain. Per-run containers or VMs are a release prerequisite for untrusted multi-user execution.
+Code execution now uses one bounded Linux container per execution through a dedicated broker, with private temporary files and verified cleanup. The accepted execution service does not provide a long-lived browser or terminal workspace. The browser pilot uses a separate runtime and Linux VM; its renderer sandbox and egress controls must pass their own conformance checks before connection.
 
 ## Responsibilities and proactive updates
 

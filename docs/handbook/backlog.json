@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-29",
+  "updated": "2026-10-30",
   "baseline": "f50ff4fba09999bb8799ca8c8887e688c7f9d561",
   "items": [
     {
@@ -86,7 +86,7 @@
       "dependsOn": [
         "DOC-01"
       ],
-      "acceptance": "Per-run isolation rejects cross-user files, symlinks, unbounded output and orphan subprocesses in Linux integration tests; no host execution fallback. Recovery preserves uncertain resource admission across restarts, and supported platforms pass explicit socket-policy negative tests. Additional adversarial review reopened these criteria; unattended application execution remains on hold pending verification."
+      "acceptance": "Per-run isolation rejects cross-user files, symlinks, unbounded output and orphan subprocesses in Linux integration tests; no host execution fallback. Recovery preserves uncertain resource admission across restarts, and supported platforms pass explicit socket-policy negative tests. Deployment from the earlier in-memory broker requires a quiesced operator upgrade and exact-build verification."
     },
     {
       "id": "REL-02",
@@ -204,7 +204,7 @@
       "milestone": "M2",
       "priority": "P2",
       "title": "Add full conversation search and pagination",
-      "status": "planned",
+      "status": "done",
       "dependsOn": [
         "REL-02",
         "UX-02"
@@ -486,7 +486,7 @@
       "milestone": "M4",
       "priority": "P1",
       "title": "Implement a versioned pipeline runtime",
-      "status": "planned",
+      "status": "in_progress",
       "dependsOn": [
         "REL-03",
         "EXT-01"
@@ -498,7 +498,7 @@
       "milestone": "M4",
       "priority": "P1",
       "title": "Build a visual pipeline editor",
-      "status": "planned",
+      "status": "in_progress",
       "dependsOn": [
         "EXT-02",
         "UX-01"
@@ -527,7 +527,7 @@
         "EXT-01",
         "AI-02"
       ],
-      "acceptance": "Pinned stable protocol, initialize, discovery, schemas, transport/session handling, cancellation and reconnect interoperate with two real test servers."
+      "acceptance": "Explicit protocol adapters interoperate with modern 2026-07-28 metadata/discovery and legacy 2025-11-25 initialization/session contracts. Bounded schemas/results, cancellation, authentication and version-specific recovery pass two real fixture servers without mixing wire protocols."
     },
     {
       "id": "EXT-06",
@@ -1084,7 +1084,7 @@
       "milestone": "M3",
       "priority": "P2",
       "title": "Stream accessible charts and tables into chat",
-      "status": "in_progress",
+      "status": "done",
       "dependsOn": [
         "AI-02",
         "UX-09"

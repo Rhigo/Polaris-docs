@@ -1,6 +1,6 @@
 # Feature backlog
 
-Updated 2026-10-29. 102 work items. Generated from `backlog.json`; run `pnpm roadmap:generate` after editing the source.
+Updated 2026-10-30. 102 work items. Generated from `backlog.json`; run `pnpm roadmap:generate` after editing the source.
 
 P1 is required for the relevant release gate; P2 extends the product after its dependencies are proven. Planned features are not advertised as shipped. See [milestones](./roadmap) and [execution protocol](./execution).
 
@@ -54,7 +54,7 @@ Acceptance: Invalid JSON, roles, IDs and oversized text return 4xx; retries of o
 
 **P1 · in progress** · Depends on: DOC-01
 
-Acceptance: Per-run isolation rejects cross-user files, symlinks, unbounded output and orphan subprocesses in Linux integration tests; no host execution fallback. Recovery preserves uncertain resource admission across restarts, and supported platforms pass explicit socket-policy negative tests. Additional adversarial review reopened these criteria; unattended application execution remains on hold pending verification.
+Acceptance: Per-run isolation rejects cross-user files, symlinks, unbounded output and orphan subprocesses in Linux integration tests; no host execution fallback. Recovery preserves uncertain resource admission across restarts, and supported platforms pass explicit socket-policy negative tests. Deployment from the earlier in-memory broker requires a quiesced operator upgrade and exact-build verification.
 
 ### REL-02 · Add database and browser regression CI
 
@@ -120,7 +120,7 @@ Acceptance: Manifest, icons and update UX pass install checks; offline screen is
 
 ### UX-06 · Add full conversation search and pagination
 
-**P2 · planned** · Depends on: REL-02, UX-02
+**P2 · done** · Depends on: REL-02, UX-02
 
 Acceptance: Search matches message content with owner filtering; large histories load incrementally and maintain scroll position.
 
@@ -248,7 +248,7 @@ Acceptance: Users explicitly share and stop each source; permissions denied and 
 
 ### AI-09 · Stream accessible charts and tables into chat
 
-**P2 · in progress** · Depends on: AI-02, UX-09
+**P2 · done** · Depends on: AI-02, UX-09
 
 Acceptance: Validated chart/table specs update incrementally with source links and export; malicious specs never execute application-origin script and mobile/keyboard fallbacks are tested.
 
@@ -292,13 +292,13 @@ Acceptance: Encrypted credentials are referenced by ID with owner, scope and exp
 
 ### EXT-02 · Implement a versioned pipeline runtime
 
-**P1 · planned** · Depends on: REL-03, EXT-01
+**P1 · in progress** · Depends on: REL-03, EXT-01
 
 Acceptance: Model, tool, transform, branch, bounded parallel, approval and output nodes validate a versioned DAG and emit trace events; cycles and resource overruns fail clearly.
 
 ### EXT-03 · Build a visual pipeline editor
 
-**P1 · planned** · Depends on: EXT-02, UX-01
+**P1 · in progress** · Depends on: EXT-02, UX-01
 
 Acceptance: Users can create, validate, dry-run, inspect, version and roll back a workflow; JSON import/export round-trips without credentials.
 
@@ -312,7 +312,7 @@ Acceptance: Documented Pipe/Filter/Action/Event semantics and Valves/UserValves 
 
 **P1 · planned** · Depends on: EXT-01, AI-02
 
-Acceptance: Pinned stable protocol, initialize, discovery, schemas, transport/session handling, cancellation and reconnect interoperate with two real test servers.
+Acceptance: Explicit protocol adapters interoperate with modern 2026-07-28 metadata/discovery and legacy 2025-11-25 initialization/session contracts. Bounded schemas/results, cancellation, authentication and version-specific recovery pass two real fixture servers without mixing wire protocols.
 
 ### EXT-06 · Repair custom functions and add OpenAPI tools
 
