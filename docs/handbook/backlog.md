@@ -52,7 +52,7 @@ Acceptance: Invalid JSON, roles, IDs and oversized text return 4xx; retries of o
 
 ### SEC-04 · Bound and isolate code execution
 
-**P1 · in progress** · Depends on: DOC-01
+**P1 · done** · Depends on: DOC-01
 
 Acceptance: Per-run isolation rejects cross-user files, symlinks, unbounded output and orphan subprocesses in Linux integration tests; no host execution fallback. Recovery preserves uncertain resource admission across restarts, and supported platforms pass explicit socket-policy negative tests. Deployment from the earlier in-memory broker requires a quiesced operator upgrade and exact-build verification.
 
@@ -114,7 +114,7 @@ Acceptance: iOS Safari and Android Chrome tests cover virtual keyboard, safe are
 
 ### UX-05 · Add an installable PWA
 
-**P2 · planned** · Depends on: UX-04
+**P2 · done** · Depends on: UX-04
 
 Acceptance: Manifest, icons and update UX pass install checks; offline screen is honest and authenticated messages are not cached by a generic service worker.
 

@@ -82,7 +82,7 @@
       "milestone": "M1",
       "priority": "P1",
       "title": "Bound and isolate code execution",
-      "status": "in_progress",
+      "status": "done",
       "dependsOn": [
         "DOC-01"
       ],
@@ -193,7 +193,7 @@
       "milestone": "M2",
       "priority": "P2",
       "title": "Add an installable PWA",
-      "status": "planned",
+      "status": "done",
       "dependsOn": [
         "UX-04"
       ],

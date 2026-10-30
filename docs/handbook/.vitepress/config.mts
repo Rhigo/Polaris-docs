@@ -21,6 +21,7 @@ export default defineConfig({
         { text: 'Current capabilities', link: '/status' },
         { text: 'User guide', link: '/guide' },
         { text: 'Search and chat history', link: '/conversation-history' },
+        { text: 'Install Polaris', link: '/pwa' },
         { text: 'Voice and audio', link: '/voice' },
         { text: 'Saved Pal text tasks', link: '/pal-tasks' },
         { text: 'One-off reminders', link: '/reminders' },
