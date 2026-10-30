@@ -77,3 +77,15 @@ Production source `8d9928b` with synthetic accounts and a loopback provider. The
 ![Streamed synthetic quarterly data with chart and downloads](/screenshots/rich-data-desktop.jpg)
 
 <img class="mobile-shot" src="/screenshots/rich-data-mobile.jpg" alt="Chart axes and table fallback at a 390-pixel viewport">
+
+## Search and history · 30 October 2026
+
+Actual 390px application capture from frozen search source `fcfa2d8`, with synthetic accounts and conversations. Keyboard focus, archive filtering, precise cursor pagination and reloads were checked separately. Indexed prefixes and mutable pagination are documented in the [history guide](./conversation-history). This is browser viewport testing, not a physical phone test.
+
+<img class="mobile-shot" src="/screenshots/history-search-mobile.jpg" alt="Owner-scoped chat search at a 390-pixel viewport">
+
+## Browser workspace · 30 October 2026
+
+Actual application and isolated Chromium fixture from frozen browser source `e5563e3`. The shown public-HTTPS fixture and input are synthetic. The user holds the exclusive control lease; the Pal agent is explicitly disconnected. Terminal execution, a general file editor and autonomous browser actions are outside this pilot. See [workspace setup and boundaries](./computer-workspace).
+
+![An isolated browser workspace with exclusive user control and a synthetic page](/screenshots/computer-workspace-desktop.jpg)

@@ -28,6 +28,19 @@ for (const name of paths) {
     if (name.startsWith('docs/wiki/')) value = value.replaceAll('https://github.com/Rhigo/Polaris/blob/main/docs/handbook/', 'https://github.com/Rhigo/Polaris-docs/blob/main/docs/handbook/');
     if (name === 'docs/wiki/Home.md') value = value.replace('# Polaris developer hub\n', '# Polaris developer hub\n\n[Read the illustrated handbook](https://rhigo.github.io/Polaris-docs/) · [Documentation source and revision](https://github.com/Rhigo/Polaris-docs/blob/main/source-manifest.json)\n');
     if (name === 'docs/wiki/_Sidebar.md') value = value.replace('- [Wiki home](Home)', '- [Wiki home](Home)\n- [Illustrated handbook](https://rhigo.github.io/Polaris-docs/)');
+    // Index a guide only when it belongs to this reviewed source revision.
+    for (const [slug, label] of [['conversation-history', 'Search and history'], ['computer-workspace', 'Browser workspace']]) {
+      if (!paths.includes(`docs/handbook/${slug}.md`) || value.includes(`/${slug}.html`)) continue;
+      const url = `https://rhigo.github.io/Polaris-docs/${slug}.html`;
+      if (name === 'docs/wiki/Home.md') {
+        assert(value.includes('| Using Polaris |'), 'Wiki home index anchor changed');
+        value = value.replace('| Using Polaris |', `| ${label} | [Guide](${url}) |\n| Using Polaris |`);
+      }
+      if (name === 'docs/wiki/_Sidebar.md') {
+        assert(value.includes('- [Charts and tables]'), 'Wiki sidebar index anchor changed');
+        value = value.replace('- [Charts and tables]', `- [${label}](${url})\n- [Charts and tables]`);
+      }
+    }
     if (name === 'docs/wiki/README.md') value = '# Publishing the wiki index\n\nThe public Polaris-docs repository has Wiki enabled with editing restricted to collaborators. Publish `Home.md` and `_Sidebar.md` through its wiki editor; preserve any custom pages. This directory contains the version-controlled sources, and changes here do not automatically update the separate GitHub wiki.\n\nThe wiki links to the maintained handbook instead of duplicating its instructions. GitHub Pages uses the Actions workflow in this repository and requires no `PAGES_ENABLED` variable. Verify the successful deployment and live site after merging documentation updates.\n\nThe application remains private. Never copy environment files, private review notes, chat logs, credentials or production exports into either publication surface.\n';
     if (name === 'docs/handbook/operations.md') {
       const begin = value.indexOf('## Documentation deployment');
@@ -43,5 +56,5 @@ for (const name of paths) {
   manifest.push({ path: name, sourceSha256: hash(original), exportedSha256: hash(exported) });
 }
 execFileSync(process.execPath, [path.join(target, 'scripts/docs-check.mjs')], { cwd: target, stdio: 'inherit' });
-await fs.writeFile(path.join(target, 'source-manifest.json'), JSON.stringify({ sourceRepository: 'Rhigo/Polaris', sourceRevision: revision, sourceCommitDate: git('show', '-s', '--format=%cI', revision).toString().trim(), exportVersion: 1, files: manifest }, null, 2) + '\n');
+await fs.writeFile(path.join(target, 'source-manifest.json'), JSON.stringify({ sourceRepository: 'Rhigo/Polaris', sourceRevision: revision, sourceCommitDate: git('show', '-s', '--format=%cI', revision).toString().trim(), exportVersion: 2, files: manifest }, null, 2) + '\n');
 console.log(`Exported ${manifest.length} reviewed files from ${revision}`);

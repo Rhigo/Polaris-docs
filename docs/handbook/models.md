@@ -20,8 +20,16 @@ The adapter accepts cancellation; cancellation across every application tool and
 
 ## Evidence and remaining work
 
-The combined provider/interface source passes a production build and 67 unit tests, with two opt-in HTTP suites skipped. Disposable database tests verify current catalogue creation, administrator customization preservation and repeat/upgrade behavior. Synthetic fixtures are typed against the pinned SDK; they contain no customer data.
+Earlier provider/interface validation passed a production build and 67 unit tests, with two opt-in HTTP suites skipped; later release results are recorded in the [work log](./worklog). Disposable database tests verify current catalogue creation, administrator customization preservation and repeat/upgrade behavior. Synthetic fixtures are typed against the pinned SDK; they contain no customer data.
 
 Three bounded live GPT-6 Luna probes exercised the actual adapter: text streaming, strict JSON and function-call arguments. They used 106 input and 41 output tokens in total. No external function was executed. These checks do not prove every model, native tool, voice endpoint or account permission.
 
-Claude and Ollama retain their legacy adapters plus explicit unsupported-option guards; complete versioned contracts for them remain planned. Current pricing/accounting is also unfinished: existing cost estimates are not a complete bill or an enforced spend budget, and unknown/new-model pricing must be corrected in AI-05 before relying on those totals.
+Claude and Ollama retain their legacy adapters plus explicit unsupported-option guards; complete versioned contracts for them remain planned. Usage records distinguish verified token estimates from unknown costs. Complete fee accounting and enforced spend budgets remain unfinished; see [token accounting](./token-accounting).
+
+## Model identity on replies
+
+New text replies show the model resolved by the server for that reply. Selecting another model later, or renaming a catalogue entry, does not rewrite earlier reply labels. The label description keeps the requested selection, resolved provider/model and any provider-reported model identifier distinct; a reported identifier is descriptive and does not change pricing attribution.
+
+Older replies and voice transcripts without a recorded identity show “Assistant · model not recorded”. Polaris does not infer their model from the conversation’s current selection. Partial stopped replies keep the resolved identity received before the interruption. Temporary-chat identities stay in the current tab; their history and expiry rules are unchanged.
+
+Imported archives retain visible history but discard provider continuation identifiers and unverified reply identities. Legacy replies without recorded server provenance use owned local history for the next request; later voice text is included as well. Fresh server-authored replies can still use hosted continuation. These are application trust decisions built on the documented [Responses conversation-state options](https://developers.openai.com/api/docs/guides/conversation-state).
