@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { loadFixtures, fixtureName, digest } from './prepare-fixtures.mjs';
 
 const root = path.resolve('docs/handbook/.vitepress/dist');
 const base = '/Polaris-docs/';
@@ -11,6 +12,7 @@ for (const entry of manifest.files) {
   assert.equal(createHash('sha256').update(bytes).digest('hex'), entry.exportedSha256, `Export provenance mismatch: ${entry.path}`);
 }
 let pages = 0;
+let fixturePages = 0;
 let editLinks = 0;
 async function visit(directory) {
   for (const entry of await fs.readdir(directory, { withFileTypes: true })) {
@@ -18,6 +20,7 @@ async function visit(directory) {
     if (entry.isDirectory()) { await visit(filename); continue; }
     if (!entry.name.endsWith('.html')) continue;
     pages++;
+    if (path.relative(root, filename).startsWith(`fixtures${path.sep}`)) fixturePages++;
     const html = await fs.readFile(filename, 'utf8');
     const pageUrl = new URL(base + path.relative(root, filename), 'https://handbook.invalid');
     for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
@@ -39,5 +42,12 @@ async function visit(directory) {
   }
 }
 await visit(root);
+const fixtures = await loadFixtures();
+const fixtureRoot = path.join(root, 'fixtures');
+assert.deepEqual((await fs.readdir(fixtureRoot)).sort(), ['manifest.json', fixtureName].sort());
+assert.deepEqual((await fs.readdir(path.join(fixtureRoot, fixtureName))).sort(), fixtures.files.map(file => file.name).sort());
+for (const file of fixtures.files) assert.equal(digest(await fs.readFile(path.join(fixtureRoot, fixtureName, file.name))), file.sha256);
+assert.equal(digest(await fs.readFile(path.join(fixtureRoot, 'manifest.json'))), digest(fixtures.manifestBytes));
+assert.equal(fixturePages, 6);
 assert(pages > 10 && editLinks > 10, 'Expected a complete rendered handbook');
-console.log(`Verified ${pages} rendered pages, ${editLinks} public edit links and ${manifest.files.length} export hashes.`);
+console.log(`Verified ${pages - fixturePages} handbook pages, ${fixturePages} static fixture pages, ${editLinks} public edit links, ${manifest.files.length} export hashes and ${fixtures.files.length} fixture hashes.`);

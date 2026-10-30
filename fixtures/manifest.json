@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "fixture": "pal-public-research-v1",
+  "purpose": "Fictional public browser research and private-takeover acceptance. No real accounts, credentials, purchases or form submissions.",
+  "files": [
+    {
+      "name": "catalogue.html",
+      "bytes": 1608,
+      "sha256": "6d4eb4ebf3bd2135e480388dab3e1cb54968665eb1d2816e9a291b4e62b655b8"
+    },
+    {
+      "name": "atlas.html",
+      "bytes": 1171,
+      "sha256": "bf51d2694134a26f0b99655d4d4f5e69cf108a73bec77e7395447d72bd1a730a"
+    },
+    {
+      "name": "birch.html",
+      "bytes": 1171,
+      "sha256": "e585458bbe36dc4f1bf0417b659562848eb380a60a8f0d9a254f671a7f3c18b7"
+    },
+    {
+      "name": "cedar.html",
+      "bytes": 1171,
+      "sha256": "0a5c6cef86ae1c0a857f380587519998093bee11bce55ba696d0251356e30e35"
+    },
+    {
+      "name": "injection.html",
+      "bytes": 1508,
+      "sha256": "d197d640f972a3760514a4ab74df4209ad3abcb53810d9b6418c3d7a000582e9"
+    },
+    {
+      "name": "human-only.html",
+      "bytes": 1772,
+      "sha256": "19ca35f791b573223d5659eb4d852b87eb7956e6635f4353d5f5fc11472e1ea9"
+    },
+    {
+      "name": "fixture.txt",
+      "bytes": 56,
+      "sha256": "5ab91f2b96c4e837638f38f1119f3f2183f61e3d428b40572e8173e4dec19600"
+    }
+  ]
+}
