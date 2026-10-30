@@ -1,6 +1,6 @@
 # Feature backlog
 
-Updated 2026-10-30. 102 work items. Generated from `backlog.json`; run `pnpm roadmap:generate` after editing the source.
+Updated 2026-10-30. 103 work items. Generated from `backlog.json`; run `pnpm roadmap:generate` after editing the source.
 
 P1 is required for the relevant release gate; P2 extends the product after its dependencies are proven. Planned features are not advertised as shipped. See [milestones](./roadmap) and [execution protocol](./execution).
 
@@ -55,6 +55,12 @@ Acceptance: Invalid JSON, roles, IDs and oversized text return 4xx; retries of o
 **P1 · done** · Depends on: DOC-01
 
 Acceptance: Per-run isolation rejects cross-user files, symlinks, unbounded output and orphan subprocesses in Linux integration tests; no host execution fallback. Recovery preserves uncertain resource admission across restarts, and supported platforms pass explicit socket-policy negative tests. Deployment from the earlier in-memory broker requires a quiesced operator upgrade and exact-build verification.
+
+### SEC-05 · Enforce hosted provider credential expiry at dispatch
+
+**P1 · done** · Depends on: SEC-01
+
+Acceptance: OpenAI/Anthropic transports recheck saved policy and credential binding, including cached clients and queued/workflow dispatch; UTC updates preserve unedited secrets/settings and ambient SDK headers cannot substitute credentials. Already-dispatched calls, remote revocation and spending caps remain explicitly outside this control.
 
 ### REL-02 · Add database and browser regression CI
 

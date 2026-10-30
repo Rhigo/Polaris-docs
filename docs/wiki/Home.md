@@ -15,6 +15,7 @@ The version-controlled handbook is the canonical documentation. This wiki is an 
 | Streamed charts and tables | [Data guide](https://rhigo.github.io/Polaris-docs/rich-data.html) |
 | Scheduled reminder inbox | [Reminder guide](https://rhigo.github.io/Polaris-docs/reminders.html) |
 | Versioned text workflows | [Workflow guide](https://rhigo.github.io/Polaris-docs/workflows.html) |
+| Provider credential expiry | [Configuration and dispatch limits](https://rhigo.github.io/Polaris-docs/provider-credentials.html) |
 | Saved Pal text tasks | [Task guide](https://rhigo.github.io/Polaris-docs/pal-tasks.html) |
 | Image generation and edits | [Image guide](https://rhigo.github.io/Polaris-docs/images.html) |
 | Files attached to chat | [Attachment guide](https://rhigo.github.io/Polaris-docs/attachments.html) |
