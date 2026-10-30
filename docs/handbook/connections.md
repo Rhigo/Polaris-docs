@@ -1,10 +1,10 @@
 # Connected accounts and channels
 
-These are planned integrations. Start with a shared credential, OAuth, webhook and sync layer; then ship one read-only vertical slice per service before adding drafts and external actions. Each connection belongs to a Polaris user or explicitly administered workspace.
+The [Microsoft Inbox pilot](./microsoft-inbox) implements a read-only first slice with encrypted connection state, owned message metadata, transient plain-text bodies and opt-in local Pal notices. Its database, HTTP, worker and UI evidence uses synthetic accounts; real-tenant interoperability is a separate gate. Other services and broader Microsoft actions remain planned. Each connection belongs to a Polaris user or explicitly administered workspace.
 
 | Service | Proposed first slice | Authorization and feasibility gate |
 | --- | --- | --- |
-| Microsoft 365 | Search/read mail, draft replies, list calendar events | Delegated Microsoft Graph permissions; app registration and tenant consent |
+| Microsoft 365 | Inbox metadata, explicitly opened plain-text bodies and local notices are fixture-tested; search, drafts and calendar events remain planned | Dedicated workforce app registration, delegated Mail.Read, tenant consent and a real-account acceptance test |
 | Teams | Assistant bot, selected conversations and notifications | Bot installation plus supported Graph permissions; test tenant required |
 | Gmail | Search/read, drafts, then explicitly enabled sending | OAuth scopes, verification and any applicable restricted-scope assessment |
 | Google Calendar | List calendars/events, then create/update selected calendars | Separate least-privilege calendar scopes and revocation handling |

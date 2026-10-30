@@ -1,5 +1,7 @@
 # Development setup
 
+This is the source-development path for an approved **application** checkout. It does not install the application from the public documentation repository. For a fresh Linux web deployment, use [administrator setup](./server-setup); for an existing account, [Start here](./start-here).
+
 Use a disposable development database and local uploads directory. Preserve any existing `.env` and database before changing configuration.
 
 ## Requirements
@@ -44,6 +46,8 @@ pnpm db:init
 pnpm dev
 ```
 
+After `pnpm dev` reports ready, open `http://localhost:3000/login` on the development machine and use the initial administrator email/password from your private configuration. Do not assume rerunning initialization resets an existing account. Then follow [provider/model setup](./providers); a fresh database does not supply a working hosted credential.
+
 Initialization uses the tested `--import=tsx` loader. `db:init` applies the active migration journal and seed in one serialized transaction; separate `db:migrate` and `db:seed` commands remain available. The bootstrap administrator is created only when the users table is empty. Existing accounts, passwords, roles, disabled state and provider settings are preserved.
 
 Use the migration journal, not every SQL filename in alphabetical order: the repository contains an extra historical SQL file outside the active journal. Do not run `db:push` against production as a shortcut for reviewed migrations.
@@ -68,6 +72,6 @@ pnpm docs:build
 pnpm docs:preview
 ```
 
-The site source is **only** `docs/handbook`. The preview uses `/Polaris/`, matching the intended project Pages URL. VitePress is pinned to stable 1.6.4. [Deployment reference](https://vuejs.github.io/vitepress/v1/guide/deploy).
+The site source is **only** `docs/handbook`. In the private application checkout the preview uses `/Polaris/`. The separately exported public handbook uses `/Polaris-docs/`; its export process rewrites the site base and public links. Use the URL printed by the local preview for the checkout you are building. VitePress is pinned to stable 1.6.4. [Deployment reference](https://vuejs.github.io/vitepress/v1/guide/deploy).
 
 Update `docs/handbook/backlog.json`, then run `pnpm roadmap:generate`. CI checks IDs, dependency cycles, valid statuses, acceptance criteria and whether the generated Markdown is current.

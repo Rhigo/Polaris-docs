@@ -6,6 +6,12 @@ The [versioned API](./api) exposes scoped model/profile reads, bounded saved-tex
 
 Administrator-managed custom functions can call configured OpenAI or HTTP endpoints. The existing MCP form and manual call path do not establish complete protocol interoperability. Discovery, credential lifecycle, result validation and transport behavior still need their own implementation and tests. The OpenWebUI router in `docs/` remains a separate example with unfinished file-storage hooks.
 
+## Public web downloads
+
+The ordinary `web_fetch` tool is limited to public HTTP(S) destinations. It resolves and validates every redirect target, then connects to a validated numeric address while preserving the original host and HTTPS certificate checks. Private, shared, local and reserved address ranges are rejected. It does not inherit a proxy, browser cookies or caller-supplied credentials.
+
+Encoded and decompressed response bodies each have a streamed 10 MiB limit; a missing or misleading `Content-Length` does not remove it. One 15-second deadline covers resolution, redirects, headers and body reads, with no automatic retry. Text shown to the model has a separate 100,000-character cap. Downloads can therefore fail for size, timeout or destination policy even when an ordinary browser could open them. These transport controls do not make remote page instructions trusted, and do not establish the behavior of separately configured administrator integrations.
+
 ## Next external API capabilities
 
 Streaming chat needs explicit cancellation, model/tool permissions, request identity and accounting before it joins the public contract. Files and detailed usage need separate scopes; native text workflows already have six explicit opt-in permissions. The implemented API does not claim drop-in OpenAI SDK compatibility. Task token/time limits are not dollar spending caps.

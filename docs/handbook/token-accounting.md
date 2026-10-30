@@ -1,5 +1,7 @@
 # Model token estimates
 
+For a plain-language explanation of who pays, unknown amounts and excluded charges, start with [costs and data](./costs). Administrators can inspect recorded usage under **Admin panel → Analytics**.
+
 Reviewed **2026-10-29**. Polaris reports estimates for recorded model tokens, not an invoice. Unknown prices and missing usage are stored as null. A period containing unpriced requests has a null total, a separate known subtotal, and an unpriced-request count. An empty period is zero; a tiny positive amount displays as `<$0.0001` instead of zero.
 
 ## Reviewed OpenAI rates

@@ -14,7 +14,11 @@ The **OpenAI behavior** columns paraphrase the cited sources. The **Pal acceptan
 
 Polaris states are **Foundation** (related implementation exists), **Preview** (Pal appearance/home work is in progress), **Planned** (a backlog item exists), or **Gap** (feasibility or acceptance coverage is incomplete). A Foundation label never means the whole row works through Pal. Backlog identifiers refer to the [canonical backlog](./backlog); the [runtime decision](./pal-runtime) explains the implementation boundary.
 
-Existing foundations include chat, projects/files, generated-file downloads and HTML/code previews, user memories, skills/functions, administration, and the realtime voice panel. The M1 changes add tested principal revocation, ownership and transcript protections. They do not add a durable worker, connected-account monitoring, remote browser, paired personal computer, or cross-channel Pal. Appearance/home previews are tracked by PAL-01/PAL-02.
+Existing foundations include chat, projects/files, generated-file downloads and HTML/code previews, user memories, skills/functions, administration, and the realtime voice panel. The M1 changes add tested principal revocation, ownership and transcript protections. Subsequent slices added bounded saved tasks/workflows, one-off local reminders, an isolated human browser and an opt-in public browser research candidate. These do not establish general connected-account monitoring, personal-computer pairing or cross-channel Pal. Appearance and home controls are implemented, with broader PAL-01/PAL-02 acceptance still tracked.
+
+### Implementation evidence · 30 October 2026
+
+The [public research pilot](./public-browser-research) advances LOC-01/LOC-02, CLOUD-04 and RUN-01/RUN-03 through explicit reviewed-page consent, watched browser frames, a durable bounded worker, an owned report and irreversible agent revocation on human takeover. Synthetic-model tests used a real Linux browser, including private-input fencing and continuation in a fresh profile. This is partial implementation evidence for the computer/control journeys below, not a completed parity row. Integrated x86 CI, real-provider research and operator rollout remain gates; authenticated return-control, terminal/files, cloud tenancy and general orchestration remain open.
 
 ## Access, identity and setup
 

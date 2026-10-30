@@ -268,7 +268,7 @@
         "UX-04",
         "UX-08"
       ],
-      "acceptance": "Versioned screenshots come from deterministic demo fixtures and show new behaviour without credentials or real conversations."
+      "acceptance": "After functionality is accepted, versioned real-build captures cover 390/768/1440px, both themes, chat/files/history/settings and Pal customization/tasks/reminders/workflows/browser handoff, including useful empty/error/disconnected states. Synthetic accounts, provider fixtures, real worker/browser activity and separately authorized live evidence are labelled distinctly. Screenshots and reusable captioned video/optional GIF clips carry source/build, viewport, date and hash provenance; no keys, real conversations, private sign-in or fabricated UI/feed is shown. Public playback/readability, keyboard access, still alternatives and reduced motion are checked. Emulated mobile captures do not claim physical-device validation; beginner recipes pass the DOC-04 walkthrough."
     },
     {
       "id": "AI-01",
@@ -690,7 +690,7 @@
       "milestone": "M6",
       "priority": "P1",
       "title": "Add computer-use action controls",
-      "status": "planned",
+      "status": "in_progress",
       "dependsOn": [
         "CLOUD-03",
         "RUN-03"
@@ -726,7 +726,7 @@
       "milestone": "M7",
       "priority": "P1",
       "title": "Build OAuth, webhooks and sync infrastructure",
-      "status": "planned",
+      "status": "in_progress",
       "dependsOn": [
         "EXT-01",
         "RUN-01"
@@ -738,7 +738,7 @@
       "milestone": "M7",
       "priority": "P1",
       "title": "Add Microsoft 365 mail and calendar",
-      "status": "planned",
+      "status": "in_progress",
       "dependsOn": [
         "CON-01"
       ],
@@ -1035,7 +1035,7 @@
       "milestone": "M6",
       "priority": "P1",
       "title": "Run an isolated local computer provider",
-      "status": "planned",
+      "status": "in_progress",
       "dependsOn": [
         "SEC-04",
         "CLOUD-01"
@@ -1047,7 +1047,7 @@
       "milestone": "M6",
       "priority": "P1",
       "title": "Watch and take over the local browser",
-      "status": "planned",
+      "status": "in_progress",
       "dependsOn": [
         "LOC-01",
         "CLOUD-03"
@@ -1209,6 +1209,159 @@
         "RUN-08"
       ],
       "acceptance": "Repository-scoped access supports issues, branches, PRs and check results with explicit write authority, idempotent submission and reviewable test/video artifacts; credentials never enter task logs."
+    },
+    {
+      "id": "DOC-04",
+      "milestone": "M0",
+      "priority": "P1",
+      "title": "Complete beginner onboarding and administrator handoff",
+      "status": "in_progress",
+      "dependsOn": [
+        "DOC-02",
+        "REL-01",
+        "REL-04"
+      ],
+      "acceptance": "An unassisted reader chooses existing-server or administrator setup, understands private source access, signs in, configures a provider/model using verified controls, and completes first chat, file, task, workflow and reminder journeys with synthetic fixtures. Costs, key types, privacy, optional workers and recovery responsibilities are clear before use. A disposable installation and restore follows the written steps without undocumented commands. Published links work without private repository access; source-only checks and any unrun walkthrough remain explicit."
+    },
+    {
+      "id": "DOC-05",
+      "milestone": "M2",
+      "priority": "P1",
+      "title": "Publish a dated model and feature support matrix",
+      "status": "planned",
+      "dependsOn": [
+        "AI-01",
+        "AI-02",
+        "AI-05"
+      ],
+      "acceptance": "Exact model IDs and dated provider contracts map text, image, audio/voice, reasoning, structured output, tools, files and background work to Polaris adapter support, account entitlement and administrator configuration. Each cell states tested, synthetic-only, awaiting live validation, unavailable or unreviewed; no blank implies support. Links cover limits, pricing exclusions and source/test evidence. Unknown, retired and local/cloud models remain distinct. Accepted feature/model releases update the matrix without making paid calls solely to fill cells."
+    },
+    {
+      "id": "SEC-06",
+      "milestone": "M1",
+      "priority": "P1",
+      "title": "Independently review security across the accepted feature set",
+      "status": "planned",
+      "dependsOn": [
+        "SEC-01",
+        "SEC-02",
+        "SEC-03",
+        "SEC-04",
+        "SEC-05"
+      ],
+      "acceptance": "An independent reviewer records exact source/images, deployment assumptions, author/reviewer boundaries and scope across auth, ownership/API keys, credentials, artifacts, workers, browser/terminal isolation, connectors and recovery. Concrete findings include path/line, severity, reproducible synthetic tests and remediation; race and Linux isolation claims require appropriate real boundary evidence. Blocking findings are fixed with regressions at the accepted commit or retain a release hold. Residual risks, unsupported platforms and untested external behavior are explicit; the review never claims everything is secure."
+    },
+    {
+      "id": "PAL-11",
+      "milestone": "M5",
+      "priority": "P1",
+      "title": "Keep one continuous private Pal conversation per user",
+      "status": "in_progress",
+      "dependsOn": [
+        "SEC-01",
+        "PAL-01"
+      ],
+      "acceptance": "Database uniqueness and concurrent-first-open tests prove one owner, Pal and thread. Normal chat/search/archive controls cannot expose or remove the Pal thread. Avatar settings and computer panels remain keyboard and mobile accessible."
+    },
+    {
+      "id": "PAL-12",
+      "milestone": "M5",
+      "priority": "P1",
+      "title": "Add bounded user and Pal message reactions",
+      "status": "in_progress",
+      "dependsOn": [
+        "PAL-11"
+      ],
+      "acceptance": "An accessible fixed-emoji picker adds/removes owned reactions. A server-context tool lets Pal react only to the current persisted user message; actor spoofing, stale or foreign message IDs and unsupported providers fail explicitly."
+    },
+    {
+      "id": "DESK-01",
+      "milestone": "M6",
+      "priority": "P1",
+      "title": "Bind one persistent logical desktop to each Pal",
+      "status": "in_progress",
+      "dependsOn": [
+        "PAL-11",
+        "SEC-04"
+      ],
+      "acceptance": "Atomic provisioning and database uniqueness prevent duplicate desktops. Reconnect, restart and owner revocation preserve identity without allowing cross-user sessions; destroy remains an explicit lifecycle action."
+    },
+    {
+      "id": "DESK-02",
+      "milestone": "M6",
+      "priority": "P1",
+      "title": "Provide a reconnectable Debian and Xfce desktop",
+      "status": "in_progress",
+      "dependsOn": [
+        "DESK-01",
+        "LOC-01"
+      ],
+      "acceptance": "A real isolated Debian 13/Xfce guest opens Chromium, terminal and file manager through an owner-authenticated viewer. Closing the viewer leaves authorized background jobs alive; no host home, shell, SSH agent or unrelated mounts are exposed."
+    },
+    {
+      "id": "DESK-03",
+      "milestone": "M6",
+      "priority": "P1",
+      "title": "Retain browser profiles with verified private control handoff",
+      "status": "planned",
+      "dependsOn": [
+        "DESK-02",
+        "PAL-06"
+      ],
+      "acceptance": "Synthetic cookies/files survive disconnect and guest restart while other users cannot read them. Server-enforced observation/input fencing, explicit resume and fresh observation pass adversarial client tests. Private human contexts do not reuse an agent-modified shell home, and the documented boundary does not claim secrecy from unrestricted code in a shared context."
+    },
+    {
+      "id": "DESK-04",
+      "milestone": "M6",
+      "priority": "P1",
+      "title": "Configure desktop sizes and pooled host admission",
+      "status": "planned",
+      "dependsOn": [
+        "DESK-01"
+      ],
+      "acceptance": "Administrators define allowed CPU, RAM and storage profiles; per-user and host admission limits are atomic. Reservations, limits and oversubscription are distinct. Workspace, OS, snapshots, logs and staging are accounted separately, and separate Pal guests never imply shared files or credentials."
+    },
+    {
+      "id": "DESK-05",
+      "milestone": "M6",
+      "priority": "P1",
+      "title": "Round-trip chat attachments through the visible desktop",
+      "status": "planned",
+      "dependsOn": [
+        "PAL-11",
+        "DESK-02",
+        "LOC-03",
+        "LOC-04"
+      ],
+      "acceptance": "An owned synthetic PDF reaches the shared workspace, a visible terminal conversion produces a Word document, and an owned result is returned to the Pal thread. Traversal, symlinks, cross-user references, expired files, limits and interrupted transfers fail safely; conversion fidelity limits are documented."
+    },
+    {
+      "id": "DESK-06",
+      "milestone": "M6",
+      "priority": "P1",
+      "title": "Reconcile desktop restart and restore authority",
+      "status": "planned",
+      "dependsOn": [
+        "DESK-01",
+        "DESK-02"
+      ],
+      "acceptance": "Crash, cold restart and restored-snapshot tests preserve durable files while invalidating stale control authority. An independent recovery witness or mandatory quarantine prevents rolled-back epochs and uncertain actions from replaying; cleanup cannot delete another desktop."
+    },
+    {
+      "id": "DESK-07",
+      "milestone": "M6",
+      "priority": "P1",
+      "title": "Continue authorized Pal desktop jobs without a viewer",
+      "status": "planned",
+      "dependsOn": [
+        "DESK-02",
+        "DESK-03",
+        "DESK-05",
+        "DESK-06",
+        "RUN-03",
+        "RUN-04"
+      ],
+      "acceptance": "Bounded multi-step browser/terminal/file runs continue after viewer disconnect, publish durable progress/artifacts, respect pause and takeover, and do not auto-replay uncertain external actions. Provider permissions, expiry, budgets, cancel and restart behavior pass real runtime tests before live unattended work is enabled."
     }
   ]
 }

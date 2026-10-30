@@ -32,7 +32,7 @@ Native tools and function tools are absent from the provider request. Unexpected
 
 ## Run the local worker
 
-Use an approved source checkout with its locked dependencies installed and the same database and configuration-encryption key as the web application. Apply every migration through `0012` for this release using the [release and recovery procedure](./recovery), including `0008_pal_saved_text_runs`, `0009_usage_cost_basis`, `0010_pal_one_off_reminders` and `0011_pal_api_task_origin`, before starting the worker. Stop all older workers during upgrade and use matching web/worker code; older workers do not enforce the originating-key policy.
+Use an approved source checkout with its locked dependencies installed and the same database and configuration-encryption key as the web application. Apply the complete migration journal shipped with the approved release using the [release and recovery procedure](./recovery), including the saved-task, pricing, reminder, API-origin and workflow migrations, before starting the worker. Stop all older workers during upgrade and use matching web/worker code; older workers do not enforce the originating-key policy.
 
 From the repository root:
 

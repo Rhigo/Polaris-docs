@@ -16,7 +16,7 @@ If a saved local-model choice disappears, Polaris keeps that choice unavailable 
 
 The adapter normalizes text, refusals, reasoning summaries, authoritative function arguments, hosted-tool events, image results, citations and cached-token usage. Duplicate function completion is deduplicated. Incomplete, failed, aborted and truncated responses produce an error rather than successful completion. Unknown additive events are tolerated while a recognized terminal event remains required. [Responses streaming](https://developers.openai.com/api/docs/guides/streaming-responses).
 
-The adapter accepts cancellation; cancellation across every application tool and external effect is still separate work. Main chat currently retains the existing Responses `store:true` policy; auxiliary title/memory requests use `store:false`. Local temporary-chat behavior must not be interpreted as a complete remote-retention guarantee.
+The adapter accepts cancellation; cancellation across every application tool and external effect is still separate work. Ordinary saved OpenAI chat retains the Responses `store:true` policy. Temporary OpenAI chat uses `store:false` with stateless context; auxiliary title/memory requests also use `store:false`. These settings do not promise zero provider retention, and independent files/tools have separate lifetimes. See [temporary chat and privacy](./privacy).
 
 ## Evidence and remaining work
 
@@ -28,7 +28,7 @@ Claude and Ollama retain their legacy adapters plus explicit unsupported-option 
 
 ## Model identity on replies
 
-New text replies show the model resolved by the server for that reply. Selecting another model later, or renaming a catalogue entry, does not rewrite earlier reply labels. The label description keeps the requested selection, resolved provider/model and any provider-reported model identifier distinct; a reported identifier is descriptive and does not change pricing attribution.
+New text replies show the model resolved by the server for that reply. Selecting another model later, or renaming a catalogue entry, does not rewrite earlier reply labels. The label description keeps the requested selection, resolved provider/model and any provider-reported model identifier distinct; the display label itself does not calculate cost. Accounting uses the provider-reported model when available and leaves unreviewed identities unpriced under the [token-estimate policy](./token-accounting).
 
 Older replies and voice transcripts without a recorded identity show “Assistant · model not recorded”. Polaris does not infer their model from the conversation’s current selection. Partial stopped replies keep the resolved identity received before the interruption. Temporary-chat identities stay in the current tab; their history and expiry rules are unchanged.
 

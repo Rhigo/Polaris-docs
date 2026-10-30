@@ -1,5 +1,9 @@
 # Voice and audio
 
+::: info Validation status
+Live calls remain experimental. A real OpenAI WebRTC check on 30 October 2026 passed saved-text context recall and transcript persistence with `gpt-realtime-2.1-mini`. Physical microphone input, spoken-audio quality and broader device/model coverage remain unverified. Source acceptance does not automatically update an existing server.
+:::
+
 Polaris has three separate audio workflows. Each explicitly uses OpenAI, including when the selected text-chat model runs locally. Administrators configure the provider credential and audio choices under **Settings → Voice**. Saved model IDs and instructions are preserved; selecting the current defaults is an explicit administrator action.
 
 | Action | Current default | How it works |
@@ -40,7 +44,9 @@ Audio is sent to OpenAI when these actions are used. Application history and pro
 
 ## Validation
 
-A bounded live WebRTC check on 30 October 2026 connected the peer and data channel, but the previous bootstrap rejected the initial session configuration before sending chat context or enabling microphone input. Its retained evidence does not establish the exact provider VAD shape. The explicit pause-update acknowledgement described above passes a native local-peer regression; an actual-provider retest is still required before that candidate is deployed. The failed probe closed local media and removed its fixture, but its single remote hangup was not confirmed.
+A bounded real OpenAI WebRTC check on 30 October 2026 passed against source `9020086`: setup returned 201, the explicit pause and both saved-text items were acknowledged, and one typed prompt produced the correct context-dependent answer. The two new transcript rows survived reload; reposting the assistant event returned the same row without duplication. The single remote hangup returned 200. Local peers, tracks, application, database and temporary files were cleaned up. The test used `gpt-realtime-2.1-mini`, 32 output-token maximum, no tools or transcription, a generated silent track and muted playback. Reported usage was 124 input text tokens and 17 output text tokens, with zero audio tokens. These results establish that narrow transport/context/persistence path, not physical speech or general multi-turn behavior.
+
+The corrected client uses fresh 96-bit random identities within a 32-character safe-ASCII boundary for its context and typed items. Provider-issued call, event and response references are not shortened. A strict native local peer rejected the previous oversized client identities and accepted the corrected ones. Two earlier real probes failed before a response; the original provider errors were not retained, so their exact causes remain unproved. The first failed probe did not confirm remote hangup; the later failure and this successful check did. Historical uncertainty is preserved rather than inferred away.
 
 The production standalone build is copied outside the checkout for HTTP tests, so missing deployment dependencies cannot be hidden by the development workspace. A private TLS/WebSocket fixture drives the real OpenAI SDK exchange, including format acknowledgement, WAV framing, incomplete responses, cancellation and no reconnect. Other cases cover ownership, disabled accounts, invalid models/voices, anonymous uploads and valid uploads above Next's default middleware cloning limit.
 

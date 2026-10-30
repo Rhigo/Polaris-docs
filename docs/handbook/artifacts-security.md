@@ -17,6 +17,7 @@ Only bounded resize notifications cross into Polaris. Both relay and app receive
 ## Other rendering and download paths
 
 - Raw Markdown is parsed and then sanitized with the existing `rehype-sanitize` default schema. It cannot introduce app-origin iframe/srcdoc, SVG active content, script, object, embed, forms, event attributes, or unsafe URL protocols. Fenced HTML remains source until the controlled preview renders it. Safe formatting and disabled task-list checkboxes remain supported.
+- Markdown images load only from an exact `/api/files/<UUID>` path, with no query or fragment. That route checks the current user and file owner. External images, absolute URLs, data URLs and other paths show an **Image not loaded** label without an image element or preload; upload an image into Polaris to include it. This applies to streamed replies, saved replies and sanitized raw HTML. Model-provided image attributes cannot add another source. Ordinary external text links remain user-initiated navigation. Sanitizing markup alone would not prevent a model-supplied image URL from sending conversation text to another server.
 - `/api/files/[id]` retains authentication and owner checks. MIME comparison uses a trimmed, lowercase essence without parameters. Only known passive raster images, PDF, and plain text are served inline.
 - HTML, SVG, XML, JavaScript, and unknown types are attachments with `nosniff`, `no-referrer`, private `no-store`, and a script-disabled CSP sandbox as defense in depth. Downloaded bytes remain the original source.
 - The PDF object viewer requires an actual PDF response MIME and `%PDF-` signature before creating a Blob with fixed PDF MIME. Attachment metadata alone cannot turn HTML into an app-origin object document.
@@ -29,7 +30,7 @@ Downloaded HTML/SVG opened outside Polaris is a separate user-controlled executi
 From `apps/web` with pinned workspace dependencies:
 
 ```sh
-node --import=tsx --test lib/artifact-preview.test.ts lib/markdown-policy.test.ts lib/files/response-policy.test.ts lib/pdf-preview.test.ts
+node --import=tsx --test lib/artifact-preview.test.ts lib/markdown-policy.test.ts lib/markdown-images.test.ts lib/files/response-policy.test.ts lib/pdf-preview.test.ts
 node ../../node_modules/typescript/bin/tsc --noEmit
 ```
 

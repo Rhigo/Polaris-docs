@@ -1,4 +1,4 @@
-# Polaris developer hub
+# Polaris help and guides
 
 [Read the illustrated handbook](https://rhigo.github.io/Polaris-docs/) · [Documentation source and revision](https://github.com/Rhigo/Polaris-docs/blob/main/source-manifest.json)
 
@@ -8,10 +8,14 @@ The version-controlled handbook is the canonical documentation. This wiki is an 
 
 | Start here | Canonical page |
 | --- | --- |
-| What works and what is planned | [Current status](https://github.com/Rhigo/Polaris-docs/blob/main/docs/handbook/status.md) |
+| First login or getting access | [Start here](https://rhigo.github.io/Polaris-docs/start-here.html) |
+| Running your own server | [Administrator setup](https://rhigo.github.io/Polaris-docs/server-setup.html) |
+| Connecting your first model | [Provider setup](https://rhigo.github.io/Polaris-docs/providers.html) |
+| Costs, unknown amounts and privacy | [Costs and data](https://rhigo.github.io/Polaris-docs/costs.html) |
+| What works and what is planned | [Current status](https://rhigo.github.io/Polaris-docs/status.html) |
 | Voice, dictation and read-aloud | [Voice guide](https://rhigo.github.io/Polaris-docs/voice.html) |
 | Temporary chat and retention | [Privacy guide](https://rhigo.github.io/Polaris-docs/privacy.html) |
-| Personal API keys and automation | [API guide](https://rhigo.github.io/Polaris-docs/api.html) |
+| Polaris API keys for external programs | [API guide](https://rhigo.github.io/Polaris-docs/api.html) |
 | Streamed charts and tables | [Data guide](https://rhigo.github.io/Polaris-docs/rich-data.html) |
 | Scheduled reminder inbox | [Reminder guide](https://rhigo.github.io/Polaris-docs/reminders.html) |
 | Versioned text workflows | [Workflow guide](https://rhigo.github.io/Polaris-docs/workflows.html) |
@@ -20,16 +24,20 @@ The version-controlled handbook is the canonical documentation. This wiki is an 
 | Image generation and edits | [Image guide](https://rhigo.github.io/Polaris-docs/images.html) |
 | Files attached to chat | [Attachment guide](https://rhigo.github.io/Polaris-docs/attachments.html) |
 | Isolated code execution | [Execution guide](https://rhigo.github.io/Polaris-docs/execution-isolation.html) |
-| Install Polaris | [Installable app guide](https://rhigo.github.io/Polaris-docs/pwa.html) |
+| Add Polaris to your device | [Installable app guide](https://rhigo.github.io/Polaris-docs/pwa.html) |
 | Search and history | [History guide](https://rhigo.github.io/Polaris-docs/conversation-history.html) |
 | Browser workspace | [Browser guide](https://rhigo.github.io/Polaris-docs/computer-workspace.html) |
-| Using Polaris | [User guide](https://github.com/Rhigo/Polaris-docs/blob/main/docs/handbook/guide.md) |
-| Setting up development | [Development setup](https://github.com/Rhigo/Polaris-docs/blob/main/docs/handbook/development.md) |
-| How the application fits together | [Architecture](https://github.com/Rhigo/Polaris-docs/blob/main/docs/handbook/architecture.md) |
-| Releases, migration and deployment | [Operations](https://github.com/Rhigo/Polaris-docs/blob/main/docs/handbook/operations.md) |
-| Full implementation programme | [Roadmap](https://github.com/Rhigo/Polaris-docs/blob/main/docs/handbook/roadmap.md) and [backlog](https://github.com/Rhigo/Polaris-docs/blob/main/docs/handbook/backlog.md) |
-| Polaris Pal | [Experience](https://github.com/Rhigo/Polaris-docs/blob/main/docs/handbook/pal.md), [runtime decision](https://github.com/Rhigo/Polaris-docs/blob/main/docs/handbook/pal-runtime.md) and [Dots comparison](https://github.com/Rhigo/Polaris-docs/blob/main/docs/handbook/dots-parity.md) |
-| APIs, pipelines and integrations | [Extensions](https://github.com/Rhigo/Polaris-docs/blob/main/docs/handbook/extensions.md) and [connections](https://github.com/Rhigo/Polaris-docs/blob/main/docs/handbook/connections.md) |
-| Continuing work safely | [Execution protocol](https://github.com/Rhigo/Polaris-docs/blob/main/docs/handbook/execution.md) and [work log](https://github.com/Rhigo/Polaris-docs/blob/main/docs/handbook/worklog.md) |
+| Public browser research | [Guide](https://rhigo.github.io/Polaris-docs/public-browser-research.html) |
+| Using Polaris | [User guide](https://rhigo.github.io/Polaris-docs/guide.html) |
+| Setting up development | [Development setup](https://rhigo.github.io/Polaris-docs/development.html) |
+| How the application fits together | [Architecture](https://rhigo.github.io/Polaris-docs/architecture.html) |
+| Releases, migration and deployment | [Operations](https://rhigo.github.io/Polaris-docs/operations.html) |
+| Backing up or restoring the server | [Administrator recovery guide](https://rhigo.github.io/Polaris-docs/recovery.html) |
+| Full implementation programme | [Roadmap](https://rhigo.github.io/Polaris-docs/roadmap.html) and [backlog](https://rhigo.github.io/Polaris-docs/backlog.html) |
+| Polaris Pal | [Experience](https://rhigo.github.io/Polaris-docs/pal.html), [runtime decision](https://rhigo.github.io/Polaris-docs/pal-runtime.html) and [Dots comparison](https://rhigo.github.io/Polaris-docs/dots-parity.html) |
+| Persistent Pal computer (planned) | [Desktop, continuous chat and shared-host plan](https://rhigo.github.io/Polaris-docs/pal-computer.html) |
+| Microsoft Inbox pilot | [Read-only setup, retention and verification limits](https://rhigo.github.io/Polaris-docs/microsoft-inbox.html) |
+| APIs, pipelines and integrations | [Extensions](https://rhigo.github.io/Polaris-docs/extensions.html) and [connections](https://rhigo.github.io/Polaris-docs/connections.html) |
+| Continuing work safely | [Execution protocol](https://rhigo.github.io/Polaris-docs/execution.html) and [work log](https://rhigo.github.io/Polaris-docs/worklog.html) |
 
 Keep changes in focused commits and reviewed PRs. Record exact test results and release revisions; distinguish implemented source, verified integrations and deployed features. Preserve existing data and configuration when upgrading, and rehearse restoration before relying on a rollback plan.

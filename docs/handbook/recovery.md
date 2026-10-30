@@ -1,6 +1,10 @@
 # Recovery and release checkpoints
 
-Polaris recovery restores a verified backup into a **new database and new file locations**. It does not overwrite a running installation, switch traffic, start an application, or run down migrations. Keep the current deployment available until the recovered environment has passed its checks.
+**This procedure is for the administrator running the server.** Users should ask that person how often conversations/files are backed up and how to request recovery. Exporting or archiving a chat and installing the browser app are not complete server backups.
+
+Operator checklist: identify the actual database, upload/generated storage and configuration keys; preserve the approved source/images; stop all writers during capture; verify the bundle; restore into separate targets; then test sign-in, encrypted settings and owned files before changing traffic. Example paths below must be replaced with your deployment’s real locations. Never send the bundle, keys or environment file in a public support request.
+
+Polaris recovery restores a verified backup into a **new database and new file locations**. It does not overwrite a running installation, switch traffic, start an application, or run down migrations. Preserve the current deployment and its data until the recovered environment has passed its checks. Its writers must still be stopped during the backup capture described below.
 
 The tooling is `scripts/recovery.mjs`, using Node 22 or 24 and PostgreSQL clients matching the server's major version. It can use an explicit local client directory or the PostgreSQL service of an explicit Compose project. Database credentials come from a named environment variable; URLs, passwords, configuration values and raw PostgreSQL error output are not printed.
 
