@@ -105,3 +105,19 @@ Actual 1200px and 390px Chrome captures from frozen release `16822fd`, using syn
 ![Text workflow editor with a saved second revision](/screenshots/workflows-desktop.jpg)
 
 <img class="mobile-shot" src="/screenshots/workflows-mobile.jpg" alt="Two completed synthetic workflow steps and saved results at 390 pixels">
+
+## Provider credential cutoff · 30 October 2026
+
+These inspected desktop and 390-pixel mobile captures use a synthetic provider credential and example UTC cutoff. They show the saved setting and explicit dispatch limits, not a real provider key or provider-side revocation. Real browser checks also covered natural expiry status, explicit removal, concurrent admin changes and reload. [Credential configuration and limits](./provider-credentials.md).
+
+![Provider configuration with a saved UTC dispatch cutoff](/screenshots/provider-cutoff-desktop.jpg)
+
+<img class="mobile-shot" src="/screenshots/provider-cutoff-mobile.jpg" alt="Provider credential cutoff on a narrow mobile viewport">
+
+## Voice context and fresh-call recovery · 30 October 2026
+
+Actual 390-pixel Chrome captures from the synthetic voice fixture show bounded recent chat context and explicit recovery after a connection failure. The UI bytes are preserved in the combined expiry-and-voice release. These captures use synthetic media and transport; they do not establish microphone quality or a live OpenAI call. See the [voice guide](./voice).
+
+<img class="mobile-shot" src="/screenshots/voice-context-mobile.jpg" alt="Voice setup showing the recent text included from the current chat">
+
+<img class="mobile-shot" src="/screenshots/voice-recovery-mobile.jpg" alt="Voice connection failure with an explicit Start a new call action">

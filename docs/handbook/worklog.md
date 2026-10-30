@@ -209,3 +209,27 @@ Chrome testing at 390/1200px covered save/revision selection, a completed two-st
 ### Workflow CI correction — 2026-10-30
 
 PR24 first head116090f failed an existing computer allocation test because its 30-iteration timer expired before the filesystem reached the durable-intent hook. Production behavior was unchanged. The fixture now awaits an explicit barrier, still requires zero Docker mutations before acknowledgement, and settles creation before temporary-directory cleanup even on failure. All38 computer tests and type checking pass locally;12 concurrent targeted invocations pass. The original failing job log is retained with the local release evidence. The corrected head must pass the full GitHub suite before merge.
+
+### Workflow publication and live upgrade — 2026-10-30
+
+PR24 merged 5f8e4f0 after all six required GitHub checks passed 571ed558. The explicit allocation-test barrier correction also passed 38 computer units and 12 concurrent targeted invocations. A restored-copy rehearsal preserved 29 original tables across 0013 and passed 16 HTTP checks without starting a worker or contacting a provider. The live upgrade then stopped both writers, made a fresh verified backup, preserved all 29 prior table fingerprints and passed 18 HTTP checks before the matching text/reminder/workflow worker resumed. Rollback checkpoint: checkpoint/workflows-5f8e4f0. The public handbook export from this source passed 35 page/70 export-hash checks and deployed through docs PR10. Its 7 synthetic browser fixture files retain a separate verified manifest.
+
+### Provider credential expiry — 2026-10-30
+
+Frozen release 90a7adba adds an optional UTC cutoff in existing configuration, fresh authority/binding checks for hosted SDK and audio dispatch, atomic preservation of omitted settings/secrets, and an admin cutoff control. Saved keys and endpoints cannot be replaced by ambient SDK credentials or headers. Real loopback requests verify OpenAI and Anthropic wire headers; no paid provider call or private credential was used.
+
+Production build, typecheck, docs and 317 web units pass; 10 opt-in test placeholders are skipped in that unit command, and 54 explicitly enabled database/HTTP records pass separately with no skips. These cover retained clients, dispatch after a database wait, key changes, chat/images/audio, queued tasks and between-step workflow expiry. Browser checks cover UTC save/reload/removal, natural expired status, 390-pixel layout and a concurrent-admin preservation race. All fixture databases and tabs were cleaned up. The 26 existing migration files are unchanged.
+
+Already-dispatched requests and established WebRTC calls can continue. This is not remote revocation or a spending cap. Pre-guard rollback requires disabling/removing or revoking affected credentials before older code starts. Root documentation adds the recovery boundary, capability status and inspected screenshots; final GitHub checks and deployment remain separate release gates.
+
+## 2026-10-30 · Provider expiry deployment and voice context
+
+Provider expiry [PR25](https://github.com/Rhigo/Polaris/pull/25) merged at `f0c96ad` after all six required checks passed on final head `4caf1a6`. A stopped-writer backup preceded the local upgrade; all 33 existing table fingerprints were preserved, no schema changed, and 20 live HTTP checks passed. A temporary operator-supplied credential was then stored encrypted with an explicit cutoff. A metadata-only provider check confirmed availability without inference. Pre-guard rollback requires disabling/removing or revoking that credential; compatible database schemas do not preserve the dispatch guard.
+
+The next voice slice includes bounded recent final-text context from owned saved or temporary chats. Listening waits for exact context, buffer-clear and session-configuration acknowledgements. Explicit recovery settles idempotent transcript writes before starting a fresh call and does not replay audio or tools. Route/account changes fence old callbacks. The retained legacy SDP protocol remains compatible.
+
+Frozen combined candidate `99ca046` passed 337 web units, eight recovery units, 65 explicitly enabled PostgreSQL/HTTP test records, TypeScript, production and documentation builds. Ten opt-in integration placeholders in the ordinary unit command were skipped; the stated 65 records ran explicitly. The combined transport adds an expiry-between-preflight-and-setup regression with zero denied provider dispatch. Synthetic Chrome fixtures cover permission timeout, cancellation, interrupted setup, save failure, temporary history, fresh-call retry and mobile layouts. Root integration preserves the 13 application/test files byte-for-byte and adds release documentation.
+
+`VOICE-01`, `VOICE-02` and `VOICE-03` remain in progress: broader project/file context parity, physical-device audio and live WebRTC acceptance are still explicit gates. There is no database migration, spend cap or provider-session resumption in this slice.
+
+A subsequent bounded live workflow used `gpt-6-luna` through the normal authenticated API and separate worker. Its single step returned the exact synthetic marker, recorded 68 input and eight output tokens, and completed in one dispatch with no tools. The application model-token estimate was $0.0000108, not a provider invoice; the private test ledger retained a conservative $0.02 reservation. Only the owned synthetic workflow/run were removed after checking that no newer revision or additional run existed.

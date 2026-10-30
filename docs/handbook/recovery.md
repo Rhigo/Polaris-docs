@@ -120,6 +120,8 @@ The restored config intentionally contains an unusable `DATABASE_URL`. Replace t
 
 ## Application rollback boundary
 
+Provider credential expiry is stored in existing JSON configuration and adds no migration. Code from before that feature ignores the cutoff even when the database schema matches. Before deploying such code, stop the web app and workers and disable/remove the affected credential, or revoke it at the provider. Restoring a backup can restore an older credential and its configuration: review that state before starting the restored application. This is also necessary when assessing a rollback that otherwise has compatible migrations. See [provider credential boundaries](./provider-credentials.md); already-dispatched remote requests and established voice calls may require separate termination.
+
 ```sh
 node /srv/polaris/source/scripts/recovery.mjs assess \
   --bundle /secure/backups/pre-upgrade-2026-10-29 \

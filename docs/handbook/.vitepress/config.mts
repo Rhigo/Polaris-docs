@@ -38,6 +38,7 @@ export default defineConfig({
         { text: 'Architecture', link: '/architecture' },
         { text: 'Developer API', link: '/api' },
         { text: 'Token usage estimates', link: '/token-accounting' },
+        { text: 'Provider credential expiry', link: '/provider-credentials' },
         { text: 'API and extensions', link: '/extensions' },
         { text: 'Operations and releases', link: '/operations' },
         { text: 'Backup and recovery', link: '/recovery' },
