@@ -1,7 +1,7 @@
 {
   "sourceRepository": "Rhigo/Polaris",
-  "sourceRevision": "2abb105e84c54f333b03af6270848ccf91dff401",
-  "sourceCommitDate": "2026-10-30T05:44:00Z",
+  "sourceRevision": "26e7aec81ae8529928a1b8e66590dcb6a2e77d7d",
+  "sourceCommitDate": "2026-10-30T06:50:27Z",
   "exportVersion": 2,
   "files": [
     {
@@ -336,8 +336,8 @@
     },
     {
       "path": "docs/handbook/status.md",
-      "sourceSha256": "c30eeea07b9ed8ef3bc68ca79ee9423a0216c070bf97ba525a653c02f2ce0949",
-      "exportedSha256": "c30eeea07b9ed8ef3bc68ca79ee9423a0216c070bf97ba525a653c02f2ce0949"
+      "sourceSha256": "32cfd466e977f386c7217ac3738aaf6443b85b18274cf2e1e00588a75738b18d",
+      "exportedSha256": "32cfd466e977f386c7217ac3738aaf6443b85b18274cf2e1e00588a75738b18d"
     },
     {
       "path": "docs/handbook/token-accounting.md",
@@ -346,8 +346,8 @@
     },
     {
       "path": "docs/handbook/voice.md",
-      "sourceSha256": "4a26ce1c543943e7be744c8ac0aec96dfa2d63f2c18aa603060f983d870f51e8",
-      "exportedSha256": "4a26ce1c543943e7be744c8ac0aec96dfa2d63f2c18aa603060f983d870f51e8"
+      "sourceSha256": "e2c8b0a5c9044ac183071fdec9aab026e2e676140722d81ec970f8dd3bc32818",
+      "exportedSha256": "e2c8b0a5c9044ac183071fdec9aab026e2e676140722d81ec970f8dd3bc32818"
     },
     {
       "path": "docs/handbook/workflows.md",
@@ -356,8 +356,8 @@
     },
     {
       "path": "docs/handbook/worklog.md",
-      "sourceSha256": "7a3cd02c3e5ebb17ee95f69f98de20c223c88673a246029270dca54d4b40b4da",
-      "exportedSha256": "7a3cd02c3e5ebb17ee95f69f98de20c223c88673a246029270dca54d4b40b4da"
+      "sourceSha256": "311cb1e96c60395e900455a05926770fed983a1a4195964e55c36e78561be648",
+      "exportedSha256": "311cb1e96c60395e900455a05926770fed983a1a4195964e55c36e78561be648"
     },
     {
       "path": "docs/wiki/Home.md",

@@ -233,3 +233,13 @@ Frozen combined candidate `99ca046` passed 337 web units, eight recovery units, 
 `VOICE-01`, `VOICE-02` and `VOICE-03` remain in progress: broader project/file context parity, physical-device audio and live WebRTC acceptance are still explicit gates. There is no database migration, spend cap or provider-session resumption in this slice.
 
 A subsequent bounded live workflow used `gpt-6-luna` through the normal authenticated API and separate worker. Its single step returned the exact synthetic marker, recorded 68 input and eight output tokens, and completed in one dispatch with no tools. The application model-token estimate was $0.0000108, not a provider invoice; the private test ledger retained a conservative $0.02 reservation. Only the owned synthetic workflow/run were removed after checking that no newer revision or additional run existed.
+
+## 2026-10-30 · Explicit Realtime pause acknowledgement
+
+Voice context PR26 merged at `2abb105` after its exact-head CI passed. A subsequent single live WebRTC probe established the native peer/data channel, then rejected the provider initial configuration before sending context, requesting a response or enabling microphone tracks. The precise VAD shape was not retained; no inferred cause or successful remote hangup is claimed. Local tracks, peers, app, fixture database and temporary directory were cleaned. The candidate was held from deployment; the earlier provider-expiry demo stayed available.
+
+Frozen fix `236c0ff` now sends one narrow pause-only `session.update` and requires explicit nested-null `session.updated` acknowledgement before history. It rejects input being re-enabled during context insertion or buffer clearing. Missing fields and legacy shapes cannot count as a pause. A regression failed on the prior source and passes with the change.
+
+Production build/typecheck, 342 web units, eight recovery units and 44 explicitly enabled audio/privacy/expiry HTTP records pass. Ten opt-in placeholders remain skipped in the ordinary unit command. Native Chrome local peers prove active initial defaults, one pause request/ack, two exact context acknowledgements, gated listening, one typed answer and idempotent transcript persistence across reload. Twelve harness policy/diagnostic records pass. The separate frozen diagnostic harness records bounded VAD types/booleans, expiry and numeric hangup status without raw session content or IDs. It has made no live request; provider compatibility and physical audio remain open gates.
+
+There is no schema change or automatic provider retry. The public documentation and source fix have their own publication checks; deployment remains separate from a green build.
