@@ -7,6 +7,7 @@
 - [Voice](https://rhigo.github.io/Polaris-docs/voice.html)
 - [Temporary chat](https://rhigo.github.io/Polaris-docs/privacy.html)
 - [API keys](https://rhigo.github.io/Polaris-docs/api.html)
+- [Install Polaris](https://rhigo.github.io/Polaris-docs/pwa.html)
 - [Search and history](https://rhigo.github.io/Polaris-docs/conversation-history.html)
 - [Browser workspace](https://rhigo.github.io/Polaris-docs/computer-workspace.html)
 - [Charts and tables](https://rhigo.github.io/Polaris-docs/rich-data.html)

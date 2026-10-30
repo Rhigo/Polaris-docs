@@ -1,7 +1,7 @@
 {
   "sourceRepository": "Rhigo/Polaris",
-  "sourceRevision": "f1ac09ddf0d8eb42a12ea995c5088d4e5a2712f6",
-  "sourceCommitDate": "2026-10-30T01:47:26Z",
+  "sourceRevision": "37ac185c53bc15a9ac508f3a03e11f768922e5e0",
+  "sourceCommitDate": "2026-10-30T02:46:39Z",
   "exportVersion": 2,
   "files": [
     {
@@ -11,8 +11,8 @@
     },
     {
       "path": "docs/handbook/.vitepress/config.mts",
-      "sourceSha256": "ca298cb96eebc8e3ca73d1513ca14167ae2f2e4c11df9c0974711556de6525da",
-      "exportedSha256": "250facea9b5b5d1cd89fb18c8de54fbe99dabef628e36544dab6ca7f71e2d6f1"
+      "sourceSha256": "953c48d4de788a9aa3b8278ad0ac1d27e4d2397c8efe5430e375381550b1775e",
+      "exportedSha256": "5075b6366b3d96d4f471da4e8830c8d05e21eda03231c051a3eb31b7f1eff949"
     },
     {
       "path": "docs/handbook/.vitepress/theme/index.ts",
@@ -46,13 +46,13 @@
     },
     {
       "path": "docs/handbook/backlog.json",
-      "sourceSha256": "4382e41bb03ab3a1b0d375600d362d0ed9fc006a92f6ac0bbe254f245c874df6",
-      "exportedSha256": "4382e41bb03ab3a1b0d375600d362d0ed9fc006a92f6ac0bbe254f245c874df6"
+      "sourceSha256": "53fcf1d20d07c91c4ca319e8a54fcf242baf4f43e4ade8afea495c61a1620d5f",
+      "exportedSha256": "53fcf1d20d07c91c4ca319e8a54fcf242baf4f43e4ade8afea495c61a1620d5f"
     },
     {
       "path": "docs/handbook/backlog.md",
-      "sourceSha256": "9104f478221594f35519fde4712efe749c332a8580c3c6767b1c61437d498bd2",
-      "exportedSha256": "9104f478221594f35519fde4712efe749c332a8580c3c6767b1c61437d498bd2"
+      "sourceSha256": "2d5c30ac695377dd96ccbe66681cb1f2ade56228510809b53a87fc8c3e88bb05",
+      "exportedSha256": "2d5c30ac695377dd96ccbe66681cb1f2ade56228510809b53a87fc8c3e88bb05"
     },
     {
       "path": "docs/handbook/computer-workspace.md",
@@ -220,6 +220,16 @@
       "exportedSha256": "cf707eaf923422195d79d90ccbcc80a5f0d23f817b216cc5e6d09dab401d75d1"
     },
     {
+      "path": "docs/handbook/public/screenshots/pwa-install-mobile.jpg",
+      "sourceSha256": "5251f77959b95bc0890de152db79af8e375b94d06c2fdf4ec80c93c5979a3198",
+      "exportedSha256": "5251f77959b95bc0890de152db79af8e375b94d06c2fdf4ec80c93c5979a3198"
+    },
+    {
+      "path": "docs/handbook/public/screenshots/pwa-offline-mobile.jpg",
+      "sourceSha256": "dab68e5ef27f8980293cd0abfa9d9f7ec2c4606c9cfd5573df72057ad5226332",
+      "exportedSha256": "dab68e5ef27f8980293cd0abfa9d9f7ec2c4606c9cfd5573df72057ad5226332"
+    },
+    {
       "path": "docs/handbook/public/screenshots/reminders-desktop-inbox.jpg",
       "sourceSha256": "2e7a42ff176695958c47f72b534717a0cf4e2ff11b39436a316c69338d6735f9",
       "exportedSha256": "2e7a42ff176695958c47f72b534717a0cf4e2ff11b39436a316c69338d6735f9"
@@ -255,9 +265,14 @@
       "exportedSha256": "a3f7fa826acc0dec0e0eb5034fcb67139cb020c3674b313379240b5adb0224fd"
     },
     {
+      "path": "docs/handbook/pwa.md",
+      "sourceSha256": "03ce39f9cafbd5fca235c4ea58a6a1c2363edc89cb9e1884dcd484faf3b0cb7d",
+      "exportedSha256": "03ce39f9cafbd5fca235c4ea58a6a1c2363edc89cb9e1884dcd484faf3b0cb7d"
+    },
+    {
       "path": "docs/handbook/recovery.md",
-      "sourceSha256": "9b1a474bc5bcb990f60703133501b3aa2a0cb13f22afa646f8ff6c1a0b99bde0",
-      "exportedSha256": "9b1a474bc5bcb990f60703133501b3aa2a0cb13f22afa646f8ff6c1a0b99bde0"
+      "sourceSha256": "73d94ef9c5819f15b413e82c1e0adc0b80027c42e31ce4d5b54d10f9068261f8",
+      "exportedSha256": "73d94ef9c5819f15b413e82c1e0adc0b80027c42e31ce4d5b54d10f9068261f8"
     },
     {
       "path": "docs/handbook/reminders.md",
@@ -281,13 +296,13 @@
     },
     {
       "path": "docs/handbook/screenshots.md",
-      "sourceSha256": "8a253cfcb6f6ac61462ba744a93e0c28bc23e3776482ae0b4f1eaa6a693d5e9f",
-      "exportedSha256": "8a253cfcb6f6ac61462ba744a93e0c28bc23e3776482ae0b4f1eaa6a693d5e9f"
+      "sourceSha256": "89cb16b97f6219ff4573ec89fc5a3e7c621bac7bfe1490337526c2f6f8ef9897",
+      "exportedSha256": "89cb16b97f6219ff4573ec89fc5a3e7c621bac7bfe1490337526c2f6f8ef9897"
     },
     {
       "path": "docs/handbook/status.md",
-      "sourceSha256": "b13698444a74bd397d526622a3ac19ffb990f12a6482b297f1167ebad55f8d1b",
-      "exportedSha256": "b13698444a74bd397d526622a3ac19ffb990f12a6482b297f1167ebad55f8d1b"
+      "sourceSha256": "7cf2c68c6787825c741055ca8942867c37f0ec221c81e49d7e8f1b1c55df360d",
+      "exportedSha256": "7cf2c68c6787825c741055ca8942867c37f0ec221c81e49d7e8f1b1c55df360d"
     },
     {
       "path": "docs/handbook/token-accounting.md",
@@ -301,13 +316,13 @@
     },
     {
       "path": "docs/handbook/worklog.md",
-      "sourceSha256": "511a87e89ce2a3b79a7f499448a6c8391c9cb23a2691a7d03369d1aba6b60d60",
-      "exportedSha256": "511a87e89ce2a3b79a7f499448a6c8391c9cb23a2691a7d03369d1aba6b60d60"
+      "sourceSha256": "e2fa88df8fb94e70ac7faa336d2fe2dec6cdb1a71d22ac9a7b3929b18e2300b2",
+      "exportedSha256": "e2fa88df8fb94e70ac7faa336d2fe2dec6cdb1a71d22ac9a7b3929b18e2300b2"
     },
     {
       "path": "docs/wiki/Home.md",
-      "sourceSha256": "31769e0e3bf5fefec668bc335490b02a38f88620590171b3ea8d859e76a19e49",
-      "exportedSha256": "04a894394f1de5561ef96039fab4908926c0a2cd07e3a0d8bbdba87c04edb602"
+      "sourceSha256": "901629ba7dfc166f39d055597c965e0dfc522bd7cadca7706d01d1890128709e",
+      "exportedSha256": "8c927770a821bca51308823bff9075302197783be7fd809c883f7fddcefee3eb"
     },
     {
       "path": "docs/wiki/README.md",
@@ -316,13 +331,13 @@
     },
     {
       "path": "docs/wiki/_Sidebar.md",
-      "sourceSha256": "02705e32fe2389cddd4eda40d6bd4cc948da2fdc8f09163b5e167f341257395f",
-      "exportedSha256": "b32dfbedb61e2c810a830ea0b44b767865a9b89b178f33894308c52315dd74a4"
+      "sourceSha256": "67bf705a2951af814289b36d5aecb328dabf6746660b8e9305e67f4f658de518",
+      "exportedSha256": "fb3a828b5c10fa2dcc9364c091ace2eabbadc8e811153b36905c30d95e7e52ce"
     },
     {
       "path": "scripts/docs-check.mjs",
-      "sourceSha256": "6f86c91832a39d6e0b222f71e7543d6cbcf90cd0f6f6a764680e15a9332e7b92",
-      "exportedSha256": "6f86c91832a39d6e0b222f71e7543d6cbcf90cd0f6f6a764680e15a9332e7b92"
+      "sourceSha256": "39b827d0f416628056dc1f9e830e1f7a0d13f340f4331e24a21e6cae4bcec051",
+      "exportedSha256": "39b827d0f416628056dc1f9e830e1f7a0d13f340f4331e24a21e6cae4bcec051"
     }
   ]
 }

@@ -177,3 +177,9 @@ The worker fences claims and does not automatically replay interrupted dispatche
 Migration `0010_pal_one_off_reminders` stores pending reminders, delivered inbox entries, read state and cancellation state in PostgreSQL. The same Pal worker services reminders and saved text tasks. Stop both worker loops before backup and keep them stopped during restore validation.
 
 An older backup can restore a reminder that was subsequently cancelled or removed, or make an entry unread again. A restored pending reminder whose due time has passed becomes eligible for delivery when the worker starts. Compare changes made after capture and reconcile those entries before enabling delivery; restoring the database is not permission to resume the queue. Delivery changes only the owned inbox row and does not send an email or contact message. See [reminder operations](./reminders.md) for delivery, retention and downgrade limits.
+
+## Origin-key and history upgrade boundary
+
+Migration `0011_pal_api_task_origin` binds API-created tasks to their originating key. Stop every older web and worker before applying it: an older worker can ignore the new origin-key dispatch policy even when its SQL still succeeds. Preserve later key revocations during restore reconciliation. Migration `0012_conversation_history_search` adds bounded search support without rewriting message content. Neither migration is a reason to remove journal rows or resume an older worker.
+
+The combined 30 October upgrade was rehearsed in a restored database with the worker stopped, then applied to a fresh stopped-writer backup of the local demo. Both stages preserved the original columns and rows across all 29 pre-existing tables. Broker acceptance used synthetic sessions/files that were cleaned afterward. The matching worker resumed only after live login, readiness, history and workspace checks passed.

@@ -89,3 +89,11 @@ Actual 390px application capture from frozen search source `fcfa2d8`, with synth
 Actual application and isolated Chromium fixture from frozen browser source `e5563e3`. The shown public-HTTPS fixture and input are synthetic. The user holds the exclusive control lease; the Pal agent is explicitly disconnected. Terminal execution, a general file editor and autonomous browser actions are outside this pilot. See [workspace setup and boundaries](./computer-workspace).
 
 ![An isolated browser workspace with exclusive user control and a synthetic page](/screenshots/computer-workspace-desktop.jpg)
+
+## Installable app · 30 October 2026
+
+Actual Chrome fixture captures at 390 pixels show installation guidance and the public offline notice after the fixture server stopped. The feature release `f26031d` passed its final cache/update and standalone HTTP checks; later cache-error fixes did not change these layouts. No native OS installation or physical phone test is implied. See the [installation and update guide](./pwa).
+
+<img class="mobile-shot" src="/screenshots/pwa-install-mobile.jpg" alt="Polaris installation help and explicit update controls at 390 pixels">
+
+<img class="mobile-shot" src="/screenshots/pwa-offline-mobile.jpg" alt="Public Polaris connection notice after a real offline navigation">

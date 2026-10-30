@@ -18,8 +18,9 @@ The version-controlled handbook is the canonical documentation. This wiki is an 
 | Image generation and edits | [Image guide](https://rhigo.github.io/Polaris-docs/images.html) |
 | Files attached to chat | [Attachment guide](https://rhigo.github.io/Polaris-docs/attachments.html) |
 | Isolated code execution | [Execution guide](https://rhigo.github.io/Polaris-docs/execution-isolation.html) |
-| Search and history | [Guide](https://rhigo.github.io/Polaris-docs/conversation-history.html) |
-| Browser workspace | [Guide](https://rhigo.github.io/Polaris-docs/computer-workspace.html) |
+| Install Polaris | [Installable app guide](https://rhigo.github.io/Polaris-docs/pwa.html) |
+| Search and history | [History guide](https://rhigo.github.io/Polaris-docs/conversation-history.html) |
+| Browser workspace | [Browser guide](https://rhigo.github.io/Polaris-docs/computer-workspace.html) |
 | Using Polaris | [User guide](https://github.com/Rhigo/Polaris-docs/blob/main/docs/handbook/guide.md) |
 | Setting up development | [Development setup](https://github.com/Rhigo/Polaris-docs/blob/main/docs/handbook/development.md) |
 | How the application fits together | [Architecture](https://github.com/Rhigo/Polaris-docs/blob/main/docs/handbook/architecture.md) |
